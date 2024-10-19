@@ -1,1 +1,1 @@
-# CS326-GroupProject
+# CS326-GroupProject-TimeBank
