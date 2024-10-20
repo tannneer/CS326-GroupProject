@@ -21,7 +21,7 @@ The **Log-in/Sign-up** Screen is designed to be simple and intuitive, allowing u
 
 On this screen, users can interact with 2 main elements:
 1. **Sign-up/Login fields** Users can fill out the fields to create/log-in their account.
-2. ** Sign-up button:** After Users fill out the feilds they can click the button to officially make an account.
+2. **Sign-up button:** After Users fill out the feilds they can click the button to officially make an account.
 
 The layout of this screen is kept minimal to avoid overwhelming the user. The form will be centered on the screen, with clearly labeled fields and a prominent "Sign Up" button at the bottom. After having an account, users will be led to the “Goals & Task” page. 
 
