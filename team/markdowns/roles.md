@@ -41,4 +41,11 @@
 - **Top 3 Commits**:
 1. 
 2. 
-3.
+3. 
+
+## Nicole - Documentation Lead
+- **Role**: Responsible for overseeing the organization and maintenance of all project documentation. Nicole ensures that all documents are up to date, well-organized, and accessible to team members.
+- **Top 3 Commits**:
+1. Ascertain that all project files are formatted correctly, completed with the proper objectives and requirements, and include all necessary project information.
+2. Drafted the initial version of the data.md file, outlining the core data types and attributes for the project.
+3. Oversee the project’s README.md file with detailed instructions for setting up and beginning the project work, ensuring that all team members understand how to contribute to the repository.
