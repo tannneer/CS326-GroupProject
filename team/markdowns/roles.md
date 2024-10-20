@@ -11,7 +11,7 @@
 - **Role**: 
 - **Top 3 Commits**:
 1. Drafted the initial version of the `ui-diagrams.md` file, outlining the core ui diagrams for every screen of our web application.
-2. 
+2. Coordinated with team members on Discord to share important progress updates and ensure everyone stayed informed.
 3. 
   
 
