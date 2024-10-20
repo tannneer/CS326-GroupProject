@@ -55,7 +55,7 @@ The **Calendar Screen** provides a clear, intuitive interface for users to view 
 
 On this screen, users can interact with 3 main elements:
 1. **Nav Bar:** Users can use the navigation bar at the top to access other parts of the app (e.g., Goals & Tasks page).
-2. ** Date Bar:** Users can filter the calendar view by day, week, month, or year to customize how they see their schedule.
+2. **Date Bar:** Users can filter the calendar view by day, week, month, or year to customize how they see their schedule.
 2. **Calendar:** The main calendar area displays the user’s tasks, events, or goals for the selected period. The layout will dynamically adjust based on the date filter selected.
 
 
