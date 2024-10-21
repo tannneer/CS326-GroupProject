@@ -15,12 +15,12 @@
 3. Provided verbal summaries of team discussions on feature and user flow prioritization to ensure alignment and clarity.
   
 
-## Limbani - insert role
-- **Role**: 
+## Limbani - Task manager
+- **Role**: I will be managing the groups tasks by way of making sure that the work is delegated into reasonable and achievable chunks, keeping track of who is working on what task, and making sure they come together cohesively to make our finished web application
 - **Top 3 Commits**:
-1. 
-2. 
-3.
+1. Created the `problem.md` file, outlining the problem our web application is seeking to solve and why it is significant.
+2. Created the markdowns and reports folders for this project
+3. Divvyed up our next tasks to get the project moving with everyone having something to work on.
 
 ## Nasra - insert role
 - **Role**: 
