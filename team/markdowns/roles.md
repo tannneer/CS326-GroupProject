@@ -29,12 +29,12 @@
 2. 
 3. 
 
-## Paola - insert role
-- **Role**: 
+## Paola - TimeKeeper 
+- **Role**: I will be managing meeting times to make sure they start on time and do not go over time due to off topic discussions. I will also help to plan meeting times for the group and keep track of deadlines. I am to send reminder messages regarding due dates 2-4 days before the date to ensure everything will be submitted on time.
 - **Top 3 Commits**:
-1. 
-2. 
-3.
+1. Create a timeline for all milestone due dates to be shared with the team. 
+2. Send reminders to group before deadlines. 
+3. Add meeting reminders and deadline notifications to the team's Discord channel to keep everyone on schedule.
 
 ## Taneesha - insert role
 - **Role**: 
