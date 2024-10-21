@@ -11,11 +11,9 @@ Time Bank aims to bridge the gap between to-do list and calendar apps by making 
 
 The main features of this web application are: 
 
-- **Time bank**:
-Take time from your account - by adding upcoming deadlines or carving out time for things you value 
+- **Time bank**: Take time from your account - by adding upcoming deadlines or carving out time for things you value 
 -**Invest time into your goals**: - by setting aside time to achieve them 
--**Visualize
-Time committed to goals**: - demonstrating how you’ve spent your time (what goals you have achieve vs not and how far along you are) 
+-**Visualize Time committed to goals**: - demonstrating how you’ve spent your time (what goals you have achieve vs not and how far along you are) 
 -**Time wastage**: - how it takes away from other activities
 -**Dynamic task based calendar**: 
 A goals based calendar - that shows what tasks you need to complete in an allotted time 
