@@ -18,8 +18,6 @@
   - `goal_id` (string): A unique identifier for a name of a goal.
   - `description_id` (string): The unique identifier for the description associated with the goal.
   - `results_id` (string): The results that the user is looking for associated with the goal.
-  - `category` (string): The category of the expense (e.g., groceries, 
-    entertainment).
   - `achieved_id` (boolean): A flag to indicate whether the user achieved the goal or not.
   - `date_id` (date): The date for when the user achieves the goal.
   - `data_achieved_id` (date): The date for when the user wants to achieve the goal.
