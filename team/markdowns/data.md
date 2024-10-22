@@ -1,13 +1,85 @@
-The data.md file is where your team will describe the types of data your web application will handle. This document should provide a high-level overview of the data that is critical to your application's functionality, including any user data, input data, or system-generated data. The focus should be on describing what data your application will use and how it will be structured, but you do not need to describe the specific storage methods or databases at this stage.
+# Application Data 
 
-Your description should include:
+##  Overview
 
-Data Types: List and describe each type of data that your application will use. For example, user profiles, expenses, transactions, or settings. For each data type, explain what kind of information is captured.
+### 1. User Profile
 
-Attributes: For each data type, list the key attributes or fields that will be stored. For example, for a "User Profile" data type, relevant attributes might include name, email, and user preferences. Include any relevant metadata, such as timestamps or IDs.
+- **Description**: Contains personal information about the user, including login details and preferences.
+- **Attributes**:
+  - `user_id` (string): A unique identifier for each user.
+  - `name` (string): The user's full name.
+  - `email` (string): The user's email address.
+  - `password` (string): A hashed version of the user's password.
+  - `currency_preference` (string): The user's preferred currency (e.g., USD, EUR).
+  - `created_at` (timestamp): The date and time when the account was 
+    created.
+  - `updated_at` (timestamp): The last time the user's profile was updated.
+- **Data Source**: User-input data when registering or updating their profile.
 
-Relationships Between Data: If applicable, explain how different types of data are related to each other. For example, a user profile might be related to multiple expense entries, or a savings goal might be related to a user’s transactions. This will help in understanding how your application organizes and uses data.
+### 2. Expense Entry
 
-Data Sources: Describe where the data comes from. Is it user-input data, data from third-party APIs, or system-generated data? This is important for understanding the flow of data into your application.
+- **Description**: Tracks individual expense transactions made by the user.
+- **Attributes**:
+  - `expense_id` (string): A unique identifier for each expense entry.
+  - `user_id` (string): The unique identifier for the user associated with the expense.
+  - `amount` (float): The amount of money spent.
+  - `category` (string): The category of the expense (e.g., groceries, 
+    entertainment).
+  - `description` (string): A brief description of the transaction.
+  - `date` (date): The date the transaction occurred.
+  - `created_at` (timestamp): The date and time when the expense was logged.
+- **Data Source**: User-input data via the expense logging form.
 
-This file serves as a foundational guide to your application’s data, ensuring that your team understands what information will be handled and how it is organized. Although you don’t need to discuss specific storage methods at this point, this document will help guide decisions related to data management as the project progresses.
+### 3. Income Entry
+
+- **Description**: Records income received by the user, such as salary or freelance payments.
+- **Attributes**:
+  - `income_id` (string): A unique identifier for each income entry.
+  - `user_id` (string): The unique identifier for the user associated with the income.
+  - `amount` (float): The amount of income received.
+  - `source` (string): The source of the income (e.g., employer, side gig).
+  - `date` (date): The date the income was received.
+  - `created_at` (timestamp): The date and time when the income was logged.
+- **Data Source**: User-input data via the income logging form.
+
+### 4. Savings Goal
+
+- **Description**: Stores information about a user’s savings goals, 
+  including the target amount and progress.
+- **Attributes**:
+  - `goal_id` (string): A unique identifier for each savings goal.
+  - `user_id` (string): The unique identifier for the user associated with the goal.
+  - `goal_name` (string): The name or title of the savings goal (e.g., 
+    "Vacation Fund").
+  - `target_amount` (float): The total amount the user aims to save.
+  - `current_amount` (float): The amount saved so far.
+  - `target_date` (date): The date by which the user aims to reach the 
+    savings goal.
+  - `created_at` (timestamp): The date and time when the goal was created.
+  - `updated_at` (timestamp): The last time the goal's progress was updated.
+- **Data Source**: User-input data via the savings goals form.
+
+### 5. Spending Trend
+
+- **Description**: Represents aggregated spending data, used for visualizing spending trends over time.
+- **Attributes**:
+  - `user_id` (string): The unique identifier for the user associated with the trend data.
+  - `month` (string): The month and year for which the trend data applies.
+  - `total_spending` (float): The total spending for the given month.
+  - `category_spending` (JSON): A breakdown of spending per category for the given month.
+- **Data Source**: System-generated based on user expenses logged over 
+  time.
+
+## Data Relationships
+
+- **User to Expense Entry**: One-to-many relationship (a user can have many expense entries).
+- **User to Income Entry**: One-to-many relationship (a user can have many income entries).
+- **User to Savings Goal**: One-to-many relationship (a user can have many savings goals).
+- **Expense Entry to Spending Trend**: Expenses contribute to aggregated spending trend data, which is calculated monthly.
+
+## Data Sources
+
+- **User-Input Data**: Most of the data, including user profiles, expenses, income, and savings goals, will come from direct user input via forms in the application.
+- **System-Generated Data**: Spending trends will be automatically 
+  calculated by the system based on the expenses logged by users over 
+  time.
