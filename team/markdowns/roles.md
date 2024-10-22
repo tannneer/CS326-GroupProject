@@ -36,12 +36,13 @@
 2. Send reminders to group before deadlines. 
 3. Add meeting reminders and deadline notifications to the team's Discord channel to keep everyone on schedule.
 
-## Taneesha - insert role
-- **Role**: 
+## Taneesha - Quality Control
+- **Role**: Responsible for refining and creating the documentation. 
 - **Top 3 Commits**:
-1. 
-2. 
-3. 
+1. Create and refine the project repository for clarity, ensuring all user-related sections are clearly articulated and accessible.
+2. Ensure that documentation is consistent, up to date, and accurate.
+3. Ensure that all documents are formatted to expected standards, including quality consistency across team contributions.
+
 
 ## Nicole - Documentation Lead
 - **Role**: Responsible for overseeing the organization and maintenance of all project documentation. Nicole ensures that all documents are up to date, well-organized, and accessible to team members.
