@@ -1,11 +1,11 @@
 # Team Roles and Commit Contributions
 
 ## Chrisitan - Note-taker
-- **Role**: 
+- **Role**: Serves as a dedicated note taker for a web application development team, documenting key project discussions, decisions, and action items during meetings
 - **Top 3 Commits**:
-1. 
-2. 
-3.
+1. Organized and maintained detailed records of project progress, feature requirements, and timelines to ensure team alignment and accountability.
+2. Collaborated with team members to capture critical technical details and user requirements for the web application’s development cycle.
+3. Provided timely updates and summaries to stakeholders, contributing to clear communication and efficient project management
 
 ## Cladwyne - Communication Lead
 - **Role**: Facilitates communication within the team. Cladwyne is responsible for maintaining and managing the team’s Discord workspace and ensuring that all members stay informed and engaged.
