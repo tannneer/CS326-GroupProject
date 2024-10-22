@@ -10,7 +10,6 @@
   - `name` (string): The user's full name.
   - `email` (string): The user's email address.
   - `password` (string): A hashed version of the user's password.
-  - `currency_preference` (string): The user's preferred currency (e.g., USD, EUR).
   - `created_at` (timestamp): The date and time when the account was 
     created.
   - `updated_at` (timestamp): The last time the user's profile was updated.
