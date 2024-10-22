@@ -1,6 +1,6 @@
 # Team Roles and Commit Contributions
 
-## Chrisitan - insert role
+## Chrisitan - Note-taker
 - **Role**: 
 - **Top 3 Commits**:
 1. 
@@ -22,7 +22,7 @@
 2. Created the markdowns and reports folders for this project
 3. Divvyed up our next tasks to get the project moving with everyone having something to work on.
 
-## Nasra - insert role
+## Nasra - Project Manager
 - **Role**: 
 - **Top 3 Commits**:
 1. 
@@ -36,7 +36,7 @@
 2. Send reminders to group before deadlines. 
 3. Add meeting reminders and deadline notifications to the team's Discord channel to keep everyone on schedule.
 
-## Taneesha - insert role
+## Taneesha - Quality Control Lead
 - **Role**: 
 - **Top 3 Commits**:
 1. 
