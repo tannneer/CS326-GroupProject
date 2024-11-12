@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FEF3E2;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #FAB12F;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.task-section, .progress-section, .chart-section, .rating-section {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #FA812F;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: #76c7c0;
+    border-radius: 5px;
+}
+
+.rating-section input[type="range"] {
+    width: 100%;
+}
