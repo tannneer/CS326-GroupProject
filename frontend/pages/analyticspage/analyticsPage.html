@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Analytics Dashboard</title>
+    <link rel="stylesheet" href="analyticsPage.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Analytics Dashboard</h1>
+        
+        <!-- Task List with Checkboxes -->
+        <div class="task-section">
+            <h2>Tasks</h2>
+            <ul>
+                <li><input type="checkbox" class="task-checkbox"> Task 1</li>
+                <li><input type="checkbox" class="task-checkbox"> Task 2</li>
+                <li><input type="checkbox" class="task-checkbox"> Task 3</li>
+                <li><input type="checkbox" class="task-checkbox"> Task 4</li>
+            </ul>
+        </div>
+
+        <!-- Progress Bar for Assignment Progress -->
+        <div class="progress-section">
+            <h2>Assignment Progress</h2>
+            <div class="progress-bar">
+                <div class="progress" id="assignmentProgress"></div>
+            </div>
+        </div>
+
+        <!-- Pie Chart for Time Spent -->
+        <div class="chart-section">
+            <h2>Time Spent on Assignments</h2>
+            <canvas id="timePieChart" width="200" height="200"></canvas>
+        </div>
+
+        <!-- Rating for Contentment -->
+        <div class="rating-section">
+            <h2>Are you content with your progress?</h2>
+            <input type="range" id="contentmentRating" min="0" max="100" value="50">
+            <p id="contentmentText">Contentment: 50%</p>
+        </div>
+    </div>
+
+    <!-- Include Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="analyticsPage.css"></script>
+</body>
+</html>

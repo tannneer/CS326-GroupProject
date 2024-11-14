@@ -1,0 +1,15 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open analyticsPage.html",
+            "file": "/Users/pga1234/Desktop/CS 326/CS326-GroupProject/CS326-GroupProject/frontend/pages/analyticspage/analyticsPage.html"
+        }
+    ]
+}
