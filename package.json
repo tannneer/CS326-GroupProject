@@ -1,0 +1,17 @@
+{
+  "name": "cs326-groupproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server src -p 3000 -c-1 -o -s",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "archiver": "^6.0.1",
+    "http-server": "^14.1.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
