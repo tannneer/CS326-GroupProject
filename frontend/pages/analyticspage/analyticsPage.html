@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Task Analytics Dashboard</h1>
+        <h1>Task Analytics Page</h1>
         
         <!-- Task List with Checkboxes -->
         <div class="task-section">
@@ -21,18 +21,38 @@
             </ul>
         </div>
 
-        <!-- Progress Bar for Assignment Progress -->
+        <!-- Progress Bar for Task 1 Progress -->
         <div class="progress-section">
-            <h2>Assignment Progress</h2>
-            <div class="progress-bar">
+            <h2>Task 1 Progress</h2>
+            <div class="Task1Progress">
                 <div class="progress" id="assignmentProgress"></div>
+            </div>
+        </div>
+
+        <!-- Progress Bar for Task 2 Progress -->
+        <div class="progress-section">
+            <h2>Task 2 Progress</h2>
+            <div class="Task2Progress">
+                <div class="Task2p" id="assignmentProgress"></div>
+            </div>
+        </div>
+
+        <!-- Progress Bar for Task 3 Progress -->
+        <div class="Task 3 Progress">
+            <h2>Task 3 Progress</h2>
+            <div class="Task3Progress">
+                <div class="Task3p" id="assignmentProgress"></div>
             </div>
         </div>
 
         <!-- Pie Chart for Time Spent -->
         <div class="chart-section">
             <h2>Time Spent on Assignments</h2>
-            <canvas id="timePieChart" width="200" height="200"></canvas>
+            <div class="pie-chart-container">
+                <div class="donut-chart">
+                    <div class="center"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Rating for Contentment -->
