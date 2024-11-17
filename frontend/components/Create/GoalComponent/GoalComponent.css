@@ -1,0 +1,17 @@
+.goal-panel {
+    background-color: #ff476f; /* Matches the pinkish-red background color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.goal-panel::before {
+    content: '⋮⋮';
+    font-size: 18px;
+    margin-right: 10px;
+}
