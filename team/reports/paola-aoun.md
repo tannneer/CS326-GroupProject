@@ -9,15 +9,15 @@
 - **Task**: Worked with Nicole to create the front end Analytics page, and the sequence diagram of a feature together.
 - **Details**: Designed the analytics page to reflect the UI diagrams. Worked with Nicole on the color scheme and the positioning of elements, and code. 
 - **Link to Top 3 Commits**:
-[Commit on Front End Analytics Page Implementation](https://github.com/tannneer/CS326-GroupProject/commit/e8ad1c06bac17f5ce74c30189738a94652f0ec75)
+1. [Commit on Front End Analytics Page Implementation](https://github.com/tannneer/CS326-GroupProject/commit/e8ad1c06bac17f5ce74c30189738a94652f0ec75)
 
 This is the first implementation of the front end of the Analytics Page, with the different colors, and only one progress bars. 
 
-[Commit on Color Change](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa)
+2. [Commit on Color Change](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa)
 
 Change of the colors to match the color scheme chosen by the group. 
 
-[Commit on Addition of More Progress Bars](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa)
+3. [Commit on Addition of More Progress Bars](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa)
 
 Add more progress bars to reflect the initial UI Diagram. 
 
