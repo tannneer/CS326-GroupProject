@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: white;
+  }
+  
+  .container {
+    width: 1280px;
+    height: 832px;
+    position: relative;
+    background: white;
+  }
+  
+  .title {
+    width: 348px;
+    height: 42px;
+    position: absolute;
+    left: 607px;
+    top: 132px;
+    color: black;
+    font-size: 32px;
+    font-weight: 900;
+    word-wrap: break-word;
+  }
+  
+  .login-box {
+    width: 558px;
+    height: 445px;
+    position: absolute;
+    left: 416px;
+    top: 240px;
+    background: white;
+    border-radius: 30px;
+    border: 2px solid #D4D4D4;
+  }
+  
+  .signup {
+    width: 360px;
+    height: 31px;
+    position: absolute;
+    left: 594px;
+    top: 544px;
+  }
+  
+  .signup-text {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  
+  .signup-link {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: underline;
+    word-wrap: break-word;
+  }
+  
+  .login-title {
+    width: 144px;
+    height: 36px;
+    position: absolute;
+    left: 493px;
+    top: 278px;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  
+  .email-label {
+    width: 90px;
+    height: 32px;
+    position: absolute;
+    left: 493px;
+    top: 329px;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  
+  .password-label {
+    width: 158px;
+    height: 32px;
+    position: absolute;
+    left: 493px;
+    top: 400px;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  
+  .email-input,
+  .password-input {
+    width: 403px;
+    height: 30px;
+    position: absolute;
+    background: white;
+    border-radius: 20px;
+    border: 2px solid black;
+  }
+  
+  .email-input {
+    left: 493px;
+    top: 355px;
+  }
+  
+  .password-input {
+    left: 493px;
+    top: 424px;
+  }
+  
+  .login-button {
+    width: 403px;
+    height: 30px;
+    position: absolute;
+    left: 493px;
+    top: 492px;
+    background: #0BA6FF;
+    border-radius: 20px;
+    border: 2px solid #0BA6FF;
+  }
+  
+  .login-button-text {
+    width: 128px;
+    height: 31px;
+    position: absolute;
+    left: 668px;
+    top: 498px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
+  
