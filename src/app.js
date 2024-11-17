@@ -1,6 +1,6 @@
-import { renderAnalytics } from "../frontend/analyticspage/analytics";
-import { renderCalendar } from "../frontend/calendarpage/calendar";
-import { renderCreate } from "../frontend/createpage/create";
+import { renderAllAnalyticsComponents } from "../frontend/pages/analyticspage.js";
+import { renderAllCalendarComponents } from "../frontend/pages/calendarpage/calendarPage.js";
+import { renderAllCreateComponents } from "../frontend/pages/createpage/createPage.js";
 
 //NAVIGATION:
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,10 +38,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //dynamically rendering: 
 
+
+  /*
   document.getElementById('createView').appendChild(renderCreate());
   document.getElementById('calenderView').appendChild(renderCalendar());
   document.getElementById('analyticsView').appendChild(renderAnalytics());
-  
+  */
+ 
+ document.getElementById('createView').appendChild(renderAllCreateComponents());
+  //document.getElementById('calenderView').appendChild(renderAllCalendarComponents());
+ // document.getElementById('analyticsView').appendChild(renderAllAnalyticsComponents());
+
   
 
   

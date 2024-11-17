@@ -1,45 +1,115 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeBank</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">TimeBank</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Team</a></li> 
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html" class="btn">Log in</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <head> 
+  
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to TimeBank</h1>
+      <p>Where every hour counts and every skill matters.</p>
+      <a href="signup.html" class="btn">Sign up</a>
+    </div>
+  </header>
 
-        <title>Time Bank</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="app.js"></script>
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Today time is a commodity which is under constant threat by distractions and an overwhelming amount of choices. By treating time as a finite and concrete resource that can be invested and spent we can be more mindful of how we use it. We are empowered to make choices with our time to achieve our goals and spend it on what matters most in life. By doing this we avoid feeling like time is just flying by without spending it on things we value and can enjoy life healthily and care-free knowing that there is not a better way we could be doing things as we have carefully planned our life by all the things we prioritize and attributed the time we see fit to achieve them be it - work, a side-hustle or project or family, friends and hobbies.</p>
+      <a href="#services" class="btn">Get Started</a>
+    </div>
+  </section>
 
-    </head>
-
-
-
-    <body>
-
-        <nav>
-            <button id="createNavButton">Create</button>
-            <button id="calendarNavButton">Calendar</button>
-            <button id="analyticsNavButton">Analytics</button>
-        </nav>
-
-
-        <div id="views"> 
-            <div id="createView" class="view" >
-                <p>This is the create screen</p>
-            </div>
-
-            <div id="calenderView" class="view" style="display:none">
-                <p>This is the calender screen </p>
-            </div>
-
-            <div id="analyticsView" class="view" style="display:none"> 
-                <p>This is the analytics screen</p>
-            </div>
+  <section id="services" class="section services-section">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service">
+          <h3>Time Allocation and Management</h3>
+          <p>Manage a "time account" by allocating time to upcoming deadlines, goals, or activities of personal value. Treat time as a finite resource to be invested wisely.
+          </p>
         </div>
+        <div class="service">
+          <h3>Goal-Oriented Planning and Tracking</h3>
+          <p>Break down main goals into smaller, actionable tasks and assign realistic time periods to each. Use tools to track progress, visualize time spent on goals, and measure achievements versus pending tasks.</p>
+        </div>
+        <div class="service">
+          <h3>Dynamic and Interactive Scheduling</h3>
+          <p>Utilize a dynamic, task-based calendar to organize and prioritize tasks in designated time slots. The calendar adapts to the user's schedule while maintaining alignment with their long-term goals.</p>
+        </div>
+        <div class="service">
+          <h3>Insights and Visualization for Better Time Use</h3>
+          <p>Gain insights into time usage, including analysis of time wastage and its impact. Visualize progress, commitments, and time distribution to ensure a balanced work-life approach and alignment with priorities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="team" class="section team-section">
+    <div class="container">
+      <h2>Meet The Team</h2>
+      <div class="team-grid">
+        <div class="team-item">
+          <h3>Nasra Hassan</h3>
+          <p>Project Manager</p>
+        </div>
+        <div class="team-item">
+          <h3>Limbani Chaponda</h3>
+          <p>Task Manager</p>
+        </div>
+        <div class="team-item">
+          <h3>Cladwyne Jocelyn</h3>
+          <p>Communication Lead</p>
+        </div>
+        <div class="team-item">
+          <h3>Nicole D'Souza</h3>
+          <p>Documentation Lead</p>
+        </div>
+        <div class="team-item">
+          <h3>Taneesha Bollumpally</h3>
+          <p>Quality Control Lead</p>
+        </div>
+        <div class="team-item">
+          <h3>Paola Aoun</h3>
+          <p>TimeKeeper</p>
+        </div>
+        <div class="team-item">
+          <h3>Christian Mugisha</h3>
+          <p>Note-taker</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Feel free to email us with any feedback or questions!</p>
+      <a href="mailto:nhassan@umass.edu?subject=Your Subject&body=Your Message" class="btn">Email Us</a>
+    </div>
+  </section>
 
+  <footer>
+    <p>&copy; 2024 TimeBank</p>
+  </footer>
 
-    </body>
-
-
-
-
-</html> 
+</body>
+</html>
