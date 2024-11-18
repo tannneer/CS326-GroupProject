@@ -9,8 +9,8 @@
 - **Task**: Worked with Paola to create the front end Analytics page, and the sequence diagram of a feature together.
 - **Details**: Worked with Paola on the color scheme and the positioning of elements and code for the Analytics page.
 - **Link to Top 3 Commits**:
-1. [Commit on Sequence Diagram](https://github.com/tannneer/CS326-GroupProject/blob/main/team/m3/nicole-dsouza/feature-sequence-diagram.md): This is the detailed sequence diagram for one component of the analytics page. 
+1. [Commit on Sequence Diagram for Contentment Bar](https://github.com/tannneer/CS326-GroupProject/blob/main/team/m3/nicole-dsouza/feature-sequence-diagram.md): This is the detailed sequence diagram for one component of the analytics page. Worked on with Paola.
 
-2. [Commit on Color Change](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa): Change of the colors to match the color scheme chosen by the group. 
+2. [Commit on Sequence Diagram for Task Time Tracker](https://github.com/tannneer/CS326-GroupProject/blob/main/team/m3/paola-aoun/feature-sequence-diagram.md): This is the detailed sequence diagram for another component of the analytics page, which was done with Paola.
 
-3. [Commit on Addition of More Progress Bars](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa): Add more progress bars to reflect the initial UI Diagram. 
+3. [Commit on Addition of More Progress Bars](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa): Add more progress bars to reflect the initial UI Diagram. Also worked on with Paola.
