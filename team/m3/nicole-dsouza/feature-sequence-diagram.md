@@ -1,7 +1,5 @@
 Chosen Feature: Contentment Progress Bar
 
-Note: This feature was done in collaboration with Paola Aoun.
-
 Diagram:
 ```mermaid
 flowchart TD;
