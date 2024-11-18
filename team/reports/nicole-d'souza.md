@@ -9,7 +9,7 @@
 - **Task**: Worked with Paola to create the front end Analytics page, and the sequence diagram of a feature together.
 - **Details**: Worked with Paola on the color scheme and the positioning of elements and code for the Analytics page.
 - **Link to Top 3 Commits**:
-1. [Commit on Front End Analytics Page Implementation](https://github.com/tannneer/CS326-GroupProject/commit/e8ad1c06bac17f5ce74c30189738a94652f0ec75): This is the first implementation of the front end of the Analytics Page, with the different colors, and only one progress bars. 
+1. [Commit on Sequence Diagram](https://github.com/tannneer/CS326-GroupProject/blob/main/team/m3/nicole-dsouza/feature-sequence-diagram.md): This is the detailed sequence diagram for one component of the analytics page. 
 
 2. [Commit on Color Change](https://github.com/tannneer/CS326-GroupProject/commit/95bdecdc7d22a1121cd58f6a17b525407eda23fa): Change of the colors to match the color scheme chosen by the group. 
 
