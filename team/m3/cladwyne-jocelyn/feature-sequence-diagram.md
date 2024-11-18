@@ -10,7 +10,7 @@ graph TD;
     C-->D;
 ```
 
-```
+```mermaid
 graph LR
     A[Start] --> B{Decision}
     B -- Yes --> C[End]
