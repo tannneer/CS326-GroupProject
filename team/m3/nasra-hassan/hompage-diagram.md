@@ -1,3 +1,5 @@
+
+```mermaid
 flowchart TD;
     A[User lands on Homepage] --> B[User sees Welcome Message and Features];
     B --> C[Clicks on "Sign Up" Button];
@@ -15,4 +17,4 @@ flowchart TD;
     N --> O[Scrolls to Team Section];
     I --> P[Clicks "Contact Us" in Navbar];
     P --> Q[Scrolls to Contact Us Section];
-
+```
