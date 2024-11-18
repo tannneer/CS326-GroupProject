@@ -1,14 +1,12 @@
-Chosen Feature:
+Chosen Feature: Contentment Progress Bar
 
 Note: This feature was done in collaboration with Paola Aoun.
 
 Diagram:
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+flowchart TD;
+    A[Unsatisfied with progress?] --> B[User drags the indicator on the bar to the left end to their desire];
+    B[Happy with progress?] --> E[User drags the indicator on the bar to the right end to their desire];
 ```
 
 Description:
