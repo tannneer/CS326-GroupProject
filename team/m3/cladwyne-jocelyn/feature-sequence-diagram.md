@@ -1,16 +1,20 @@
-Chosen Feature: Login/ Sign Up Page 
+Chosen Feature: Log in/ Sign Up Page 
 
 Diagram:
 
+
 ```mermaid
 flowchart TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    A[User enters email and password] --> B[Click Sign up button];
+    B --> C[Land on Calendar Page];
+    D[Already a user? Log in] --> E[User enters email and password];
+    E --> F[Click Log in button];
+    F --> C[Land on Calendar Page];
 ```
 
 
 
 Description:
+
+The flowchart outlines the user journey for signing up or logging in to an application and landing on the calendar page. On the Sign-Up page, new users begin by entering their email and password and then clicking the "Sign Up" button. Upon successful sign-up, they are directed to the Calendar Page. Additionally, the Sign-Up page includes an "Already a user? Log In" link, which existing users can click to navigate to the Log-In page. On the Log-In page, users enter their email and password and then click the "Log In" button. Upon successful login, they are also directed to the Calendar Page. Both new and existing users ultimately land on the Calendar Page as the final destination.
 
