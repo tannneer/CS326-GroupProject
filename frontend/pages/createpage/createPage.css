@@ -1,0 +1,229 @@
+
+
+
+.outercontainer {
+    display: flex;
+    justify-content: space-between; /* Distributes space between the children */
+    gap: 20px; /* Adds a gap between the .box elements */
+    margin: 20px auto; /* Centering the outer container if necessary */
+    max-width: 1200px; /* Optional: set a max-width */
+    width: 100%;
+}
+
+.schedulebtn{
+    background-color: #2ec;
+    color: white;
+    padding: 10px 50px;
+    border-radius: 6px;
+    border-color:rgb(53, 230, 242);
+    cursor: pointer;
+    margin-left: 850px;
+}
+
+.box {
+    flex: 1; /* Ensures both .box elements take up equal space */
+    padding: 50px;
+    border: 1px solid #ccc; /* Optional border for visibility */
+    border-radius: 6px; /* Optional: rounded corners */
+    min-height: 10px; /* Optional: set a minimum height */
+}
+
+.box2{
+    background-color: #2ec;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.wrap {
+    display: flex;
+    align-items: flex-start; /* Adjusts vertical alignment */
+  }
+
+  .wrap {
+    padding: 0;
+    margin: 0;
+  }
+  section.ranges {
+    margin-top: 0;
+  }
+  
+
+  .scheduleBtn{
+    background-color: #2ec;
+    color: white;
+    padding: 10px 50px;
+    border-radius: 6px;
+    border-color:rgb(53, 230, 242);
+    cursor: pointer;
+    position: absolute; /* or relative */
+    left: 45%;
+  }
+
+  .titleText { 
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(31, 205, 176);
+  }
+
+.form {
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    flex: 1;
+}
+.input:focus , .add:focus{
+    outline: none;
+}
+.add {
+    border: none;
+    background-color: #2ec;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.tasks {
+    background-color: #eee;
+    margin-top: 20px;
+    border-radius: 6px;
+    padding: 20px;
+}
+.tasks .task {
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+.tasks .task:not(:last-child) {
+    margin-bottom: 15px;
+}
+.tasks .task:hover {
+    background-color: #f7f7f7;
+}
+.tasks .task.done {
+    opacity: 0.5;
+    position: relative;
+}
+.task.done::after {
+    position: absolute;
+    content: "";
+}
+.tasks .task span { 
+    font-weight: bold;
+    font-size: 10px;
+    background-color: #2ec;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.delete-all {
+    width: calc(100% - 25px);
+    margin: auto;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    background-color: #2ec;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+
+.wrap {
+    display: table-cell;
+    height: 100px;
+    width: 100vw;
+    /* text-align: center; */
+    vertical-align: middle;
+  }
+  
+  label{ 
+    display: block;
+    font-family: monospace;
+    cursor: pointer;
+    line-height: 2em;
+    transition: all .3s ease;
+    padding: 10px;
+    clear: both;
+  }
+  
+  section{
+    margin: auto;
+    width: 350px;
+    transition: opacity .3s ease;
+  }
+  
+  .off {
+    opacity: .3;
+    pointer-events:none;
+  }
+  
+  .ranges label:hover{
+    background: #dfa;
+  }
+  
+  .timetable label:hover{
+    background: #adf;
+  }
+  
+  .duration {
+    opacity: .2;
+    display: inline-block;
+    float: right;
+  }
+  
+  input[type=checkbox],
+  input[type=radio]
+  { display:none; }
+  
+  .timetable label input {
+    border: 1px solid;
+  }
+  
+  .timetable input:checked + label .duration {
+    opacity: 1;
+  }
+  
+  .timetable input:checked + label .duration input{
+    color: #27c;
+    background: #aef;
+  }
+  
+  .ranges input:checked + label {
+    background: #2ec;
+  }
+  
+  .timetable input:checked + label {
+    color: #fef;
+    background: #2ce;
+  }
+  h2 {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  h2 small{
+    color: #555;
+    font-family: sans-serif
+  }

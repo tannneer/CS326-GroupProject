@@ -8,7 +8,7 @@ export class AddGoalComponent extends BaseComponent {
         super(); 
 
         this.stringInput = stringInput; 
-        this.loadCSS('addgoal');
+        //this.loadCSS('addgoal');
 
     }
 
@@ -94,6 +94,7 @@ export class AddGoalComponent extends BaseComponent {
 
         button.textContent = 'Add';
         button.addEventListener('click', () => { 
+
 
 
         });
