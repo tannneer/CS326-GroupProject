@@ -66,3 +66,14 @@
 1. Ascertain that all project files are formatted correctly, completed with the proper objectives and requirements, and include all necessary project information.
 2. Drafted the initial version of the data.md file, outlining the core data types and attributes for the project.
 3. Oversee the project’s README.md file with detailed instructions for setting up and beginning the project work, ensuring that all team members understand how to contribute to the repository.
+
+- **Milestone 2 Top 3 Commits**:
+1. Created and worked on the 'data.md' file, indicating the data flow points and what data types need to be addressed/included.
+2. Led team in completing work/tasks for stand up meetings.
+3. Assisted in understanding how to add/delete files in Github, created branches, start pull requests, etc.
+
+- **Milestone 3 Top 3 Commits**:
+1. Worked on the sequence diagrams for features that were completed with Paola.
+2. Assisted in creating additional progress bars for tasks.
+3. Frequently led stand up meetings leading up to the milestone deadline, while also completing the appropriate forms and tasks.
+
