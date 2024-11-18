@@ -1,6 +1,7 @@
 Chosen Feature: Login/ Sign Up Page 
 
 Diagram:
+
 ```mermaid
 graph TD;
     A-->B;
