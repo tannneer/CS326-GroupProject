@@ -5,11 +5,12 @@ Diagram:
 
 ```mermaid
 flowchart TD;
-    A[User enters email and password] --> B[Click Sign up button];
-    B --> C[Land on Calendar Page];
-    D[Already a user? Log in] --> E[User enters email and password];
-    E --> F[Click Log in button];
-    F --> C[Land on Calendar Page];
+    A[User Click "New to TimeBank? Sign Up"] --> B[Enter email and password];
+    B --> C[Click Sign up button];
+    C --> D[Land on Calendar Page];
+    E[User Click: "Already a user? Log in"] --> F[Enter email and password];
+    F --> G[Click Log in button];
+    G --> D[Land on Calendar Page];
 ```
 
 
