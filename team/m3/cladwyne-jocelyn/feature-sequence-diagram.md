@@ -10,5 +10,13 @@ graph TD;
     C-->D;
 ```
 
+```
+graph LR
+    A[Start] --> B{Decision}
+    B -- Yes --> C[End]
+    B -- No --> D[Process]
+    D --> B
+```
+
 Description:
 
