@@ -31,11 +31,15 @@
 ## Nasra - Project Manager
 - **Role**: I will oversee the overall project timeline, ensures that milestones are met, and coordinates the team’s efforts. I will be responsible for setting meeting agendas and ensuring that the team stays focused on project goals.
 
-- **Top 3 Commits**:
+- **Milestone 2 Top 3 Commits**:
 1. Created the 'features.md' file, creating features that will be in application and assigning them to each person i the team.
 2. Created a group chat to make sure we can all communicate with each other and set calls and meetings in.
 3. Ensuring that members in the team understands their roles and tasks, making sure it's an open environment for understanding.
 
+- **Milestone 3 Top 3 Commits**:
+1. Coded the front end of the home page html/css to make the site presentable. 
+2. Added a sign up and login button that will guide to the signup and login page.
+3. Navbar has the about,service, contact options that guides to those pages.
 ## Paola - TimeKeeper 
 - **Role**: I will be managing meeting times to make sure they start on time and do not go over time due to off topic discussions. I will also help to plan meeting times for the group and keep track of deadlines. I am to send reminder messages regarding due dates 2-4 days before the date to ensure everything will be submitted on time.
 - **Top 3 Commits**:
