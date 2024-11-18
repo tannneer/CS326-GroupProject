@@ -16,5 +16,5 @@ Implemented a timer on the left side of the calendar page, allowing users to tim
 The timer is visually styled with a clean UI and is functionally integrated to track elapsed time in seconds and minutes.  
 
 **Link to Commit:**  
-[Commit on main](https://github.com/tannneer/CS326-GroupProject/blob/main/team/markdowns/users.md)
+[Commit on main](https://github.com/tannneer/CS326-GroupProject/tree/main/frontend/pages/calendarpage)
   
