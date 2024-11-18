@@ -9,5 +9,5 @@
 ### November 17, 2024
 - **Task**: Worked by myself to create the front end of the home page including navbar,image, and section.
 - **Details**: Designed the homepage with the intentions to catch the user attention. The homepage has a hero section, about, services, meeting the team, and a contact us. I did research on how to make a presentable home page with the help of sources like youtube.
-- **Link to Commit**: [Commit on ui-diagrams.md](https://github.com/tannneer/CS326-GroupProject/blob/0c6390ee60cee33bce3ad23c67dc1e2f40bf6fb2/team/markdowns/ui-diagrams.md)
+- **Link to Commit**: [Commit on main](https://github.com/tannneer/CS326-GroupProject/pull/5/files)
  
