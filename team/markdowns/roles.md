@@ -27,6 +27,10 @@
 1. Created the `problem.md` file, outlining the problem our web application is seeking to solve and why it is significant.
 2. Created the markdowns and reports folders for this project
 3. Divvyed up our next tasks to get the project moving with everyone having something to work on.
+-**Milestone 2 Top 3 Commits**-:
+1.Created the structure of the web app with baseComponents, pages for every one of the group members  
+2.Created the render logic for the different components (connecting to the main html entrypoint for the application).
+3.Created the create page (Goals and Tasks).
 
 ## Nasra - Project Manager
 - **Role**: I will oversee the overall project timeline, ensures that milestones are met, and coordinates the team’s efforts. I will be responsible for setting meeting agendas and ensuring that the team stays focused on project goals.
