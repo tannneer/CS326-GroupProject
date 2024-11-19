@@ -6,10 +6,12 @@
 1. Organized and maintained detailed records of project progress, feature requirements, and timelines to ensure team alignment and accountability.
 2. Collaborated with team members to capture critical technical details and user requirements for the web application’s development cycle.
 3. Provided timely updates and summaries to stakeholders, contributing to clear communication and efficient project management
+4. 
    **Milestone 2 Top 3 commits**
 1. Developed and contributed to the 'data.md' document, outlining the data flow stages and specifying the required data types to be included or processed.
 2. Directed the team in accomplishing tasks and meeting goals for daily stand-up meetings.
 3. Provided support in learning how to manage files on GitHub, including adding and deleting files, creating branches, and initiating pull requests
+4. 
    **Milestone 3 Top commits**
 1. Created and implemented the "Create Priority" page, allowing users to add tasks, assign priority levels (!!! high, !! medium, ! low), and set due dates.
 2. Developed the priorities page with an integrated calendar view that displays tasks according to their priority levels and deadlines.
