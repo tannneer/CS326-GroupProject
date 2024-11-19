@@ -37,6 +37,11 @@ Similar to the reminders applications, users can list out what is a priority to 
 
 The analysis collects weekly data of how much tasks, goals, and priorities that have been completed. It will show a completion bar when all work is completed by the end of the week. The pie chart just shows an analysis of what percentage of work the user focused on during the week based on labels {homework, personal work, priorities, etc}.
 
+Point Value: Large 
+
+Reason: The feature involves data collection and visualization, requiring coding for both the pie chart and the completion bar. It also includes real-time updates and integration of user inputs, which adds complexity.
+
+
 **Assigned to**: Paola Aoun
 
 ## Create page where users can write in three different section
