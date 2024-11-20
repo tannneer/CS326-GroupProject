@@ -50,6 +50,13 @@ There will be a add schedule button within the create page where you can add a s
 
 **Assigned to**: Limbani Chaponda
 
+## Create page where users can write in three different section
+
+Integrated IndexedDB for persistent client-side data storage. Ensured cross-browser compatibility and that your front-end is responsive to different screen sizes using CSS media queries, flexbox, or grid layout. 
+
+**Assigned to**: Nasra Hassan 
+
+
 
 
 
