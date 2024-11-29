@@ -7,7 +7,7 @@
 
 
 ### November 17, 2024
-- **Task**: Worked bymyself to create the front end of the authentication page (sign up and login), and the sequence diagram of a feature.
+- **Task**: Worked by myself to create the front end of the authentication page (sign up and login), and the sequence diagram of a feature.
 - **Details**: Designed the authentication page to reflect the UI diagram. Consulted with Team on the color scheme and the addition of a login page. 
 - **Link to Commit**: [Commit on authpage](https://github.com/tannneer/CS326-GroupProject/tree/main/frontend/pages/authpage)
  
