@@ -1,139 +1,89 @@
-/* Container */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container {
-    width: 1280px;
-    height: 832px;
-    position: relative;
-    background: white;
-  }
-  
-  /* Title */
-  .title {
-    width: 348px;
-    height: 42px;
-    left: 607px;
-    top: 132px;
-    position: absolute;
-    color: black;
-    font-size: 32px;
-    font-family: Poppins, sans-serif;
-    font-weight: 900;
-    word-wrap: break-word;
-  }
-  
-  /* Signup Box */
-  .signup-box {
-    width: 558px;
-    height: 445px;
-    left: 416px;
-    top: 240px;
-    position: absolute;
-    background: white;
-    border-radius: 30px;
-    border: 2px solid #D4D4D4;
-  }
-  
-  /* Login Link */
-  .login-link {
-    width: 360px;
-    height: 31px;
-    left: 623px;
-    top: 545px;
-    position: absolute;
-    font-size: 14px;
-    font-family: Poppins, sans-serif;
-    font-weight: 500;
-  }
-  
-  .login-link span {
-    color: black;
-  }
-  
-  .underline {
-    text-decoration: underline;
-  }
-  
-  /* Signup Text */
-  .signup-text {
-    width: 144px;
-    height: 36px;
-    left: 493px;
-    top: 278px;
-    position: absolute;
-    color: black;
-    font-size: 16px;
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    word-wrap: break-word;
-  }
-  
-  /* Labels */
-  .email-label,
-  .password-label {
-    position: absolute;
-    color: black;
-    font-size: 15px;
-    font-family: Poppins, sans-serif;
-    font-weight: 500;
-    word-wrap: break-word;
-  }
-  
-  .email-label {
-    width: 90px;
-    height: 32px;
-    left: 493px;
-    top: 329px;
-  }
-  
-  .password-label {
-    width: 158px;
-    height: 32px;
-    left: 493px;
-    top: 400px;
-  }
-  
-  /* Input Fields */
-  .email-input,
-  .password-input {
-    width: 403px;
-    height: 30px;
-    left: 493px;
-    position: absolute;
-    background: white;
-    border-radius: 20px;
-    border: 2px solid black;
-  }
-  
-  .email-input {
-    top: 355px;
-  }
-  
-  .password-input {
-    top: 424px;
-  }
-  
-  /* Signup Button */
-  .signup-button {
-    width: 403px;
-    height: 30px;
-    left: 493px;
-    top: 492px;
-    position: absolute;
-    background: #0BA6FF;
-    border-radius: 20px;
-    border: 2px solid #0BA6FF;
-  }
-  
-  /* Signup Button Text */
-  .signup-button-text {
-    width: 128px;
-    height: 31px;
-    left: 668px;
-    top: 498px;
-    position: absolute;
-    color: white;
-    font-size: 14px;
-    font-family: Poppins, sans-serif;
-    font-weight: 700;
-    word-wrap: break-word;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.title {
+  color: black;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.form-container {
+  background: white;
+  border-radius: 30px;
+  border: 2px solid #D4D4D4;
+  width: 100%;
+  max-width: 558px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-header {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 100%;
+}
+
+button {
+  background: #0BA6FF;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 20px;
+  border: 2px solid #0BA6FF;
+  cursor: pointer;
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-link a {
+  text-decoration: underline;
+}

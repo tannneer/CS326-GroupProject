@@ -1,0 +1,132 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #e8f5ff, #fef6e4); /* Subtle gradient */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Header styles */
+  h1, h2 {
+    color: #1a535c; /* Dark teal for strong headers */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  form input, form select, form button {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 25px; /* Rounded edges */
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  form input:focus, form select:focus {
+    outline: none;
+    border-color: #17a2b8; /* Teal focus color */
+    box-shadow: 0 0 10px rgba(23, 162, 184, 0.5); /* Glowing border */
+  }
+  
+  form button {
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Vibrant blue gradient */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  form button:hover {
+    background: linear-gradient(45deg, #0056b3, #003c7a); /* Darker gradient on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pop-out shadow */
+  }
+  
+  /* Priority list and calendar sections */
+  #priority-list, #calendar {
+    margin-top: 30px;
+    padding: 20px;
+    background: #ffffff; /* Clean white card */
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow for depth */
+  }
+  
+  #priority-list {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Priority item styling */
+  .priority-item {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .priority-item:hover {
+    transform: scale(1.02); /* Slight zoom */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Highlight shadow */
+  }
+  
+  /* Priority levels */
+  .priority-item[data-level="!!!"] {
+    background: linear-gradient(to right, #ff6b6b, #ff8787); /* Vibrant red gradient */
+    border-left: 8px solid #e63946; /* Bright red */
+    color: white;
+  }
+  
+  .priority-item[data-level="!!"] {
+    background: linear-gradient(to right, #ffe066, #ffc107); /* Bright yellow gradient */
+    border-left: 8px solid #e6b800; /* Golden yellow */
+    color: black;
+  }
+  
+  .priority-item[data-level="!"] {
+    background: linear-gradient(to right, #8ef5a6, #28a745); /* Fresh green gradient */
+    border-left: 8px solid #1c7430; /* Deep green */
+    color: white;
+  }
+  
+  /* Calendar styling */
+  #calendar {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(to bottom right, #e8eaf6, #c5cae9); /* Subtle purple-blue gradient */
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    font-size: 1.2rem;
+    color: #2c3e50; /* Dark blue-gray text */
+  }

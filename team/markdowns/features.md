@@ -37,6 +37,11 @@ Similar to the reminders applications, users can list out what is a priority to 
 
 The analysis collects weekly data of how much tasks, goals, and priorities that have been completed. It will show a completion bar when all work is completed by the end of the week. The pie chart just shows an analysis of what percentage of work the user focused on during the week based on labels {homework, personal work, priorities, etc}.
 
+Point Value: Large 
+
+Reason: The feature involves data collection and visualization, requiring coding for both the pie chart and the completion bar. It also includes real-time updates and integration of user inputs, which adds complexity.
+
+
 **Assigned to**: Paola Aoun
 
 ## Create page where users can write in three different section
@@ -44,6 +49,13 @@ The analysis collects weekly data of how much tasks, goals, and priorities that 
 There will be a add schedule button within the create page where you can add a scheduled block with a start, end time, and occurrence. There will be a section where you can type in Goals whethe ther user has in general or goals they have for the scheduled event. Once clicking add goal or add schedule button, it should show up on the calendar page.
 
 **Assigned to**: Limbani Chaponda
+
+## Create seamless IndexedDB Integration with Responsive Cross-Browser Front-End Design
+
+Integrated IndexedDB for persistent client-side data storage. Ensured cross-browser compatibility and that your front-end is responsive to different screen sizes using CSS media queries, flexbox, or grid layout. 
+
+**Assigned to**: Nasra Hassan 
+
 
 
 
