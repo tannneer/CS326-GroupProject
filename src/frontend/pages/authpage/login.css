@@ -21,14 +21,6 @@ body {
   width: 100%;
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 10px;
-}
-
 .title {
   color: black;
   font-size: 32px;
@@ -79,11 +71,14 @@ button {
   cursor: pointer;
 }
 
-.signup-link {
-  margin-top: 20px;
-  font-size: 14px;
+a {
+  color: #0BA6FF;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.signup-link a {
-  text-decoration: underline;
+.signup-link, .login-link {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
 }
