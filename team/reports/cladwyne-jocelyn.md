@@ -17,7 +17,7 @@
 - **Task**: Worked by myself to revise the front end of the authentication page (sign up and login css files).
 - **Details**: Revised the CSS code(s) to incoprate flexbox.Consulted with Team on the needed change.
 - **Link to Commit(s)**:
-- [Commit on authpage](https://github.com/tannneer/CS326-GroupProject/pull/14#issue-2713773763)
+- [Issue on css file(s)](https://github.com/tannneer/CS326-GroupProject/pull/14#issue-2713773763)
  
 
 
