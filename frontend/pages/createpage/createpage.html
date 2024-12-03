@@ -7,108 +7,75 @@
     <link rel="stylesheet" href="createPage.css">
     <script type="module" src="createPage.js"></script>
 </head>
+
 <body>
-    <h1 class="titleText">Task Creation</h1>
-    <div class="outercontainer">
-        <div class="box">
-            <div class="wrap">
-                <section class="ranges">
-                  
-                  <input id="all" name="dur" type="radio"/>
-                  <label for="all">Always</label>
-                  
-                  <input id="work" name="dur" type="radio"/>
-                  <label for="work">Work</label>
-                  
-                  <input id="custom" name="dur" type="radio"/>
-                  <label for="custom">Sometimes</label>
-                </section>  
-                <section class="timetable off">
-              
-                  <input id="d1" type="checkbox"/>
-                  <label for="d1">
-                    <caption>Monday</caption>
-                    <div class="duration">
-                      <input type="time" value="09:00">
-                      <input type="time" value="20:00">
-                    </div>
-                  </label>
-              
-                  <input id="d2" type="checkbox"/>
-                  <label for="d2">
-                    <caption>Tuesday</caption>
-                    <div class="duration">
-                      <input type="time" value="09:00">
-                      <input type="time" value="20:00">
-                    </div>
-                  </label>
-              
-                  <input id="d3" type="checkbox"/>
-                  <label for="d3">
-                    <caption>Wednesday</caption>
-                    <div class="duration">
-                      <input type="time" value="09:00">
-                      <input type="time" value="20:00">
-                    </div>
-                  </label>
-                  
-                  <input id="d4" type="checkbox"/>
-                  <label for="d4">
-                    <caption>Thursday</caption>
-                    <div class="duration">
-                      <input type="time" value="09:00">
-                      <input type="time" value="20:00">
-                    </div>
-                  </label>
-              
-                  <input id="d5" type="checkbox"/>
-                  <label for="d5">
-                    <caption>Friday</caption>
-                    <div class="duration">
-                      <input type="time" value="09:00">
-                      <input type="time" value="20:00">
-                    </div>
-                  </label>
-              
-                  <input id="d6" type="checkbox"/>
-                  <label for="d6">
-                    <caption>Saturday</caption>
-                    <div class="duration">
-                      <input type="time" value="09:00">
-                      <input type="time" value="20:00">
-                    </div>
-                  </label>
-              
-                  <input id="d7" type="checkbox"/>
-                  <label for="d7">
-                    <caption>Sunday</caption>
-                    <div class="duration">
-                      <input type="time" value="09:00">
-                      <input type="time" value="20:00">
-                    </div>
-                  </label>
-                </section>
-              </div>              
-        </div>
-        <div id="box2" class="box">
-            <div class="container">
-                <div class="form">
-                    <input type="text" class="input" />
-                    <input type="submit" class="add" value="Add Task" />
-                </div>
-                <div class="tasks"></div>
-                <div class="delete-all">Delete all</div>
-                </div>
-        </div>
-    </div>
-    <button type="submit" class="schedulebtn">Submit schedule</button>
+  <div class="dash">
+      <h3 class="titleText">Goals and Tasks</h3>
+      <div class="goals">
+          <div class="form-container">
+              <h2>Set Your Goals</h2>
+              <input id="goal1input" type="text" class="input" />
+              <input id="goal1submit" type="submit" class="add" value="Add Goal" />
+              <input id = "goal2input" type="text" class="input" />
+              <input id ="goal2submit" type="submit" class="add" value="Add Goal" />
+              <input id = "goal3input" type="text" class="input" />
+              <input id="goal3submit" type="submit" class="add" value="Add Goal" />
+              <div class="delete-all">Delete all</div>
+      
+          </div>
+
+      </div>
+
+      <div class="tasks">
+          Tasks
+                  <div class="form">
+                      <input type="text" id="taskInput" class="input" />
+                      <input type="submit" id="addTaskBtn" class="add" value="Add Task" />
+                  </div>
+                  <div id="deleteAll" class="delete-all">Delete all</div>
+                  </div>
+
+
+      
+      <div class="goals-list">
+          <div class="goal-item-container">
+          
+          <div id="goal-item1" class="goal-item">
+
+              Goal 1
+          </div>
+
+          <div id="goal-item2" class="goal-item">
+              Goal 2
+          </div>
+
+          <div id="goal-item3" class="goal-item">
+              Goal 3
+          </div>
+
+           </div>
+
+      </div>
 
 
 
-        
+      <div class="priorities">Priorities</div>
+
+      <div class="calendar">Calendar</div>
+
+
+
+  </div>
 
 
 
 
 </body>
-</html>
+
+
+
+
+
+
+
+</html> 
