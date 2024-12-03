@@ -4,12 +4,15 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-  line-height: 1.6; 
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
   background-color: #F3FBF1;
+  color: #333;
+  line-height: 1.6;
 }
+
+
 
 /* Navigation */
 nav {
@@ -214,8 +217,21 @@ nav .logo {
 
 /* Footer */
 footer {
+  margin-top: auto; /* Push footer to the bottom */
   background-color: #333;
-  color: #fff;
+  color: white;
   text-align: center;
   padding: 1rem;
+  font-size: 14px;
+  width: 100%; /* Ensure footer spans full width */
+  position: relative; /* Ensure it stays at the bottom */
+}
+
+footer a {
+  color: #00b4d8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
