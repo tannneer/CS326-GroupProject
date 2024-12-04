@@ -10,14 +10,33 @@ body {
     height: 832px;
     position: relative;
     background: white;
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background: #0BA6FF;
+    padding: 10px;
+    border-bottom: 2px solid #0079b3;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
 }
 
 .timer-container {
     width: 400px;
     height: 200px;
     position: absolute;
-    left: 500px;
-    top: 300px;
+    left: 50px;
+    top: 100px;
     background: #F4F4F4;
     border-radius: 15px;
     border: 2px solid #D4D4D4;
@@ -69,3 +88,32 @@ button:disabled {
 button:disabled:hover {
     background: #d1d1d1;
 }
+
+.goals-section {
+    position: absolute;
+    left: 50px;
+    top: 350px;
+    background: #F9F9F9;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #D4D4D4;
+    width: 400px;
+}
+
+.goals-section h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.goal-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.goal-list li {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
