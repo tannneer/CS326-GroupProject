@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TimeBank</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+  <link rel="stylesheet" href="styles.css"> 
+  
+</head> 
+<body>  
+  <div id="app">  
   <nav>
     <div class="container">
       <a href="#" class="logo">TimeBank</a>
@@ -16,20 +17,19 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#team">Team</a></li> 
         <li><a href="#contact">Contact</a></li>
-        <li><a href="login.html" class="btn">Log in</a></li>
+        <li><a href="#" id="login-btn" class="btn">Log in</a></li>
       </ul>
     </div>
   </nav>
 
-  
+ 
   <header class="hero-section">
     <div class="hero-content">
       <h1>Welcome to TimeBank</h1>
       <p>Where every hour counts and every skill matters.</p>
-      <a href="signup.html" class="btn">Sign up</a>
+      <a href="#" id="signup-btn" class="btn">Sign up</a>
     </div>
   </header>
-
   <section id="about" class="section about-section">
     <div class="container">
       <h2>About Us</h2>
@@ -105,11 +105,14 @@
       <p>Feel free to email us with any feedback or questions!</p>
       <a href="mailto:nhassan@umass.edu?subject=Your Subject&body=Your Message" class="btn">Email Us</a>
     </div>
-  </section>
+  </section>  
 
+  
   <footer>
     <p>&copy; 2024 TimeBank</p>
-  </footer>
+  </footer> 
 
+</div> 
+  <script type="module" src="app.js"></script>
 </body>
 </html>

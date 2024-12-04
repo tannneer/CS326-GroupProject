@@ -1,7 +1,66 @@
+<<<<<<< HEAD:frontend/pages/createpage/createPage.css
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+=======
+
+.navbar {
+  background-color: #2ec;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li {
+  display: inline;
+}
+
+.nav-btn {
+  background-color: #2ec;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #27c;
+}
+
+.logout-btn {
+  background-color: red;
+}
+
+.logout-btn:hover {
+  background-color: darkred;
+}
+
+.outercontainer {
+    display: flex;
+    justify-content: space-between; /* Distributes space between the children */
+    gap: 20px; /* Adds a gap between the .box elements */
+    margin: 20px auto; /* Centering the outer container if necessary */
+    max-width: 1200px; /* Optional: set a max-width */
+    width: 100%;
+>>>>>>> main:src/frontend/pages/createpage/createPage.css
 }
 
 .titleText { 
