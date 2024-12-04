@@ -110,7 +110,12 @@ body {
   background-color: white;
   border-radius: 10px;
 }
-
+/*
+.goal-name{ 
+  font-size: 18px;
+  font-weight: bold;
+}
+*/
 
 .other {
   grid-column: 1/1;
@@ -154,6 +159,7 @@ body {
   border-radius: 6px;
   padding: 20px;
   display: flex;
+  flex-direction:column;
   align-items: center;
 }
 
@@ -165,6 +171,7 @@ body {
   border-radius: 6px;
   margin-left: 10px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .tasks {
@@ -220,3 +227,62 @@ body {
   border-radius: 4px;
 }
 
+
+/*Dropdown*/
+/* Style the dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+}
+
+/* Style the dropdown button */
+.dropdown-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #2ec;  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top:10px;
+}
+
+/* Add hover effect to button */
+.dropdown-btn:hover {
+  background-color: #10ac84; /* Slightly darker on hover */
+}
+
+/* Style the dropdown content container */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 1px solid #ccc;
+}
+
+/* Style individual dropdown items */
+.goal {
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Add hover effect to dropdown items */
+.goal:hover {
+  background-color: #ddd;
+}
+
+/* Style for selected state */
+.goal.selected {
+  background-color: #2ec;  color: white;
+  color: white;
+  font-weight: bold;
+}
+
+/* Show the dropdown when the "show" class is added */
+.dropdown.show .dropdown-content {
+  display: block;
+}
