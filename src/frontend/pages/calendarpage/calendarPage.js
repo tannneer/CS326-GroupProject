@@ -1,14 +1,41 @@
 export function renderAllCalendarComponents() {
-    // Create the base container for the calendar page
     const calendarPageContainer = document.createElement('div');
-    calendarPageContainer.id = 'calendar-page-container';
+    calendarPageContainer.classList.add('container');
 
-    // Create the timer component
+    // Navbar
+    const navbar = document.createElement('nav');
+    navbar.classList.add('navbar');
+    ['Create', 'Priorities', 'Analysis'].forEach(page => {
+        const navItem = document.createElement('a');
+        navItem.href = `#${page.toLowerCase()}`;
+        navItem.textContent = page;
+        navItem.classList.add('nav-item');
+        navbar.appendChild(navItem);
+    });
+    calendarPageContainer.appendChild(navbar);
+
+    // Timer Component
     const timerComponent = renderTimer();
     calendarPageContainer.appendChild(timerComponent);
 
-    // Add the rest of your calendar components here (task list, calendar grid, etc.)
-    
+    // Goals Section
+    const goalsSection = document.createElement('div');
+    goalsSection.classList.add('goals-section');
+    const goalsTitle = document.createElement('h3');
+    goalsTitle.textContent = 'Your Goals';
+    goalsSection.appendChild(goalsTitle);
+
+    // Placeholder goals
+    const goalList = document.createElement('ul');
+    goalList.classList.add('goal-list');
+    ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
+        const listItem = document.createElement('li');
+        listItem.textContent = goal;
+        goalList.appendChild(listItem);
+    });
+    goalsSection.appendChild(goalList);
+    calendarPageContainer.appendChild(goalsSection);
+
     return calendarPageContainer;
 }
 
@@ -73,4 +100,12 @@ function renderTimer() {
 
     return timerContainer;
 }
+
+// Mount the components to the DOM
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('root');
+    const calendarComponents = renderAllCalendarComponents();
+    root.appendChild(calendarComponents);
+});
+
 
