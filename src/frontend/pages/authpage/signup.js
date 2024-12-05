@@ -53,6 +53,7 @@ export class Auth {
     console.log("Signup clicked");
     this.handleSignup();
   });
+
     }
   
     renderLogin() {
@@ -63,8 +64,8 @@ export class Auth {
             <div class="form-container">
               <p class="form-header">LOG IN</p>
               <form class="form">
-                <label for="email" class="email-label">Email</label>
-                <input id="email" type="email" placeholder="Enter your email">
+                <label for="email" class="email-label">Username</label>
+                <input id="usernameLogin" type="email" placeholder="Enter your username">
       
                 <label for="password" class="password-label">Password</label>
                 <input id="password" type="password" placeholder="Enter your password">
@@ -91,51 +92,48 @@ export class Auth {
       
    
   
-      handleSignup() {
-        const email = document.getElementById("email").value;
+      async handleSignup() {
+        //const email = document.getElementById("email").value;
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-      
-        if (!email || !username || !password) {
-          alert("All fields are required!");
-          return;
-        }
-      
-        try {
-          // Create a new user instance
-          const newUser = new User(email, username, password);
-      
-          console.log("New User Created:", newUser.getDetails());
-      
-          alert("Signup successful! Redirecting...");
-          this.redirectToCreatePage(); 
-        } catch (error) {
-          console.error("Error during signup:", error);
-          alert("An error occurred. Please try again.");
-        }
+
+        const response = await fetch("/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+        const data = await response.json();
+        console.log(JSON.stringify(data, null, 2));
+        alert(data.message);
+
       }
       
     
       
-      handleLogin() {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+      async handleLogin() {
+        // const email = document.getElementById("email").value;
+         const username = document.getElementById("usernameLogin").value;
+         const password = document.getElementById("password").value;
+
+         const response = await fetch("/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
+        const data = await response.json();
+        console.log(JSON.stringify(data, null, 2));
+        alert(data.message);
     
-        if (!email || !password) {
-          alert("Email and password are required!");
-          return;
-        }
-    
-        alert("Login successful! Redirecting...");
-        this.redirectToCreatePage(); 
-      }
+
+       }
     
  
-      redirectToCreatePage() {
-        const createPage = new CreatePage("app");
-        createPage.render();
-      }
-    }
+      // redirectToCreatePage() {
+      //   const createPage = new CreatePage("app");
+      //   createPage.render();
+      // }
+
+}
     
    
     export async function renderAuthPage(appElementId, page) {
