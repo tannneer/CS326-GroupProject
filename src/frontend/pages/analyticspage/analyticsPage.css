@@ -79,6 +79,24 @@ h2 {
   border-radius: 5px;
 }
 
+.Task4Progress {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3fbf1;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.Task4p {
+  height: 50%;
+  width: 0;
+  background-color: #98B4A6;
+  border-radius: 5px;
+}
+
 .pie-chart-container {
   position: relative;
   display: flex;
