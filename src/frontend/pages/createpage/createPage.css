@@ -1,3 +1,8 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
 
 .navbar {
   background-color: #2ec;
@@ -56,220 +61,418 @@
     width: 100%;
 }
 
-.schedulebtn{
-    background-color: #2ec;
-    color: white;
-    padding: 10px 50px;
-    border-radius: 6px;
-    border-color:rgb(53, 230, 242);
-    cursor: pointer;
-    margin-left: 850px;
+.titleText { 
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: rgb(31, 205, 176);
 }
 
-.box {
-    flex: 1; /* Ensures both .box elements take up equal space */
-    padding: 50px;
-    border: 1px solid #ccc; /* Optional border for visibility */
-    border-radius: 6px; /* Optional: rounded corners */
-    min-height: 10px; /* Optional: set a minimum height */
+.dash { 
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 20px;
+  height: 100vh;
+  background-color:white;
+
 }
+
+/*Goals*/
+
+.form-container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center horizontally */
+  gap: 3px; /* Add space between elements */
+  background-color: rgb(187, 255, 244);;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.input {
+  width: 90%; /* Adjust width to fit container */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.add {
+  background-color: #1dd1a1; /* Green button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add:hover {
+  background-color: #10ac84; /* Slightly darker on hover */
+}
+
+.delete-all {
+  background-color: #1dd1a1;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Full width */
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Add spacing from other elements */
+}
+
+
+.goals { 
+  grid-column: 1/1;
+  grid-row: 2;
+  background-color: rgb(187, 255, 244);;
+  height: 50vh;
+}
+
+
+.tasks { 
+  grid-column: 2/3;
+  grid-row: 2;
+  background-color: lightblue;
+  height:50vh;
+
+}
+
+.goals-list { 
+  grid-column: 3/6;
+  grid-row: 2;
+  background-color: rgb(187, 255, 244);;
+  height:50vh;
+}
+
+.goal-item-container { 
+  display: grid;
+  grid-template-columns:auto auto auto;
+  align-items: center;
+  justify-content: space-between;
+  
+  gap: 10px;
+}
+.goal-item { 
+  width: 300px;
+  height: 450px;
+  margin-top:20px;
+  margin-left:20px;
+  margin-right:20px;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
+}
+/*
+.goal-name{ 
+  font-size: 18px;
+  font-weight: bold;
+}
+*/
+
+.other {
+  grid-column: 1/1;
+  grid-row: 3;
+  background-color: rgb(187, 255, 244);;
+  height: 50vh;
+} 
+
+
+
+.priorities { 
+  grid-column: 1/3;
+  grid-row: 3;
+  background-color: rgb(187, 255, 244);;
+  height: 50vh;
+}
+
+
+
+.calendar { 
+
+  grid-column: 3/6;
+  grid-row: 3;
+  background-color: rgb(187, 255, 244);;
+  height: 50vh;
+
+} 
+
+/*Tasks*/
 
 .box2{
-    background-color: #2ec;
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
+  background-color: #2ec;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
-
-.wrap {
-    display: flex;
-    align-items: flex-start; /* Adjusts vertical alignment */
-  }
-
-  .wrap {
-    padding: 0;
-    margin: 0;
-  }
-  section.ranges {
-    margin-top: 0;
-  }
-  
-
-  .scheduleBtn{
-    background-color: #2ec;
-    color: white;
-    padding: 10px 50px;
-    border-radius: 6px;
-    border-color:rgb(53, 230, 242);
-    cursor: pointer;
-    position: absolute; /* or relative */
-    left: 45%;
-  }
-
-  .titleText { 
-    font-size: 50px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
-    color: rgb(31, 205, 176);
-  }
 
 .form {
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
 }
-.input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    flex: 1;
-}
-.input:focus , .add:focus{
-    outline: none;
-}
+
 .add {
-    border: none;
-    background-color: #2ec;
-    color: white;
-    padding: 10px;
-    border-radius: 6px;
-    margin-left: 10px;
-    cursor: pointer;
+  border: none;
+  background-color: #2ec;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+  margin-top: 10px;
 }
+
 .tasks {
-    background-color: #eee;
-    margin-top: 20px;
-    border-radius: 6px;
-    padding: 20px;
+  background-color: rgb(187, 255, 244);;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 20px;
 }
 .tasks .task {
-    background-color: white;
-    padding: 10px;
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.3s;
-    cursor: pointer;
-    border: 1px solid #ccc;
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid #ccc;
 }
 .tasks .task:not(:last-child) {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .tasks .task:hover {
-    background-color: #f7f7f7;
+  background-color: #f7f7f7;
 }
 .tasks .task.done {
-    opacity: 0.5;
-    position: relative;
+  opacity: 0.5;
+  position: relative;
 }
 .task.done::after {
-    position: absolute;
-    content: "";
+  position: absolute;
+  content: "";
 }
 .tasks .task span { 
-    font-weight: bold;
-    font-size: 10px;
-    background-color: #2ec;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 4px;
-    cursor: pointer;
+  font-weight: bold;
+  font-size: 10px;
+  background-color: #2ec;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 .delete-all {
-    width: calc(100% - 25px);
-    margin: auto;
-    padding: 12px;
-    text-align: center;
-    font-size: 14px;
-    color: white;
-    background-color: #2ec;
-    margin-top: 20px;
-    cursor: pointer;
-    border-radius: 4px;
+  width: calc(100% - 25px);
+  margin: auto;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  background-color: #2ec;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 
+/*Dropdown*/
+/* Style the dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+}
 
-.wrap {
-    display: table-cell;
-    height: 100px;
-    width: 100vw;
-    /* text-align: center; */
-    vertical-align: middle;
-  }
-  
-  label{ 
-    display: block;
-    font-family: monospace;
-    cursor: pointer;
-    line-height: 2em;
-    transition: all .3s ease;
-    padding: 10px;
-    clear: both;
-  }
-  
-  section{
-    margin: auto;
-    width: 350px;
-    transition: opacity .3s ease;
-  }
-  
-  .off {
-    opacity: .3;
-    pointer-events:none;
-  }
-  
-  .ranges label:hover{
-    background: #dfa;
-  }
-  
-  .timetable label:hover{
-    background: #adf;
-  }
-  
-  .duration {
-    opacity: .2;
-    display: inline-block;
-    float: right;
-  }
-  
-  input[type=checkbox],
-  input[type=radio]
-  { display:none; }
-  
-  .timetable label input {
-    border: 1px solid;
-  }
-  
-  .timetable input:checked + label .duration {
-    opacity: 1;
-  }
-  
-  .timetable input:checked + label .duration input{
-    color: #27c;
-    background: #aef;
-  }
-  
-  .ranges input:checked + label {
-    background: #2ec;
-  }
-  
-  .timetable input:checked + label {
-    color: #fef;
-    background: #2ce;
-  }
-  h2 {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  h2 small{
-    color: #555;
-    font-family: sans-serif
-  }
+/* Style the dropdown button */
+.dropdown-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #2ec;  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top:10px;
+}
+
+/* Add hover effect to button */
+.dropdown-btn:hover {
+  background-color: #10ac84; /* Slightly darker on hover */
+}
+
+/* Style the dropdown content container */
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 1px solid #ccc;
+}
+
+/* Style individual dropdown items */
+.goal {
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Add hover effect to dropdown items */
+.goal:hover {
+  background-color: #ddd;
+}
+
+/* Style for selected state */
+.goal.selected {
+  background-color: #2ec;  color: white;
+  color: white;
+  font-weight: bold;
+}
+
+/* Show the dropdown when the "show" class is added */
+.dropdown.show .dropdown-content {
+  display: block;
+}}
+
+/* General body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #e8f5ff, #fef6e4); /* Subtle gradient */
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Header styles */
+h1, h2 {
+  color: #1a535c; /* Dark teal for strong headers */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+form input, form select, form button {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 25px; /* Rounded edges */
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus, form select:focus {
+  outline: none;
+  border-color: #17a2b8; /* Teal focus color */
+  box-shadow: 0 0 10px rgba(23, 162, 184, 0.5); /* Glowing border */
+}
+
+form button {
+  background: linear-gradient(45deg, #007bff, #0056b3); /* Vibrant blue gradient */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background: linear-gradient(45deg, #0056b3, #003c7a); /* Darker gradient on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pop-out shadow */
+}
+
+/* Priority list and calendar sections */
+#priority-list, #calendar {
+  margin-top: 30px;
+  padding: 20px;
+  background: #ffffff; /* Clean white card */
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow for depth */
+}
+
+#priority-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Priority item styling */
+.priority-item {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.priority-item:hover {
+  transform: scale(1.02); /* Slight zoom */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Highlight shadow */
+}
+
+/* Priority levels */
+.priority-item[data-level="!!!"] {
+  background: linear-gradient(to right, #ff6b6b, #ff8787); /* Vibrant red gradient */
+  border-left: 8px solid #e63946; /* Bright red */
+  color: white;
+}
+
+.priority-item[data-level="!!"] {
+  background: linear-gradient(to right, #ffe066, #ffc107); /* Bright yellow gradient */
+  border-left: 8px solid #e6b800; /* Golden yellow */
+  color: black;
+}
+
+.priority-item[data-level="!"] {
+  background: linear-gradient(to right, #8ef5a6, #28a745); /* Fresh green gradient */
+  border-left: 8px solid #1c7430; /* Deep green */
+  color: white;
+}
+
+/* Calendar styling */
+#calendar {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  text-align: center;
+  background: linear-gradient(to bottom right, #e8eaf6, #c5cae9); /* Subtle purple-blue gradient */
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  font-size: 1.2rem;
+  color: #2c3e50; /* Dark blue-gray text */
+}
