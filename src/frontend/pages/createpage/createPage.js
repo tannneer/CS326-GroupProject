@@ -111,25 +111,52 @@ const thirdGoalList = document.getElementById('goal-item3');
 
 addTaskButton.addEventListener('click', () => {
 
+  const userInput = document.getElementById("taskInput");
 
-  const input = document.getElementById("taskInput");
-  const d = document.createElement("div");
-
-
-  d.innerHTML = input.value;
-
-
-  d.style.borderRadius = '10px'; // Rounded corners
-  d.style.backgroundColor = 'rgb(187, 255, 244);'; // Light green background
-  d.style.padding = '10px'; // Padding for spacing
-  d.style.margin = '5px 0'; // Margin for spacing between tasks
-  d.style.fontFamily = 'Arial, sans-serif'; // Optional: Set a font
-  d.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; // Optional: Add a subtle shadow
-
-
-  firstGoalList.appendChild(d);
-
-
+  const taskBoxDiv = document.createElement("div");
+  
+  // Add styling to the container div
+  taskBoxDiv.style.display = "flex";
+  taskBoxDiv.style.alignItems = "center";
+  taskBoxDiv.style.border = "3px solid grey";
+  taskBoxDiv.style.borderRadius = "10px"; // Rounded corners
+  taskBoxDiv.style.backgroundColor = "white"; // Light green background
+  taskBoxDiv.style.padding = "3px"; // Padding for spacing
+  taskBoxDiv.style.margin = "3px 0"; // Margin for spacing between tasks
+  taskBoxDiv.style.fontFamily = "Arial, sans-serif"; // Set a clean font
+  taskBoxDiv.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)"; // Subtle shadow
+  taskBoxDiv.style.justifyContent = "space-between"; // Space out content
+  
+  // Create a task title
+  const taskBox = document.createElement("h4");
+  taskBox.innerHTML = userInput.value;
+  taskBox.style.marginRight = "20px";
+  
+  // Create a custom checkbox 1
+  const label1 = document.createElement("label");
+  label1.className = "container"; // Add a class for styling
+  label1.style.display = "flex"; // Ensure proper layout
+  label1.style.alignItems = "center";
+  label1.innerHTML = `
+    <input type="checkbox">
+    <span class="checkmark"></span>`;
+  
+  // Create a custom checkbox 2
+  const label2 = document.createElement("label");
+  label2.className = "container";
+  label2.style.display = "flex";
+  label2.style.alignItems = "center";
+  label2.innerHTML = `
+    <input type="checkbox">
+    <span class="checkmark2"></span>`;
+  
+  // Append the task and checkboxes to the div
+  taskBoxDiv.appendChild(taskBox);
+  taskBoxDiv.appendChild(label1);
+  taskBoxDiv.appendChild(label2);
+  
+  // Append the styled div to your parent container (e.g., a task list)
+  firstGoalList.appendChild(taskBoxDiv);
 });
 
 
@@ -149,6 +176,20 @@ firstGoal.addEventListener('click', () => {
   const d = document.createElement("div");
   d.innerHTML = firstGoalInput.value;
 
+  d.style.fontSize = "24px"; 
+  d.style.fontWeight = "bold";
+  d.style.color = "#2c3e50"; 
+  d.style.margin = "10px 0"; 
+  d.style.textAlign = "center"; 
+  d.style.fontFamily = "Arial, sans-serif"; 
+  
+  d.style.border = "5px solid #2ec";
+  d.style.borderRadius = "10px";
+  d.style.padding = "10px";
+  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  
+  d.style.marginBottom = "10px";
+
 
   firstGoalList.appendChild(d);
 });
@@ -161,6 +202,19 @@ secondGoal.addEventListener('click', () => {
   const secondGoalInput = document.getElementById("goal2input");
   const d = document.createElement("div");
   d.innerHTML = secondGoalInput.value;
+
+  d.style.fontSize = "24px"; 
+  d.style.fontWeight = "bold";
+  d.style.color = "#2c3e50"; 
+  d.style.margin = "10px 0"; 
+  d.style.textAlign = "center"; 
+  d.style.fontFamily = "Arial, sans-serif"; 
+  
+  d.style.border = "5px solid #2ec";
+  d.style.borderRadius = "10px";
+  d.style.padding = "10px";
+  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  
 
 
   secondGoalList.appendChild(d);
@@ -175,9 +229,177 @@ thirdGoal.addEventListener('click', () => {
   const d = document.createElement("div");
   d.innerHTML = thirdGoalInput.value;
 
+  d.style.fontSize = "24px"; 
+  d.style.fontWeight = "bold";
+  d.style.color = "#2c3e50"; 
+  d.style.margin = "10px 0"; 
+  d.style.textAlign = "center"; 
+  d.style.fontFamily = "Arial, sans-serif"; 
+  
+  d.style.border = "5px solid #2ec";
+  d.style.borderRadius = "10px";
+  d.style.padding = "10px";
+  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+
 
   thirdGoalList.appendChild(d);
 });
+
+
+//Priority List code 
+
+const prioritiesContainer = document.getElementById("priorities-container");
+// Create the main container div
+const prioritiesDiv = document.createElement("div");
+prioritiesDiv.className = "priorities";
+
+// Create the form
+const form = document.createElement("form");
+form.id = "priority-form";
+form.className = "priority-form";
+
+// Create the "Priority name" input field
+const nameInput = document.createElement("input");
+nameInput.type = "text";
+nameInput.id = "priority-name";
+nameInput.placeholder = "Priority name";
+nameInput.required = true;
+
+// Create the "Due date" input field
+const dateInput = document.createElement("input");
+dateInput.type = "date";
+dateInput.id = "due-date";
+dateInput.required = true;
+
+// Create the priority-level select dropdown
+const select = document.createElement("select");
+select.id = "priority-level";
+select.required = true;
+
+// Create the options for the select dropdown
+const options = [
+  { value: "!", text: "Low Priority (!)" },
+  { value: "!!", text: "Mid Priority (!!)" },
+  { value: "!!!", text: "High Priority (!!!)" },
+];
+
+options.forEach(optionData => {
+  const option = document.createElement("option");
+  option.value = optionData.value;
+  option.textContent = optionData.text;
+  select.appendChild(option);
+});
+
+// Create the submit button
+const button = document.createElement("button");
+button.type = "submit";
+button.id = "add-priority";
+button.textContent = "Add Priority";
+
+// Append inputs and button to the form
+form.appendChild(nameInput);
+form.appendChild(dateInput);
+form.appendChild(select);
+form.appendChild(button);
+
+// Create the priority list container
+const priorityListDiv = document.createElement("div");
+priorityListDiv.style.maxHeight = "300px";
+priorityListDiv.id = "priority-list";
+
+// Add the Priority List heading
+const listHeading = document.createElement("h3");
+listHeading.textContent = "Priority List";
+priorityListDiv.appendChild(listHeading);
+
+// Create High Priority section
+const highPriorityDiv = document.createElement("div");
+highPriorityDiv.id = "high-priority";
+highPriorityDiv.textContent = "High Priority";
+priorityListDiv.appendChild(highPriorityDiv);
+
+// Create Medium Priority section
+const mediumPriorityDiv = document.createElement("div");
+mediumPriorityDiv.id = "medium-priority";
+mediumPriorityDiv.textContent = "Medium Priority";
+priorityListDiv.appendChild(mediumPriorityDiv);
+
+// Create Low Priority section
+const lowPriorityDiv = document.createElement("div");
+lowPriorityDiv.id = "low-priority";
+lowPriorityDiv.textContent = "Low Priority";
+priorityListDiv.appendChild(lowPriorityDiv);
+
+// Append the form and priority list to the main container
+prioritiesDiv.appendChild(form);
+prioritiesDiv.appendChild(priorityListDiv);
+
+// Append the main container to the body (or any other container)
+prioritiesContainer.appendChild(prioritiesDiv);
+
+
+
+
+const addpriorityButton = document.getElementById("add-priority");
+
+
+//handling priority form choice: 
+
+document.getElementById("priority-form").addEventListener("submit", function (event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
+  // Get the input values
+  const priorityName = document.getElementById("priority-name").value;
+  const dueDate = document.getElementById("due-date").value;
+  const priorityLevel = document.getElementById("priority-level").value;
+
+  // Determine where to add the new priority (based on priority level)
+  let targetDiv;
+  if (priorityLevel === "!!!") {
+    targetDiv = document.getElementById("high-priority");
+  } else if (priorityLevel === "!!") {
+    targetDiv = document.getElementById("medium-priority");
+  } else {
+    targetDiv = document.getElementById("low-priority");
+  }
+
+  // Create a new priority item
+  const priorityItem = document.createElement("div");
+  priorityItem.textContent = `${priorityName} (Due: ${dueDate})`;
+  priorityItem.style.marginBottom = "5px";
+
+  targetDiv.appendChild(priorityItem);
+
+  // Clear the form inputs
+  document.getElementById("priority-name").value = "";
+  document.getElementById("due-date").value = "";
+  document.getElementById("priority-level").value = "!";
+});
+
+
+addpriorityButton.addEventListener('click', () => {
+  
+
+  
+  if (priorityLevelText.value == "!"){ 
+    lowPriority.appendChild(priorityNameInput.value);
+  
+  } else if (priorityLevelText.value == "!!"){ 
+    mediumPriority.appendChild(priorityNameInput.value);
+  
+  } else { 
+    highPriority.appendChild(priorityNameInput.value);
+  
+  }
+  
+
+  })
+
+
+
+
+
 
 
 
