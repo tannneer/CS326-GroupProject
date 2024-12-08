@@ -1,6 +1,6 @@
 import express from "express";
 import {register, login, logout,} from "./controller.js";
-//import { isAuthenticated, authorizeRole } from "../auth/middleware.js";
+import { addGoalController } from "./createpage/createControllers.js";
 
 const router = express.Router();
 
@@ -8,6 +8,12 @@ const router = express.Router();
 router.post("/register", register);
 router.post("/login", login);
 router.get("/logout", logout);
+
+//routes for create page
+router.post("/addGoal",addGoalController)
+
+
+
 
 // Protected routes
 //router.get("/admin", isAuthenticated, authorizeRole("admin"), getAdminArea);
