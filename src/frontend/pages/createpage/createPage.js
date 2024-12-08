@@ -89,6 +89,47 @@ firstGoal.addEventListener('click', () => {
   firstGoalList.appendChild(d);
 });
 
+//after hitting the submit goal button 1 - a POST with the following data is sent to the server
+async function submitGoal1Backend(){ 
+  const goalName = document.getElementById("goal1input").value; 
+  const goalDueDate = document.getElementById("duedate1").value;
+  const goalTotalTime = document.getElementById("goalDueTime1").value;
+
+  const response = await fetch('http://localhost:3000/addGoal', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: goalName,
+      dueDate: goalDueDate,
+      totalTime: goalTotalTime,
+    }),
+  });
+
+  const result = await response.json();
+
+  console.log(result);
+
+}
+
+//after hitting the submit task button 1 - a POST with the following data is sent to the server
+
+export async function addTaskController(){ 
+
+  const taskName = document.getElementById("taskInput").value;
+  const taskDueDate = document.getElementById("taskDueDate").value;
+  const taskTotalTime = document.getElementById("taskDueTime").value;
+
+  const response = await fetch('http://localhost:3000/addTask', {
+   method: "POST",
+   headers: { "Content-Type": "application/json" },
+   body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+ });
+
+ return response.json();
+
+}
 
 const secondGoal = document.getElementById('goal2submit');
 
@@ -301,10 +342,10 @@ addpriorityButton.addEventListener('click', () => {
     }}
 
   export async function renderCreatePage(appElementId, page) {
-    const page = new Nav(appElementId);
+    const newpage = new Nav(appElementId);
   
-    if (page === "create") {
-      page.renderCreate();
+    if (newpage === "create") {
+      newpage.renderCreate();
     } else {
       throw new Error('Cannot find page');
     }
