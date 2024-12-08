@@ -12,11 +12,12 @@
   }
   
   
-  /* Logout Button Styling */
-  .logout-button {
+ /* Logout Button Styling */
+.logout-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    bottom: 20px; /* Move to the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
     width: 120px;
     height: 40px;
     background: #f0f0f0;
@@ -30,11 +31,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .logout-button:hover {
+}
+
+.logout-button:hover {
     background: #e0e0e0;
-  }
+}
   
   /* Profile Picture Styling */
   .profile-pic-container {
