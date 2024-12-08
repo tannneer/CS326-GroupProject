@@ -447,10 +447,10 @@ addpriorityButton.addEventListener('click', () => {
     }}
 
   export async function renderCreatePage(appElementId, page) {
-    const page = new Nav(appElementId);
+    const newpage = new Nav(appElementId);
   
-    if (page === "create") {
-      page.renderCreate();
+    if (newpage === "create") {
+      newpage.renderCreate();
     } else {
       throw new Error('Cannot find page');
     }
