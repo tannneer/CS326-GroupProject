@@ -1,8 +1,9 @@
 // import { Sequelize, DataTypes } from "sequelize";
 import { Sequelize, DataTypes } from '@sequelize/core';
+import Task from './task.js';
 
 const sequelize = new Sequelize({
-    dialect: "sqlite", // Specify SQLite as the dialect
+    dialect: "sqlite", 
     storage: "authentication.sqlite", // SQLite database file
   });
 
@@ -13,13 +14,11 @@ const sequelize = new Sequelize({
 
 // Define the User model
 export const Goal = sequelize.define("Goal", {
-  goalName: { type: DataTypes.STRING, allowNull: false },
+  //goalId : {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false},
+  goalName: { type: DataTypes.STRING, allowNull: true },
   hoursToComplete: { type: DataTypes.INTEGER },
   goalDueDate: { type: DataTypes.DATE },
 });
-
-// Create the table if it doesn't exist
-await sequelize.sync();
 
 
 // Export the User model for use in other files
