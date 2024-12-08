@@ -1,51 +1,39 @@
-/*
-     async handleLogin() {
-        // const email = document.getElementById("email").value;
-         const username = document.getElementById("usernameLogin").value;
-         const password = document.getElementById("password").value;
 
-         const response = await fetch("/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password }),
-        });
-        const data = await response.json();
-        console.log(JSON.stringify(data, null, 2));
-        alert(data.message);
-    
+      import { Goal } from '../models/goal.js';
+      import { Task } from '../models/task.js';
+      
+      export const addGoalController = async (req, res) => { 
+        const { goalName, goalDueDate, goalTotalTime } = req.body; 
 
-       }
-    
- */
+        try {
+          await Goal.create({
+            goalName,
+            goalDueDate,
+            goalTotalTime,
+          });
+          return res.status(201).json({ message: "Goal added successfully" });
+        } catch (err) {
+          return res.status(400).json((400, "Failed to add goal"));
+        }
+      }
 
-       export async function addGoalController() { 
+      export const addTaskController = async (req,res) => { 
+        const { taskName, taskDueDate, taskTotalTime } = req.body;
 
-         const goalName = document.getElementById("goal1input").value;
-         const goalDueDate = document.getElementById("goaldudedate1").value; 
-         const goalTotalTime = document.getElementById("goalDueTime1").value;
+        try {
+          await Task.create({
+            taskName,
+            taskDueDate,
+            taskTotalTime,
+          });
+        } catch (err) {
+          return res.status(400).json((400, "Failed to add task"));
+        }
+      }
 
-         const response = await fetch("/addGoal", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ goalName, goalDueDate, goalTotalTime }),
-        });
+      //add Priority List controller (to be done by Christian)
 
-        return response.json(); 
-       }
 
-       export async function addTaskController(){ 
 
-         const taskName = document.getElementById("taskInput").value;
-         const taskDueDate = document.getElementById("taskDueDate").value;
-         const taskTotalTime = document.getElementById("taskDueTime").value;
 
-         const response = await fetch("/addTask", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
-        });
-
-        return response.json();
-
-       }
 

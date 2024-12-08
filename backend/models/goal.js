@@ -1,6 +1,5 @@
 // import { Sequelize, DataTypes } from "sequelize";
 import { Sequelize, DataTypes } from '@sequelize/core';
-import { SqliteDialect } from '@sequelize/sqlite3';
 
 const sequelize = new Sequelize({
     dialect: "sqlite", // Specify SQLite as the dialect
@@ -13,11 +12,10 @@ const sequelize = new Sequelize({
 // const sequelize = new Sequelize("sqlite::memory:");
 
 // Define the User model
-const User = sequelize.define("User", {
-  username: { type: DataTypes.STRING, unique: true, allowNull: false },
-  password: { type: DataTypes.STRING },
-  googleId: { type: DataTypes.STRING },
-  role: { type: DataTypes.STRING, defaultValue: "user" }, // Roles: 'user', 'admin'
+export const Goal = sequelize.define("Goal", {
+  goalName: { type: DataTypes.STRING, allowNull: false },
+  hoursToComplete: { type: DataTypes.INTEGER },
+  goalDueDate: { type: DataTypes.DATE },
 });
 
 // Create the table if it doesn't exist
@@ -25,4 +23,4 @@ await sequelize.sync();
 
 
 // Export the User model for use in other files
-export default User;
+export default Goal;
