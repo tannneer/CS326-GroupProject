@@ -1,254 +1,444 @@
-export class CreatePage {
-  constructor(appElementId) {
-    this.app = document.getElementById(appElementId);
-    if (!this.app) {
-      throw new Error(`Element with ID "${appElementId}" not found.`);
+// export class CreatePage {
+//   constructor(appElementId) {
+//     this.app = document.getElementById(appElementId);
+//     if (!this.app) {
+//       throw new Error(`Element with ID "${appElementId}" not found.`);
+//     }
+//     this.arrayOfTasks = [];
+//     this.defaultData = {
+//       d2: ["09:00", "15:00"],
+//       d5: ["17:00", "20:00"],
+//     };
+//   }
+
+//   // Dynamically load CSS
+//   loadCSS(filePath) {
+//     if (!document.querySelector(`link[href="${filePath}"]`)) {
+//       const link = document.createElement("link");
+//       link.rel = "stylesheet";
+//       link.href = filePath;
+//       document.head.appendChild(link);
+//     }
+//   }
+
+//   // Render the Create Page with Navbar
+//   render() {
+//     this.loadCSS("frontend/pages/createPage/createPage.css");
+
+//     this.app.innerHTML = `
+//       <nav class="navbar">
+//         <ul class="nav-list">
+//           <li><button class="nav-btn" id="createPageNav">Create Page</button></li>
+//           <li><button class="nav-btn" id="analyticsPageNav">Analytics Page</button></li>
+//           <li><button class="nav-btn" id="priorityPageNav">Priority Page</button></li>
+//           <li><button class="nav-btn logout-btn" id="logoutNav">Log Out</button></li>
+//         </ul>
+//       </nav>
+//       <div class="content">
+//         <h1 class="titleText">Task Creation</h1>
+//         <div class="outercontainer">
+//           <div class="box">
+//             <div class="wrap">
+//               <section class="ranges">
+//                 <input id="all" name="dur" type="radio"/>
+//                 <label for="all">Always</label>
+//                 <input id="work" name="dur" type="radio"/>
+//                 <label for="work">Work</label>
+//                 <input id="custom" name="dur" type="radio"/>
+//                 <label for="custom">Sometimes</label>
+//               </section>  
+//               <section class="timetable off">
+//                 ${this.renderTimetable()}
+//               </section>
+//             </div>
+//           </div>
+//           <div id="box2" class="box">
+//             <div class="container">
+//               <div class="form">
+//                 <input type="text" class="input" placeholder="Enter task" />
+//                 <input type="submit" class="add" value="Add Task" />
+//               </div>
+//               <div class="tasks"></div>
+//               <div class="delete-all">Delete all</div>
+//             </div>
+//           </div>
+//         </div>
+//         <button type="submit" class="schedulebtn">Submit schedule</button>
+//       </div>
+//     `;
+
+//     // Restore tasks from localStorage
+//     if (window.localStorage.getItem("tasks")) {
+//       this.arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"));
+//     }
+//     this.getTaskFromLocalStorage();
+
+//     // Add event listeners
+//     this.attachEventListeners();
+//   }
+
+//   renderTimetable() {
+//     const days = [
+//       "Monday",
+//       "Tuesday",
+//       "Wednesday",
+//       "Thursday",
+//       "Friday",
+//       "Saturday",
+//       "Sunday",
+//     ];
+//     return days
+//       .map(
+//         (day, index) => `
+//         <input id="d${index + 1}" type="checkbox"/>
+//         <label for="d${index + 1}">
+//           <caption>${day}</caption>
+//           <div class="duration">
+//             <input type="time" value="09:00">
+//             <input type="time" value="20:00">
+//           </div>
+//         </label>
+//       `
+//       )
+//       .join("");
+//   }
+ 
+const addTaskButton = document.getElementById('addTaskBtn');
+const firstGoalList = document.getElementById('goal-item1');
+const secondGoalList = document.getElementById('goal-item2');
+const thirdGoalList = document.getElementById('goal-item3');
+
+
+addTaskButton.addEventListener('click', () => {
+
+  const userInput = document.getElementById("taskInput");
+
+  const taskBoxDiv = document.createElement("div");
+  
+  // Add styling to the container div
+  taskBoxDiv.style.display = "flex";
+  taskBoxDiv.style.alignItems = "center";
+  taskBoxDiv.style.border = "3px solid grey";
+  taskBoxDiv.style.borderRadius = "10px"; // Rounded corners
+  taskBoxDiv.style.backgroundColor = "white"; // Light green background
+  taskBoxDiv.style.padding = "3px"; // Padding for spacing
+  taskBoxDiv.style.margin = "3px 0"; // Margin for spacing between tasks
+  taskBoxDiv.style.fontFamily = "Arial, sans-serif"; // Set a clean font
+  taskBoxDiv.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)"; // Subtle shadow
+  taskBoxDiv.style.justifyContent = "space-between"; // Space out content
+  
+  // Create a task title
+  const taskBox = document.createElement("h4");
+  taskBox.innerHTML = userInput.value;
+  taskBox.style.marginRight = "20px";
+  
+  // Create a custom checkbox 1
+  const label1 = document.createElement("label");
+  label1.className = "container"; // Add a class for styling
+  label1.style.display = "flex"; // Ensure proper layout
+  label1.style.alignItems = "center";
+  label1.innerHTML = `
+    <input type="checkbox">
+    <span class="checkmark"></span>`;
+  
+  // Create a custom checkbox 2
+  const label2 = document.createElement("label");
+  label2.className = "container";
+  label2.style.display = "flex";
+  label2.style.alignItems = "center";
+  label2.innerHTML = `
+    <input type="checkbox">
+    <span class="checkmark2"></span>`;
+  
+  // Append the task and checkboxes to the div
+  taskBoxDiv.appendChild(taskBox);
+  taskBoxDiv.appendChild(label1);
+  taskBoxDiv.appendChild(label2);
+  
+  // Append the styled div to your parent container (e.g., a task list)
+  firstGoalList.appendChild(taskBoxDiv);
+});
+
+
+const deleteAllButton = document.getElementById('deleteAll');
+
+
+deleteAllButton.addEventListener('click', () => {
+  firstGoalList.innerHTML = '';
+});
+
+
+const firstGoal = document.getElementById('goal1submit');
+
+
+firstGoal.addEventListener('click', () => {
+  const firstGoalInput = document.getElementById("goal1input");
+  const d = document.createElement("div");
+  d.innerHTML = firstGoalInput.value;
+
+  d.style.fontSize = "24px"; 
+  d.style.fontWeight = "bold";
+  d.style.color = "#2c3e50"; 
+  d.style.margin = "10px 0"; 
+  d.style.textAlign = "center"; 
+  d.style.fontFamily = "Arial, sans-serif"; 
+  
+  d.style.border = "5px solid #2ec";
+  d.style.borderRadius = "10px";
+  d.style.padding = "10px";
+  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  
+  d.style.marginBottom = "10px";
+
+
+  firstGoalList.appendChild(d);
+});
+
+
+const secondGoal = document.getElementById('goal2submit');
+
+
+secondGoal.addEventListener('click', () => {
+  const secondGoalInput = document.getElementById("goal2input");
+  const d = document.createElement("div");
+  d.innerHTML = secondGoalInput.value;
+
+  d.style.fontSize = "24px"; 
+  d.style.fontWeight = "bold";
+  d.style.color = "#2c3e50"; 
+  d.style.margin = "10px 0"; 
+  d.style.textAlign = "center"; 
+  d.style.fontFamily = "Arial, sans-serif"; 
+  
+  d.style.border = "5px solid #2ec";
+  d.style.borderRadius = "10px";
+  d.style.padding = "10px";
+  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  
+
+
+  secondGoalList.appendChild(d);
+});
+
+
+const thirdGoal = document.getElementById('goal3submit');
+
+
+thirdGoal.addEventListener('click', () => {
+  const thirdGoalInput = document.getElementById("goal3input");
+  const d = document.createElement("div");
+  d.innerHTML = thirdGoalInput.value;
+
+  d.style.fontSize = "24px"; 
+  d.style.fontWeight = "bold";
+  d.style.color = "#2c3e50"; 
+  d.style.margin = "10px 0"; 
+  d.style.textAlign = "center"; 
+  d.style.fontFamily = "Arial, sans-serif"; 
+  
+  d.style.border = "5px solid #2ec";
+  d.style.borderRadius = "10px";
+  d.style.padding = "10px";
+  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+
+
+  thirdGoalList.appendChild(d);
+});
+
+
+//Priority List code 
+
+const prioritiesContainer = document.getElementById("priorities-container");
+// Create the main container div
+const prioritiesDiv = document.createElement("div");
+prioritiesDiv.className = "priorities";
+
+// Create the form
+const form = document.createElement("form");
+form.id = "priority-form";
+form.className = "priority-form";
+
+// Create the "Priority name" input field
+const nameInput = document.createElement("input");
+nameInput.type = "text";
+nameInput.id = "priority-name";
+nameInput.placeholder = "Priority name";
+nameInput.required = true;
+
+// Create the "Due date" input field
+const dateInput = document.createElement("input");
+dateInput.type = "date";
+dateInput.id = "due-date";
+dateInput.required = true;
+
+// Create the priority-level select dropdown
+const select = document.createElement("select");
+select.id = "priority-level";
+select.required = true;
+
+// Create the options for the select dropdown
+const options = [
+  { value: "!", text: "Low Priority (!)" },
+  { value: "!!", text: "Mid Priority (!!)" },
+  { value: "!!!", text: "High Priority (!!!)" },
+];
+
+options.forEach(optionData => {
+  const option = document.createElement("option");
+  option.value = optionData.value;
+  option.textContent = optionData.text;
+  select.appendChild(option);
+});
+
+// Create the submit button
+const button = document.createElement("button");
+button.type = "submit";
+button.id = "add-priority";
+button.textContent = "Add Priority";
+
+// Append inputs and button to the form
+form.appendChild(nameInput);
+form.appendChild(dateInput);
+form.appendChild(select);
+form.appendChild(button);
+
+// Create the priority list container
+const priorityListDiv = document.createElement("div");
+priorityListDiv.style.maxHeight = "300px";
+priorityListDiv.id = "priority-list";
+
+// Add the Priority List heading
+const listHeading = document.createElement("h3");
+listHeading.textContent = "Priority List";
+priorityListDiv.appendChild(listHeading);
+
+// Create High Priority section
+const highPriorityDiv = document.createElement("div");
+highPriorityDiv.id = "high-priority";
+highPriorityDiv.textContent = "High Priority";
+priorityListDiv.appendChild(highPriorityDiv);
+
+// Create Medium Priority section
+const mediumPriorityDiv = document.createElement("div");
+mediumPriorityDiv.id = "medium-priority";
+mediumPriorityDiv.textContent = "Medium Priority";
+priorityListDiv.appendChild(mediumPriorityDiv);
+
+// Create Low Priority section
+const lowPriorityDiv = document.createElement("div");
+lowPriorityDiv.id = "low-priority";
+lowPriorityDiv.textContent = "Low Priority";
+priorityListDiv.appendChild(lowPriorityDiv);
+
+// Append the form and priority list to the main container
+prioritiesDiv.appendChild(form);
+prioritiesDiv.appendChild(priorityListDiv);
+
+// Append the main container to the body (or any other container)
+prioritiesContainer.appendChild(prioritiesDiv);
+
+
+
+
+const addpriorityButton = document.getElementById("add-priority");
+
+
+//handling priority form choice: 
+
+document.getElementById("priority-form").addEventListener("submit", function (event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
+  // Get the input values
+  const priorityName = document.getElementById("priority-name").value;
+  const dueDate = document.getElementById("due-date").value;
+  const priorityLevel = document.getElementById("priority-level").value;
+
+  // Determine where to add the new priority (based on priority level)
+  let targetDiv;
+  if (priorityLevel === "!!!") {
+    targetDiv = document.getElementById("high-priority");
+  } else if (priorityLevel === "!!") {
+    targetDiv = document.getElementById("medium-priority");
+  } else {
+    targetDiv = document.getElementById("low-priority");
+  }
+
+  // Create a new priority item
+  const priorityItem = document.createElement("div");
+  priorityItem.textContent = `${priorityName} (Due: ${dueDate})`;
+  priorityItem.style.marginBottom = "5px";
+
+  targetDiv.appendChild(priorityItem);
+
+  // Clear the form inputs
+  document.getElementById("priority-name").value = "";
+  document.getElementById("due-date").value = "";
+  document.getElementById("priority-level").value = "!";
+});
+
+
+addpriorityButton.addEventListener('click', () => {
+  
+
+  
+  if (priorityLevelText.value == "!"){ 
+    lowPriority.appendChild(priorityNameInput.value);
+  
+  } else if (priorityLevelText.value == "!!"){ 
+    mediumPriority.appendChild(priorityNameInput.value);
+  
+  } else { 
+    highPriority.appendChild(priorityNameInput.value);
+  
+  }
+  })
+
+  //create page rendering 
+
+  export class Nav {
+    constructor(appElementId) {
+      this.app = document.getElementById(appElementId);
+      if (!this.app) {
+        throw new Error(`Element with ID "${appElementId}" not found.`); 
+      } 
+     
+    }}
+
+  export async function renderCreatePage(appElementId, page) {
+    const page = new Nav(appElementId);
+  
+    if (page === "create") {
+      page.renderCreate();
+    } else {
+      throw new Error('Cannot find page');
     }
-    this.arrayOfTasks = [];
-    this.defaultData = {
-      d2: ["09:00", "15:00"],
-      d5: ["17:00", "20:00"],
-    };
   }
 
-  // Dynamically load CSS
-  loadCSS(filePath) {
-    if (!document.querySelector(`link[href="${filePath}"]`)) {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = filePath;
-      document.head.appendChild(link);
-    }
-  }
+ 
+  
 
-  // Render the Create Page with Navbar
-  render() {
-    this.loadCSS("frontend/pages/createPage/createPage.css");
 
-    this.app.innerHTML = `
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li><button class="nav-btn" id="createPageNav">Create Page</button></li>
-          <li><button class="nav-btn" id="analyticsPageNav">Analytics Page</button></li>
-          <li><button class="nav-btn" id="priorityPageNav">Priority Page</button></li>
-          <li><button class="nav-btn logout-btn" id="logoutNav">Log Out</button></li>
-        </ul>
-      </nav>
-      <div class="content">
-        <h1 class="titleText">Task Creation</h1>
-        <div class="outercontainer">
-          <div class="box">
-            <div class="wrap">
-              <section class="ranges">
-                <input id="all" name="dur" type="radio"/>
-                <label for="all">Always</label>
-                <input id="work" name="dur" type="radio"/>
-                <label for="work">Work</label>
-                <input id="custom" name="dur" type="radio"/>
-                <label for="custom">Sometimes</label>
-              </section>  
-              <section class="timetable off">
-                ${this.renderTimetable()}
-              </section>
-            </div>
-          </div>
-          <div id="box2" class="box">
-            <div class="container">
-              <div class="form">
-                <input type="text" class="input" placeholder="Enter task" />
-                <input type="submit" class="add" value="Add Task" />
-              </div>
-              <div class="tasks"></div>
-              <div class="delete-all">Delete all</div>
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="schedulebtn">Submit schedule</button>
-      </div>
-    `;
 
-    // Restore tasks from localStorage
-    if (window.localStorage.getItem("tasks")) {
-      this.arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"));
-    }
-    this.getTaskFromLocalStorage();
 
-    // Add event listeners
-    this.attachEventListeners();
-  }
 
-  renderTimetable() {
-    const days = [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ];
-    return days
-      .map(
-        (day, index) => `
-        <input id="d${index + 1}" type="checkbox"/>
-        <label for="d${index + 1}">
-          <caption>${day}</caption>
-          <div class="duration">
-            <input type="time" value="09:00">
-            <input type="time" value="20:00">
-          </div>
-        </label>
-      `
-      )
-      .join("");
-  }
 
-  attachEventListeners() {
-    // Navbar navigation
-    document.getElementById("createPageNav").addEventListener("click", () => {
-      this.render(); // Reload the create page
-    });
 
-    document.getElementById("analyticsPageNav").addEventListener("click", () => {
-      this.loadPage("analyticsPage.js", "renderAnalyticsPage");
-    });
 
-    document.getElementById("priorityPageNav").addEventListener("click", () => {
-      this.loadPage("priorityPage.js", "renderPriorityPage");
-    });
 
-    document.getElementById("logoutNav").addEventListener("click", () => {
-      alert("Logged out successfully!");
-      window.location.reload(); // Simulate logout and redirect to home
-    });
 
-    // Task creation event listeners
-    this.attachTaskListeners();
-  }
 
-  attachTaskListeners() {
-    const tasksDiv = this.app.querySelector(".tasks");
-    const inputEle = this.app.querySelector(".input");
-    const submitEle = this.app.querySelector(".add");
-    const deleteAll = this.app.querySelector(".delete-all");
+// document.addEventListener('DOMContentLoaded', async () => {
+//   const taskComponent = new TaskComponent();
+//   const renderedComponent = await taskComponent.render();
 
-    submitEle.onclick = () => {
-      if (inputEle.value !== "") {
-        this.addTaskToArray(inputEle.value);
-        inputEle.value = "";
-      }
-    };
 
-    tasksDiv.onclick = (e) => {
-      if (e.target.classList.contains("del")) {
-        this.deleteTask(e.target.parentElement.getAttribute("data-id"));
-        e.target.parentElement.remove();
-      }
-      if (e.target.classList.contains("task")) {
-        e.target.classList.toggle("done");
-        this.updateTaskStatus(e.target.getAttribute("data-id"));
-      }
-    };
+//   // Locate the Goals List container in the DOM
+//   const goalsListContainer = document.querySelector('.goal-item1');
+//   if (goalsListContainer) {
+//     goalsListContainer.appendChild(renderedComponent);
+//   }
+// });
 
-    deleteAll.onclick = () => {
-      tasksDiv.innerHTML = "";
-      window.localStorage.removeItem("tasks");
-    };
 
-    this.attachTimetableListeners();
-  }
 
-  attachTimetableListeners() {
-    const main = this.app.querySelector(".timetable");
-
-    this.app.querySelector("#all").onclick = () => {
-      this.setTimetable(main, true, "00:00", "23:59");
-    };
-
-    this.app.querySelector("#work").onclick = () => {
-      this.setTimetable(main, true, "09:00", "18:00", 5);
-    };
-
-    this.app.querySelector("#custom").onclick = () => {
-      this.setTimetable(main, false, "09:00", "18:00");
-    };
-  }
-
-  setTimetable(main, check, start, end, limit = 7) {
-    const inputs = main.querySelectorAll("input[id^=d]");
-    inputs.forEach((input, index) => {
-      input.checked = check && index < limit;
-      const times = input.nextElementSibling.querySelectorAll("input[type=time]");
-      times[0].value = start;
-      times[1].value = end;
-    });
-  }
-
-  loadPage(scriptPath, renderFunction) {
-    import(`./${scriptPath}`)
-      .then((module) => {
-        if (module[renderFunction]) {
-          module[renderFunction](this.app); // Render the loaded page
-        }
-      })
-      .catch((error) => {
-        console.error(`Failed to load ${scriptPath}:`, error);
-      });
-  }
-
-  addTaskToArray(taskText) {
-    const task = {
-      id: Date.now(),
-      title: taskText,
-      completed: false,
-    };
-    this.arrayOfTasks.push(task);
-    this.addTaskToLocalStorage();
-    this.addTaskToPage();
-  }
-
-  addTaskToLocalStorage() {
-    window.localStorage.setItem("tasks", JSON.stringify(this.arrayOfTasks));
-  }
-
-  getTaskFromLocalStorage() {
-    const data = window.localStorage.getItem("tasks");
-    if (data) {
-      this.arrayOfTasks = JSON.parse(data);
-      this.addTaskToPage();
-    }
-  }
-
-  addTaskToPage() {
-    const tasksDiv = this.app.querySelector(".tasks");
-    tasksDiv.innerHTML = "";
-
-    this.arrayOfTasks.forEach((task) => {
-      const div = document.createElement("div");
-      div.className = `task ${task.completed ? "done" : ""}`;
-      div.setAttribute("data-id", task.id);
-      div.textContent = task.title;
-
-      const span = document.createElement("span");
-      span.className = "del";
-      span.textContent = "Delete";
-      div.appendChild(span);
-
-      tasksDiv.appendChild(div);
-    });
-  }
-
-  deleteTask(taskId) {
-    this.arrayOfTasks = this.arrayOfTasks.filter((task) => task.id != taskId);
-    this.addTaskToLocalStorage();
-  }
-
-  updateTaskStatus(taskId) {
-    this.arrayOfTasks.forEach((task) => {
-      if (task.id == taskId) {
-        task.completed = !task.completed;
-      }
-    });
-    this.addTaskToLocalStorage();
-  }
-}

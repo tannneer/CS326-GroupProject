@@ -1,15 +1,28 @@
-// Fetch user data dynamically (mock example for now)
-const username = document.getElementById('username');
-const email = document.getElementById('email');
+// Import User class
+import { User } from '../authpage/user.js';
 
-// Replace with data from backend
-username.textContent = 'JohnDoe'; // Replace with actual username
-email.textContent = 'johndoe@example.com'; // Replace with actual email
+// Mock user data (or fetch this from your backend)
+const userData = {
+  email: 'johndoe@example.com',
+  username: 'JohnDoe',
+  password: 'securepassword',
+};
+
+// Create a user instance
+const user = new User(userData.email, userData.username, userData.password);
+
+// Update the DOM with user details
+const usernameElement = document.getElementById('username');
+const emailElement = document.getElementById('email');
+
+// Populate with actual data
+const { email, username } = user.getDetails();
+usernameElement.textContent = username;
+emailElement.textContent = email;
 
 // Redirect to create_page.html when the blue button is clicked
 const ctaButton = document.querySelector('.cta-button');
 ctaButton.addEventListener('click', () => {
-  // Redirect to the create page (createpage.html) when the button is clicked
   location.href = '../createpage/createpage.html';
 });
 
@@ -19,7 +32,6 @@ const fileInput = document.createElement('input');
 fileInput.type = 'file';
 fileInput.accept = 'image/*';
 
-// Trigger file input when clicking the camera icon
 document.querySelector('.camera-icon').addEventListener('click', () => {
   fileInput.click();
 });

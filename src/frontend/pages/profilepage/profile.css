@@ -1,14 +1,39 @@
 /* General container styling */
 .container {
-    width: 1280px;
-    height: 832px;
+    width: 100%;
+    height: 100vh;
     margin: 0 auto;
     background: white;
-    position: relative;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    position: relative; 
+  }
+  
+  
+  /* Logout Button Styling */
+  .logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 40px;
+    background: #f0f0f0;
+    border: 2px solid #d4d4d4;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+  }
+  
+  .logout-button:hover {
+    background: #e0e0e0;
   }
   
   /* Profile Picture Styling */
@@ -19,7 +44,7 @@
     border-radius: 50%;
     border: 2px solid #D4D4D4;
     overflow: hidden;
-    margin-bottom: 20px; /* Add spacing below the profile picture */
+    margin-bottom: 20px;
   }
   
   .profile-pic {
@@ -30,7 +55,7 @@
   
   .camera-icon {
     position: absolute;
-    bottom: 10px; /* Slight offset to center it better */
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     background: #0ba6ff;
@@ -42,7 +67,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add subtle shadow for visibility */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
   .camera-icon svg {
@@ -82,26 +107,36 @@
     margin-bottom: 20px;
   }
   
-  .button-container {
-    display: flex;
-    justify-content: center;
-  }
-  
+  /* Center Button */
   .cta-button {
     width: 165px;
     height: 65px;
+    border-radius: 20px;
     background: #0ba6ff;
     border: 2px solid #0ba6ff;
-    border-radius: 20px;
-    color: white;
     font-size: 16px;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-    text-align: center;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
   }
   
+  .card {
+    width: 558px;
+    background: white;
+    border: 2px solid #D4D4D4;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; /
+  }
+  
+  
+
   

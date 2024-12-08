@@ -8,6 +8,11 @@
 </head>
 <body>
   <div class="container">
+    <!-- Logout Button -->
+    <button class="logout-button">
+      <span>Log Out</span>
+    </button>
+
     <!-- Profile Picture Section -->
     <div class="profile-pic-container">
       <img class="profile-pic" src="https://via.placeholder.com/166x153" alt="Profile Picture">
@@ -22,14 +27,15 @@
     <div class="card">
       <h1 class="greeting">Hello, <span id="username">Username</span></h1>
       <p class="email-label">Email: <span id="email">user@example.com</span></p>
-      <p class="instructions">Click blue button to start</p>
-      <div class="button-container">
-        <button class="cta-button">
-          <span>Go to <br> Planning</span>
-        </button>
-      </div>
+      <p class="instructions">Click the button to start planning</p>
+      <button class="cta-button">
+        <span>Go to <br> Planning</span>
+      </button>
     </div>
   </div>
-  <script src="profile.js"></script>
+  <script type="module" src="profile.js"></script>
 </body>
 </html>
+
+
+

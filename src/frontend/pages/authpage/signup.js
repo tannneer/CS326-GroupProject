@@ -44,7 +44,7 @@ export class Auth {
     `;
 
     document.getElementById("login-link").addEventListener("click", () => {
-      this.renderLogin();
+      this.renderLogin(); 
     });
 
     document.querySelector(".signup-button").addEventListener("click", () => {
@@ -61,12 +61,12 @@ export class Auth {
         <div class="form-container">
           <p class="form-header">LOG IN</p>
           <form class="form">
-            <label for="email" class="email-label">Email</label>
-            <input id="email" type="email" placeholder="Enter your email">
-
+            <label for="email" class="email-label">Username</label>
+            <input id="usernameLogin" type="email" placeholder="Enter your username">
+    
             <label for="password" class="password-label">Password</label>
             <input id="password" type="password" placeholder="Enter your password">
-
+    
             <button type="button" class="login-button">LOG IN</button>
           </form>
         </div>
@@ -77,7 +77,7 @@ export class Auth {
     `;
 
     document.getElementById("signup-link").addEventListener("click", () => {
-      this.renderSignup();
+      this.renderSignup(); 
     });
 
     document.querySelector(".login-button").addEventListener("click", () => {
@@ -86,47 +86,32 @@ export class Auth {
     });
   }
 
-  handleSignup() {
-    const email = document.getElementById("email").value;
+  async handleSignup() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    if (!email || !username || !password) {
-      alert("All fields are required!");
-      return;
-    }
-
-    try {
-      // Create a new user instance
-      const newUser = new User(email, username, password);
-
-      console.log("New User Created:", newUser.getDetails());
-
-      alert("Signup successful! Redirecting...");
-      this.redirectToCreatePage();
-    } catch (error) {
-      console.error("Error during signup:", error);
-      alert("An error occurred. Please try again.");
-    }
+    const response = await fetch("/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+    const data = await response.json();
+    console.log(JSON.stringify(data, null, 2));
+    alert(data.message);
   }
 
-  handleLogin() {
-    const email = document.getElementById("email").value;
+  async handleLogin() {
+    const username = document.getElementById("usernameLogin").value;
     const password = document.getElementById("password").value;
 
-    if (!email || !password) {
-      alert("Email and password are required!");
-      return;
-    }
-
-    alert("Login successful! Redirecting...");
-    this.redirectToCreatePage();
-  }
-
-  redirectToCreatePage() {
-    // Redirect logic placeholder
-    console.log("Redirecting to create page...");
-    alert("Redirecting to the main application...");
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+    const data = await response.json();
+    console.log(JSON.stringify(data, null, 2));
+    alert(data.message);
   }
 }
 

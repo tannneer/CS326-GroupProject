@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskProgressBars = [
         document.querySelector(".Task1Progress .progress"),
         document.querySelector(".Task2Progress .Task2p"),
-        document.querySelector(".Task3Progress .Task3p")
+        document.querySelector(".Task3Progress .Task3p"),
+        document.querySelector(".Task4Progress .Task4p")
     ];
 
     const ratingSlider = document.getElementById("contentmentRating");
