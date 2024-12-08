@@ -1,6 +1,7 @@
 import express from "express";
 import {register, login, logout,} from "./controller.js";
 import { addGoalController } from "./createpage/createControllers.js";
+import { addTaskController } from "./createpage/createControllers.js";
 
 const router = express.Router();
 
@@ -11,6 +12,7 @@ router.get("/logout", logout);
 
 //routes for create page
 router.post("/addGoal",addGoalController)
+router.post("/addTask",addTaskController);
 
 
 
