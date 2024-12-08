@@ -1,7 +1,9 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  height: 100%; 
   padding: 0;
+}
 
 
 .navbar {
@@ -75,6 +77,10 @@ body {
   gap: 20px;
   height: 100vh;
   background-color:white;
+  min-height: 100vh; /* Ensure the body is at least the height of the viewport */
+  height: auto;      /* Allow the body to grow dynamically */
+  height: 100%
+
 
 }
 
@@ -166,6 +172,8 @@ body {
   padding: 5px;
   background-color: white;
   border-radius: 10px;
+  overflow: overlay;
+  overflow-x: hidden;
 }
 /*
 .goal-name{ 
@@ -184,6 +192,7 @@ body {
 
 
 .priorities { 
+  margin-top:120px;
   grid-column: 1/3;
   grid-row: 3;
   background-color: rgb(187, 255, 244);;
@@ -342,7 +351,7 @@ body {
 /* Show the dropdown when the "show" class is added */
 .dropdown.show .dropdown-content {
   display: block;
-}}
+}
 
 /* General body styling */
 body {
@@ -411,6 +420,10 @@ form button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pop-out shadow */
 }
 
+.priority-form { 
+  margin-top: 20px;
+}
+
 /* Priority list and calendar sections */
 #priority-list, #calendar {
   margin-top: 30px;
@@ -423,7 +436,9 @@ form button:hover {
 
 #priority-list {
   max-width: 600px;
+  max-height: 500px;
   margin: 0 auto;
+  padding-bottom: 280px;
 }
 
 /* Priority item styling */
@@ -463,6 +478,17 @@ form button:hover {
   color: white;
 }
 
+.high-priority { 
+  margin-bottom:10px;
+}
+
+.medium-priority { 
+  margin-bottom:10px;
+}
+
+.low-priority { 
+  margin-bottom:10px;
+}
 /* Calendar styling */
 #calendar {
   max-width: 800px;
@@ -475,4 +501,111 @@ form button:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   font-size: 1.2rem;
   color: #2c3e50; /* Dark blue-gray text */
+}
+
+.container {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+/* On hover, change background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked */
+.container input:checked ~ .checkmark {
+  background-color: #4CAF50;
+}
+
+/* Add a checkmark/indicator */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/*checkbox2*/
+
+/* Create a custom checkbox */
+.checkmark2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 5px;
+  
+}
+
+/* On hover, add a background color */
+.container:hover input ~ .checkmark2 {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, change the background */
+.container input:checked ~ .checkmark2 {
+  background-color: #f32121;
+}
+
+/* Add a checkmark/indicator */
+.checkmark2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark2:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmark2:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
