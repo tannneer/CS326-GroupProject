@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,32 @@
     <link rel="stylesheet" href="calendarPage.css">
 </head>
 <body>
+    <button id="calendarBtn">Open Calendar</button>
+    <!-- Goals Section (Modified) -->
+<div class="goals-section">
+    <h3>Your Goals</h3>
+    <ul id="goalList" class="goal-list">
+        <!-- Goals will be dynamically inserted here -->
+    </ul>
+
+    <button id="createGoalBtn">Create Goal</button>
+    
+    <!-- Create Goal Form (Hidden initially) -->
+    <div id="createGoalForm" class="create-goal-form" style="display:none;">
+        <input type="text" id="goalName" placeholder="Enter goal name" required>
+        <input type="number" id="goalPriority" placeholder="Enter priority (1 is highest)" required>
+        <button id="saveGoalBtn">Save Goal</button>
+        <button id="cancelGoalBtn">Cancel</button>
+    </div>
+</div>
+
     <div id="root"></div>
+    <div id="calendarModal" class="calendar-modal">
+        <div class="calendar-content">
+            <span class="close-btn">&times;</span>
+            <div id="calendar"></div> <!-- FullCalendar will initialize here -->
+        </div>
+    </div>
     <script type="module" src="calendarPage.js"></script>
 </body>
 </html>
