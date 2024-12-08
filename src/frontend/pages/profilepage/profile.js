@@ -5,7 +5,7 @@ const userData = {
     password: 'securepassword',
   };
   
-  // Update the DOM with user details
+  // Update the DOM with user details and adjestments
   const usernameElement = document.getElementById('username');
   const emailElement = document.getElementById('email');
   

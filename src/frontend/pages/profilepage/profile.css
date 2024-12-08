@@ -12,7 +12,7 @@
   }
   
   
- /* Logout Button Styling */
+ /* Logout Button Styling  and adjustments*/
 .logout-button {
     position: absolute;
     bottom: 20px; /* Move to the bottom */
@@ -140,4 +140,3 @@
   
   
 
-  
