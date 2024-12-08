@@ -8,21 +8,32 @@
     <script type="module" src="createPage.js"></script>
 </head>
 
-<body>
+<body> 
+  <nav class="navbar">
+     <ul class="nav-list">
+     <li><button class="nav-btn" id="createPageNav">Create Objectives</button></li>
+     <li><button class="nav-btn" id="analyticsPageNav">Calendar</button></li>
+      <li><button class="nav-btn" id="calendarPageNav">Analytics</button></li>
+      <li><button class="nav-btn" id="profileNav">Profile</button></li>
+      </ul>
+      </nav>
   <div class="dash">
       <h3 class="titleText">Goals and Tasks</h3>
       <div class="goals">
           <div class="form-container">
               <h2>Set Your Goals</h2>
               <input id="goal1input" type="text" class="input" placeholder="Goal 1" />
+              <input id="duedate1" type="date" class="input" /> 
               <input type="number" id="goalDueTime1" class="input" placeholder="Total hours to complete" />
               <input id="goal1submit" type="submit" class="add" value="Add Goal" />
 
               <input id = "goal2input" type="text" class="input" placeholder="Goal 2" />
+              <input id = "duedate2" type="date" class="input"/>
               <input type="number" id="goalDueTime2" class="input" placeholder="Total hours to complete" />
               <input id ="goal2submit" type="submit" class="add" value="Add Goal" />
 
               <input id = "goal3input" type="text" class="input" placeholder="Goal 3" />
+              <input id = "duedate3" type="date" class="input"/>
               <input type="number" id="goalDueTime3" class="input" placeholder="Total hours to complete" />
               <input id="goal3submit" type="submit" class="add" value="Add Goal" />
               
@@ -74,26 +85,8 @@
 
       </div>
 
-
-
-      <div class="priorities">
+      <div id="priorities-container" class="priorities">
         
-        <form id="priority-form">
-          <input type="text" id="priority-name" placeholder="Priority name" required>
-          <input type="date" id="due-date" required>
-          <select id="priority-level" required>
-            <option value="!">Low Priority (!)</option>
-            <option value="!!">Mid Priority (!!)</option>
-            <option value="!!!">High Priority (!!!)</option>
-          </select>
-          <button type="submit">Add Priority</button>
-        </form>
-      
-        <!-- Display the list of priorities -->
-        <div id="priority-list">
-          <h2>Priority List</h2>
-          <!-- Items will be dynamically added here -->
-        </div>
       
       </div>
 
