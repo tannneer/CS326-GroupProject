@@ -25,87 +25,110 @@ export function renderAllCalendarComponents() {
     goalsTitle.textContent = 'Your Goals';
     goalsSection.appendChild(goalsTitle);
 
-    // Placeholder goals
+    // Placeholder for goal list
     const goalList = document.createElement('ul');
     goalList.classList.add('goal-list');
-    ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
-        const listItem = document.createElement('li');
-        listItem.textContent = goal;
-        goalList.appendChild(listItem);
-    });
     goalsSection.appendChild(goalList);
     calendarPageContainer.appendChild(goalsSection);
+
+    // Goal creation form
+    const goalForm = document.createElement('div');
+    goalForm.classList.add('goal-form');
+
+    const goalInput = document.createElement('input');
+    goalInput.placeholder = 'Goal Name';
+    goalForm.appendChild(goalInput);
+
+    const priorityInput = document.createElement('input');
+    priorityInput.type = 'number';
+    priorityInput.placeholder = 'Priority (1 is highest)';
+    goalForm.appendChild(priorityInput);
+
+    const createButton = document.createElement('button');
+    createButton.textContent = 'Create Goal';
+    goalForm.appendChild(createButton);
+    calendarPageContainer.appendChild(goalForm);
+
+    // Array to store goals
+    let goals = [];
+
+    // Handle creating a new goal
+    createButton.addEventListener('click', () => {
+        const goalName = goalInput.value;
+        const priority = parseInt(priorityInput.value);
+
+        if (goalName && !isNaN(priority)) {
+            const newGoal = { name: goalName, priority };
+            goals.push(newGoal);
+
+            // Sort the goals by priority (highest to lowest)
+            goals.sort((a, b) => b.priority - a.priority);
+
+            // Clear the current goal list
+            goalList.innerHTML = '';
+
+            // Display the top 3 goals
+            goals.slice(0, 3).forEach(goal => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${goal.name} (Priority: ${goal.priority})`;
+                goalList.appendChild(listItem);
+            });
+
+            // Clear the input fields
+            goalInput.value = '';
+            priorityInput.value = '';
+        }
+    });
+
+    // Add the calendar button and modal to open it
+    const calendarBtn = document.createElement('button');
+    calendarBtn.textContent = "Open Calendar";
+    calendarBtn.id = 'calendarBtn';
+    calendarPageContainer.appendChild(calendarBtn);
+
+    // Create the modal for the calendar
+    const calendarModal = document.createElement('div');
+    calendarModal.id = 'calendarModal';
+    calendarModal.classList.add('calendar-modal');
+    
+    // Modal content
+    const calendarContent = document.createElement('div');
+    calendarContent.classList.add('calendar-content');
+    
+    // Close button for the modal
+    const closeBtn = document.createElement('span');
+    closeBtn.classList.add('close-btn');
+    closeBtn.innerHTML = '&times;';
+    calendarContent.appendChild(closeBtn);
+    
+    // Calendar element (this will be initialized with FullCalendar)
+    const calendarDiv = document.createElement('div');
+    calendarDiv.id = 'calendar';
+    calendarContent.appendChild(calendarDiv);
+
+    calendarModal.appendChild(calendarContent);
+    calendarPageContainer.appendChild(calendarModal);
+
+    // Event listener to open the calendar modal
+    calendarBtn.addEventListener('click', () => {
+        calendarModal.style.display = 'block'; // Show the modal
+        initializeCalendar(); // Initialize FullCalendar
+    });
+
+    // Event listener to close the modal
+    closeBtn.addEventListener('click', () => {
+        calendarModal.style.display = 'none'; // Hide the modal
+    });
 
     return calendarPageContainer;
 }
 
-function renderTimer() {
-    const timerContainer = document.createElement('div');
-    timerContainer.classList.add('timer-container');
-
-    // Create and append the timer display
-    const timerDisplay = document.createElement('div');
-    timerDisplay.id = 'timerDisplay';
-    timerDisplay.textContent = '00:00';
-    timerContainer.appendChild(timerDisplay);
-
-    // Create and append the start button
-    const startButton = document.createElement('button');
-    startButton.textContent = 'Start';
-    startButton.addEventListener('click', startTimer);
-    timerContainer.appendChild(startButton);
-
-    // Create and append the stop button
-    const stopButton = document.createElement('button');
-    stopButton.textContent = 'Stop';
-    stopButton.addEventListener('click', stopTimer);
-    timerContainer.appendChild(stopButton);
-
-    // Create and append the reset button
-    const resetButton = document.createElement('button');
-    resetButton.textContent = 'Reset';
-    resetButton.addEventListener('click', resetTimer);
-    timerContainer.appendChild(resetButton);
-
-    // Timer-related variables
-    let seconds = 0;
-    let timerInterval = null;
-
-    // Timer functions
-    function startTimer() {
-        if (timerInterval) return; // Prevent multiple intervals
-
-        timerInterval = setInterval(() => {
-            seconds++;
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = seconds % 60;
-            timerDisplay.textContent = `${padTime(minutes)}:${padTime(remainingSeconds)}`;
-        }, 1000);
-    }
-
-    function stopTimer() {
-        clearInterval(timerInterval);
-        timerInterval = null;
-    }
-
-    function resetTimer() {
-        stopTimer();
-        seconds = 0;
-        timerDisplay.textContent = '00:00';
-    }
-
-    function padTime(time) {
-        return time < 10 ? `0${time}` : time;
-    }
-
-    return timerContainer;
+function initializeCalendar() {
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'resourceTimelineWeek'
+    });
+    calendar.render();
 }
-
-// Mount the components to the DOM
-document.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('root');
-    const calendarComponents = renderAllCalendarComponents();
-    root.appendChild(calendarComponents);
-});
 
 
