@@ -33,3 +33,19 @@
         return response.json(); 
        }
 
+       export async function addTaskController(){ 
+
+         const taskName = document.getElementById("taskInput").value;
+         const taskDueDate = document.getElementById("taskDueDate").value;
+         const taskTotalTime = document.getElementById("taskDueTime").value;
+
+         const response = await fetch("/addTask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+        });
+
+        return response.json();
+
+       }
+
