@@ -392,9 +392,31 @@ addpriorityButton.addEventListener('click', () => {
     highPriority.appendChild(priorityNameInput.value);
   
   }
-  
-
   })
+
+  //create page rendering 
+
+  export class Nav {
+    constructor(appElementId) {
+      this.app = document.getElementById(appElementId);
+      if (!this.app) {
+        throw new Error(`Element with ID "${appElementId}" not found.`); 
+      } 
+     
+    }}
+
+  export async function renderCreatePage(appElementId, page) {
+    const page = new Nav(appElementId);
+  
+    if (page === "create") {
+      page.renderCreate();
+    } else {
+      throw new Error('Cannot find page');
+    }
+  }
+
+ 
+  
 
 
 
