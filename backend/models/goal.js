@@ -20,6 +20,8 @@ export const Goal = sequelize.define("Goal", {
   goalDueDate: { type: DataTypes.DATE },
 });
 
+await sequelize.sync();
+
 
 // Export the User model for use in other files
 export default Goal;

@@ -14,6 +14,9 @@ export const Task = sequelize.define("Task", {
   dueDate: { type: DataTypes.STRING },
 });
 
+await sequelize.sync();
+
+
 
 // Export the User model for use in other files
 export default Task;
