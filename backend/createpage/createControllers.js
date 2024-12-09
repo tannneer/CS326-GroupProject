@@ -54,6 +54,40 @@
         }
       }
 
+            // delete goal controller
+            export const deleteGoalController = async (req, res) => {
+              const { id } = req.params; // Extract the goal ID from the request parameters
+           
+              try {
+                const deletedGoal = await Goal.destroy({
+                  where: {
+                    id, // Match the goal with the provided ID
+                  },
+                });
+           
+                if (deletedGoal) {
+                  return res.status(200).json({
+                    message: "Goal deleted successfully",
+                    goalId: id,
+                  });
+                } else {
+                  return res.status(404).json({
+                    message: "Goal not found",
+                  });
+                }
+              } catch (err) {
+                console.error("Error deleting goal", err);
+                return res.status(500).json({
+                  message: "Failed to delete goal",
+                });
+              }
+            };
+           
+      
+
+
+
+
       //add Priority List controller (to be done by Christian)
 
 
