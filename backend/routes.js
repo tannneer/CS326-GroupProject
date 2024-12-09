@@ -4,6 +4,7 @@ import { addGoalController, deleteTaskController } from "./createpage/createCont
 import { addTaskController } from "./createpage/createControllers.js";
 import { deleteGoalController } from "./createpage/createControllers.js";
 import { addPriorityController } from "./priority/priorityControllers.js";
+import { deletePriorityController } from "./priority/priorityControllers.js";
 
 
 const router = express.Router();
@@ -20,6 +21,7 @@ router.delete("/delete/goals/:id",deleteGoalController);
 router.delete("/delete/tasks/:id", deleteTaskController);
 
 router.post("/addPriority", addPriorityController);
+router.delete("/delete/priorities/:id", deletePriorityController);
 
 
 // Protected routes
