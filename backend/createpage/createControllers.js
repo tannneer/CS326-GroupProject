@@ -82,12 +82,39 @@
                 });
               }
             };
+
+        //delete Task controller 
+
+        export const deleteTaskController = async (req, res) => {
+          const { id } = req.params; // Extract the task ID from the request parameters
+        
+          try {
+            const deletedTask = await Task.destroy({
+              where: {
+                id, // Match the task with the provided ID
+              },
+            });
+        
+            if (deletedTask) {
+              return res.status(200).json({
+                message: "Task deleted successfully",
+                taskId: id,
+              });
+            } else {
+              return res.status(404).json({
+                message: "Task not found",
+              });
+            }
+          } catch (err) {
+            console.error("Error deleting task", err);
+            return res.status(500).json({
+              message: "Failed to delete task",
+            });
+          }
+        };
+        
            
       
-
-
-
-
       //add Priority List controller (to be done by Christian)
 
 
