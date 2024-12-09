@@ -1,25 +1,50 @@
+
 // import { renderAuthPage } from "./frontend/pages/authpage/signup.js";
 
 // document.addEventListener("DOMContentLoaded", () => {
-//   const loginBtn = document.getElementById("login-btn");
-//   const signupBtn = document.getElementById("signup-btn");
+//   const appElement = document.getElementById("app");
 
-//   if (loginBtn) {
-//     loginBtn.addEventListener("click", (e) => {
-//       e.preventDefault();
-//       renderAuthPage("app", "login");
-//     });
-//   }
+//   // Define routes for login and signup
+//   const routes = {
+//     "/login": () => renderAuthPage("app", "login"),
+//     "/register": () => renderAuthPage("app", "register"),
+//   };
 
-//   if (signupBtn) {
-//     signupBtn.addEventListener("click", (e) => {
-//       e.preventDefault();
-//       renderAuthPage("app", "signup");
-//     });
-//   }
-// });
+//   // Function to navigate and render a specific page
+//   const navigateTo = (path) => {
+//     history.pushState({}, "", path); // Update the browser URL
+//     handleRoute(path); // Render the corresponding page
+//   };
 
-import { renderAuthPage } from "./frontend/pages/authpage/signup.js"; // Import rendering function for login/signup pages
+//   // Function to handle the current route
+//   const handleRoute = (path) => {
+//     const routeHandler = routes[path];
+//     if (routeHandler) {
+//       routeHandler(); // Call the render function for the current route
+//     } else {
+//       console.log("No handler found for:", path);
+//     }
+//   };
+
+//   // Add click listeners for navigation
+//   document.body.addEventListener("click", (e) => {
+//     if (e.target.matches('[href^="/"]')) {
+//       e.preventDefault(); // Prevent full page reload
+//       navigateTo(e.target.getAttribute("href")); // Navigate dynamically
+//     }
+//   });
+
+//   // Handle browser back/forward navigation
+//   window.addEventListener("popstate", () => {
+//     handleRoute(window.location.pathname);
+//   });
+
+//   // Handle the initial route on page load
+//   handleRoute(window.location.pathname);
+// }); 
+
+
+import { renderAuthPage } from "./frontend/pages/authpage/signup.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const appElement = document.getElementById("app");
@@ -27,26 +52,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Define routes for login and signup
   const routes = {
     "/login": () => renderAuthPage("app", "login"),
-    "/signup": () => renderAuthPage("app", "signup"),
+    "/register": () => renderAuthPage("app", "register"),
   };
 
-  // Navigate to a specific path and render the associated page
+  // Function to navigate and render a specific page
   const navigateTo = (path) => {
-    history.pushState({}, "", path); // Update the URL
-    handleRoute(path); // Render the appropriate page
+    history.pushState({}, "", path); // Update the browser URL
+    handleRoute(path); // Render the corresponding page
   };
 
-  // Handle route rendering
+  // Function to handle the current route
   const handleRoute = (path) => {
     const routeHandler = routes[path];
     if (routeHandler) {
-      routeHandler(); // Render login or signup page
+      routeHandler(); // Call the render function for the current route
     } else {
-      console.log("Let the static index.html handle the current path.");
+      // Redirect to the root (/) and let the frontend take control
+      history.replaceState({}, "", "/");
+      handleRoute("/"); // Ensure the homepage or default rendering happens
     }
   };
 
-  // Event listener for navigation links
+  // Add click listeners for navigation
   document.body.addEventListener("click", (e) => {
     if (e.target.matches('[href^="/"]')) {
       e.preventDefault(); // Prevent full page reload
@@ -54,11 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Listen for browser back/forward navigation
+  // Handle browser back/forward navigation
   window.addEventListener("popstate", () => {
     handleRoute(window.location.pathname);
   });
 
-  // Handle initial route when the page loads
+  // Handle the initial route on page load
   handleRoute(window.location.pathname);
 });
+

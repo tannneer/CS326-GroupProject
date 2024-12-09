@@ -286,7 +286,7 @@ document.querySelector(".signup-button").addEventListener("click", () => {
   export async function renderAuthPage(appElementId, page) {
     const auth = new Auth(appElementId);
   
-    if (page === "signup") {
+    if (page === "register") {
       auth.renderSignup();
     } else if (page === "login") {
       auth.renderLogin();
