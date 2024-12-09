@@ -102,14 +102,48 @@
 //       )
 //       .join("");
 //   }
- 
-const addTaskButton = document.getElementById('addTaskBtn');
-const firstGoalList = document.getElementById('goal-item1');
-const secondGoalList = document.getElementById('goal-item2');
-const thirdGoalList = document.getElementById('goal-item3');
 
+let selectedGoal = 1;
+function switchGoal(){ 
+  const dropdown = document.getElementById("goal-dropdown");
+  selectedGoal = parseInt(dropdown.value);
+  console.log(`Switched to Goal ID: ${selectedGoal}`);
+
+}
+
+async function submitTaskBackend(){ 
+
+  const taskName = document.getElementById("taskInput").value;
+  const taskDueDate = document.getElementById("taskDueDate").value;
+  const taskTotalTime = document.getElementById("taskDueTime").value;
+
+  const response = await fetch('http://localhost:3000/addTask', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      taskName: taskName,
+      taskDueDate: taskDueDate,
+      taskTotalTime: taskTotalTime,
+    }),
+  });
+
+  const result = await response.json();
+
+  console.log(result);
+
+}
+
+
+const addTaskButton = document.getElementById('addTaskBtn');
+
+
+const taskList = document.getElementById(`goal-item${selectedGoal}`)
 
 addTaskButton.addEventListener('click', () => {
+
+  //put switch goal here - taskList.appendChild() at bottom
 
   const userInput = document.getElementById("taskInput");
 
@@ -156,7 +190,9 @@ addTaskButton.addEventListener('click', () => {
   taskBoxDiv.appendChild(label2);
   
   // Append the styled div to your parent container (e.g., a task list)
-  firstGoalList.appendChild(taskBoxDiv);
+  taskList.appendChild(taskBoxDiv);
+
+  submitTaskBackend();
 });
 
 
@@ -170,6 +206,8 @@ deleteAllButton.addEventListener('click', () => {
 
 //after hitting the submit goal button 1 - a POST with the following data is sent to the server
 async function submitGoal1Backend(){ 
+  /*VERY IMPORTANT LOOK AT THE FORMAT OF THE DATE*/
+
   const goalName = document.getElementById("goal1input").value; 
   const goalDueDate = document.getElementById("duedate1").value;
   const goalTotalTime = document.getElementById("goalDueTime1").value;
