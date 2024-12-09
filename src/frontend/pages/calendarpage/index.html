@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,14 @@
 </head>
 <body>
     <div id="root"></div>
-    <script type="module" src="calendarPage.js"></script>
+    <script type="module">
+        import { renderAllCalendarComponents } from './calendarPage.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const root = document.getElementById('root');
+            const components = renderAllCalendarComponents();
+            root.appendChild(components);
+        });
+    </script>
 </body>
 </html>

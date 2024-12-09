@@ -25,7 +25,7 @@ export function renderAllCalendarComponents() {
     goalsTitle.textContent = 'Your Goals';
     goalsSection.appendChild(goalsTitle);
 
-    // Placeholder goals
+    // Static goals
     const goalList = document.createElement('ul');
     goalList.classList.add('goal-list');
     ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
@@ -67,14 +67,11 @@ function renderTimer() {
     resetButton.addEventListener('click', resetTimer);
     timerContainer.appendChild(resetButton);
 
-    // Timer-related variables
     let seconds = 0;
     let timerInterval = null;
 
-    // Timer functions
     function startTimer() {
         if (timerInterval) return; // Prevent multiple intervals
-
         timerInterval = setInterval(() => {
             seconds++;
             const minutes = Math.floor(seconds / 60);
@@ -100,12 +97,3 @@ function renderTimer() {
 
     return timerContainer;
 }
-
-// Mount the components to the DOM
-document.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('root');
-    const calendarComponents = renderAllCalendarComponents();
-    root.appendChild(calendarComponents);
-});
-
-
