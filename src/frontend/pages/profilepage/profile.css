@@ -1,144 +1,217 @@
 /* General container styling */
-.container {
-    width: 100%;
-    height: 100vh;
-    margin: 0 auto;
-    background: white;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center;
-    position: relative; 
-  }
-  
-  
- /* Logout Button Styling  and adjustments*/
+body {
+  margin: 0;
+  height: 100%; 
+  padding: 0;
+}
+/* Navigation Bar */ 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0ba6ff; /* Blue background */
+  padding: 10px 20px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fix navbar to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left .nav-link,
+.navbar-right .profile-btn {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 14px; 
+}
+
+.navbar-left .nav-link:hover,
+.navbar-right .profile-btn:hover {
+  text-decoration: underline;
+  color: #ffdd57; /* Optional: Add hover effect color */
+}
+
+.profile-btn {
+  background-color: green; /* White button */
+  color: #0ba6ff;
+  border: 1px solid #0ba6ff;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile-btn:hover {
+  background-color: #0ba6ff;
+  color: white;
+}
+
+/* Adjust container to account for the navbar height */
+.container { 
+  padding-top: 70px;
+  width: 100%;
+  height: 100%; /* Subtract navbar height */
+  margin: 0 auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px; /* Add padding to avoid overlap with navbar */
+}
+
+/* Logout Button Styling */
 .logout-button {
-    position: absolute;
-    bottom: 20px; /* Move to the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    width: 120px;
-    height: 40px;
-    background: #f0f0f0;
-    border: 2px solid #d4d4d4;
-    border-radius: 20px;
-    font-size: 14px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    color: #333;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  bottom: 20px; /* Move to the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  width: 120px;
+  height: 40px;
+  background: #f0f0f0;
+  border: 2px solid #d4d4d4;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logout-button:hover {
-    background: #e0e0e0;
+  background: #e0e0e0;
 }
-  
-  /* Profile Picture Styling */
-  .profile-pic-container {
-    position: relative;
-    width: 166px;
-    height: 166px;
-    border-radius: 50%;
-    border: 2px solid #D4D4D4;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  .profile-pic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .camera-icon {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #0ba6ff;
-    border: 2px solid white;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .camera-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: white;
-  }
-  
-  /* Card Styling */
-  .card {
-    width: 558px;
-    background: white;
-    border: 2px solid #D4D4D4;
-    border-radius: 30px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .greeting {
-    font-size: 36px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  
-  .email-label {
-    font-size: 32px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
-  
-  .instructions {
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
-  
-  /* Center Button */
-  .cta-button {
-    width: 165px;
-    height: 65px;
-    border-radius: 20px;
-    background: #0ba6ff;
-    border: 2px solid #0ba6ff;
-    font-size: 16px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .card {
-    width: 558px;
-    background: white;
-    border: 2px solid #D4D4D4;
-    border-radius: 30px;
-    padding: 20px;
-    text-align: center; 
-    display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; /
-  }
-  
-  
-  
-  
 
+/* Profile Picture Styling */
+.profile-pic-container {
+  position: relative;
+  width: 166px;
+  height: 166px;
+  border-radius: 50%;
+  border: 2px solid #D4D4D4;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0ba6ff;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.camera-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+/* Card Styling */
+.card { 
+  position: relative; /* Ensure proper stacking context */
+  z-index: 1;
+  width: 558px;
+  background: white;
+  border: 2px solid #D4D4D4;
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center; 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  gap: 20px; 
+}
+
+.greeting {
+  font-size: 36px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.email-label {
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.instructions {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+
+/* Center Button */
+.create-button  { 
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  width: 165px;
+  height: 65px;
+  border-radius: 20px;
+  background: #0ba6ff;
+  border: 2px solid #0ba6ff;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-align: center; /* Ensure the text inside the button is centered */
+ } 
+
+/* .cta-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+} */
+
+.create-button:hover {
+  background-color: #0ba6ff; /* Bright blue for hover */
+  border-color: #0056b3;
+}
+.create-button:active {
+  transform: scale(0.95); /* Add a slight click effect */
+}
