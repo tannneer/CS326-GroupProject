@@ -1,7 +1,48 @@
-body {
+/* body {
   font-family: Arial, sans-serif;
   background-color: #f3fbf1;
   color: #333;
+}
+
+
+.navbar {
+  background-color: #2ec;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-list li {
+  display: inline;
+}
+
+.nav-btn {
+  background-color: #2ec;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: #27c;
 }
 
 .container {
@@ -79,6 +120,24 @@ h2 {
   border-radius: 5px;
 }
 
+.Task4Progress {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3fbf1;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.Task4p {
+  height: 50%;
+  width: 0;
+  background-color: #98B4A6;
+  border-radius: 5px;
+}
+
 .pie-chart-container {
   position: relative;
   display: flex;
@@ -107,4 +166,184 @@ h2 {
 
 .rating-section input[type="range"] {
   width: 100%;
+} */ 
+
+
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3fbf1; /* Light background */
+  color: #333;
+  margin: 0; /* Remove default browser margin */
+  padding: 0;
+  height: 100%;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0ba6ff; /* Blue background */
+  padding: 10px 20px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fix navbar to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left .nav-link,
+.navbar-right .profile-btn {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.navbar-left .nav-link:hover,
+.navbar-right .profile-btn:hover {
+  text-decoration: underline;
+  color: #ffdd57; /* Hover color */
+}
+
+.profile-btn {
+  background-color: green;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile-btn:hover {
+  background-color: white;
+  color: #0ba6ff;
+}
+
+/* Analytics Container */
+.container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background: #64868e; /* Analytics container background */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1,
+h2 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+/* Task Section */
+.task-section {
+  margin-top: 20px;
+}
+
+.task-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-section li {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 16px;
+  color: white;
+}
+
+input[type="checkbox"] {
+  appearance: auto;
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Progress Bar Styling */
+.Task1Progress,
+.Task2Progress,
+.Task3Progress,
+.Task4Progress {
+  width: 90%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3fbf1;
+  height: 20px;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+.Task1p,
+.Task2p,
+.Task3p,
+.Task4p {
+  height: 50%;
+  width: 0;
+  background-color: #98B4A6;
+  border-radius: 5px;
+}
+
+/* Pie Chart */
+.pie-chart-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.donut-chart {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: conic-gradient(#A6AEBF 0% 30%, #006A67 30% 60%, #608BC1 60% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.center {
+  width: 150px;
+  height: 150px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Slider */
+.rating-section input[type="range"] {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+
+.rating-section p {
+  text-align: center;
+  color: white;
 }

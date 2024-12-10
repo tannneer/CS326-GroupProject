@@ -20,6 +20,8 @@ export const User = sequelize.define("User", {
   role: { type: DataTypes.STRING, defaultValue: "user" }, // Roles: 'user', 'admin'
 });
 
+await sequelize.sync();
+
 
 // Export the User model for use in other files
 export default User;

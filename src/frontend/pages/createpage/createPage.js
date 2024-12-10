@@ -1,141 +1,104 @@
-// export class CreatePage {
-//   constructor(appElementId) {
-//     this.app = document.getElementById(appElementId);
-//     if (!this.app) {
-//       throw new Error(`Element with ID "${appElementId}" not found.`);
-//     }
-//     this.arrayOfTasks = [];
-//     this.defaultData = {
-//       d2: ["09:00", "15:00"],
-//       d5: ["17:00", "20:00"],
-//     };
-//   }
+export function renderCreateObj() {
+  // Dynamically load the CSS for the create page
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "frontend/pages/createpage/createPage.css"; // Adjust path as needed
+  document.head.appendChild(link);
 
-//   // Dynamically load CSS
-//   loadCSS(filePath) {
-//     if (!document.querySelector(`link[href="${filePath}"]`)) {
-//       const link = document.createElement("link");
-//       link.rel = "stylesheet";
-//       link.href = filePath;
-//       document.head.appendChild(link);
-//     }
-//   }
+  // Add the HTML content for the create page dynamically
+  const app = document.getElementById("app");
+  app.innerHTML = `
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="/create-objectives" class="nav-link">Create Objectives</a>
+        <a href="/calendar" class="nav-link">Calendar</a>
+        <a href="/analytics" class="nav-link">Analytics</a>
+      </div>
+      <div class="navbar-right">
+        <a href="/profile" class="profile-btn">Profile</a>
+      </div>
+    </nav>
+    <div class="dash">
+      <h3 class="titleText">Goals and Tasks</h3>
+      <div class="goals">
+        <div class="form-container">
+          <h2>Set Your Goals</h2>
+          <input id="goal1input" type="text" class="input" placeholder="Goal 1" />
+          <input id="duedate1" type="date" class="input" />
+          <input type="number" id="goalDueTime1" class="input" placeholder="Total hours to complete" />
+          <input id="goal1submit" type="submit" class="add" value="Add Goal" />
 
-//   // Render the Create Page with Navbar
-//   render() {
-//     this.loadCSS("frontend/pages/createPage/createPage.css");
+          <input id="goal2input" type="text" class="input" placeholder="Goal 2" />
+          <input id="duedate2" type="date" class="input" />
+          <input type="number" id="goalDueTime2" class="input" placeholder="Total hours to complete" />
+          <input id="goal2submit" type="submit" class="add" value="Add Goal" />
 
-//     this.app.innerHTML = `
-//       <nav class="navbar">
-//         <ul class="nav-list">
-//           <li><button class="nav-btn" id="createPageNav">Create Page</button></li>
-//           <li><button class="nav-btn" id="analyticsPageNav">Analytics Page</button></li>
-//           <li><button class="nav-btn" id="priorityPageNav">Priority Page</button></li>
-//           <li><button class="nav-btn logout-btn" id="logoutNav">Log Out</button></li>
-//         </ul>
-//       </nav>
-//       <div class="content">
-//         <h1 class="titleText">Task Creation</h1>
-//         <div class="outercontainer">
-//           <div class="box">
-//             <div class="wrap">
-//               <section class="ranges">
-//                 <input id="all" name="dur" type="radio"/>
-//                 <label for="all">Always</label>
-//                 <input id="work" name="dur" type="radio"/>
-//                 <label for="work">Work</label>
-//                 <input id="custom" name="dur" type="radio"/>
-//                 <label for="custom">Sometimes</label>
-//               </section>  
-//               <section class="timetable off">
-//                 ${this.renderTimetable()}
-//               </section>
-//             </div>
-//           </div>
-//           <div id="box2" class="box">
-//             <div class="container">
-//               <div class="form">
-//                 <input type="text" class="input" placeholder="Enter task" />
-//                 <input type="submit" class="add" value="Add Task" />
-//               </div>
-//               <div class="tasks"></div>
-//               <div class="delete-all">Delete all</div>
-//             </div>
-//           </div>
-//         </div>
-//         <button type="submit" class="schedulebtn">Submit schedule</button>
-//       </div>
-//     `;
+          <input id="goal3input" type="text" class="input" placeholder="Goal 3" />
+          <input id="duedate3" type="date" class="input" />
+          <input type="number" id="goalDueTime3" class="input" placeholder="Total hours to complete" />
+          <input id="goal3submit" type="submit" class="add" value="Add Goal" />
 
-//     // Restore tasks from localStorage
-//     if (window.localStorage.getItem("tasks")) {
-//       this.arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"));
-//     }
-//     this.getTaskFromLocalStorage();
+          <div id="deleteAll" class="delete-all">Delete all</div>
+        </div>
+      </div>
 
-//     // Add event listeners
-//     this.attachEventListeners();
-//   }
+      <div class="tasks">
+        <h2>Set Your Tasks</h2>
+        <div class="form">
+          <input type="text" id="taskInput" class="input" placeholder="Enter Task name" />
+          <input type="date" id="taskDueDate" class="input" placeholder="Due date" />
+          <input type="number" id="taskDueTime" class="input" placeholder="Hours to complete" />
 
-//   renderTimetable() {
-//     const days = [
-//       "Monday",
-//       "Tuesday",
-//       "Wednesday",
-//       "Thursday",
-//       "Friday",
-//       "Saturday",
-//       "Sunday",
-//     ];
-//     return days
-//       .map(
-//         (day, index) => `
-//         <input id="d${index + 1}" type="checkbox"/>
-//         <label for="d${index + 1}">
-//           <caption>${day}</caption>
-//           <div class="duration">
-//             <input type="time" value="09:00">
-//             <input type="time" value="20:00">
-//           </div>
-//         </label>
-//       `
-//       )
-//       .join("");
-//   }
+          <div class="dropdown">
+            <button class="dropdown-btn">Select Goal</button>
+            <div class="dropdown-content">
+              <div class="goal" data-selected="false">Goal 1</div>
+              <div class="goal" data-selected="false">Goal 2</div>
+              <div class="goal" data-selected="false">Goal 3</div>
+            </div>
+          </div>
 
-let selectedGoal = 1;
-function switchGoal(){ 
-  const dropdown = document.getElementById("goal-dropdown");
-  selectedGoal = parseInt(dropdown.value);
-  console.log(`Switched to Goal ID: ${selectedGoal}`);
+          <input type="submit" id="addTaskBtn" class="add" value="Add Task" />
+        </div>
+        <div id="deleteAll" class="delete-all">Delete all</div>
+      </div>
 
+      <div class="goals-list">
+        <div class="goal-item-container">
+          <div id="goal-item1" class="goal-item"></div>
+          <div id="goal-item2" class="goal-item"></div>
+          <div id="goal-item3" class="goal-item"></div>
+        </div>
+      </div>
+
+      <div id="priorities-container" class="priorities"></div>
+
+      <div class="calendar">Calendar</div>
+    </div>
+  `;
+
+  // Attach event listeners and additional JavaScript functionality
+  initializeCreatePage();
 }
 
-async function submitTaskBackend(){ 
+export async function addTaskController(){  
 
   const taskName = document.getElementById("taskInput").value;
   const taskDueDate = document.getElementById("taskDueDate").value;
   const taskTotalTime = document.getElementById("taskDueTime").value;
 
   const response = await fetch('http://localhost:3000/addTask', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      taskName: taskName,
-      taskDueDate: taskDueDate,
-      taskTotalTime: taskTotalTime,
-    }),
-  });
+   method: "POST",
+   headers: { "Content-Type": "application/json" },
+   body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+ });
 
-  const result = await response.json();
-
-  console.log(result);
+ return response.json();
 
 }
 
 
+function initializeCreatePage() {
 const addTaskButton = document.getElementById('addTaskBtn');
 const firstGoalList = document.getElementById('goal-item1');
 const secondGoalList = document.getElementById('goal-item2');
@@ -267,45 +230,21 @@ firstGoal.addEventListener('click', () => {
 
 //after hitting the submit task button 1 - a POST with the following data is sent to the server
 
-export async function addTaskController(){ 
+// export async function addTaskController(){  
 
-  const taskName = document.getElementById("taskInput").value;
-  const taskDueDate = document.getElementById("taskDueDate").value;
-  const taskTotalTime = document.getElementById("taskDueTime").value;
+//   const taskName = document.getElementById("taskInput").value;
+//   const taskDueDate = document.getElementById("taskDueDate").value;
+//   const taskTotalTime = document.getElementById("taskDueTime").value;
 
-  const response = await fetch('http://localhost:3000/addTask', {
-   method: "POST",
-   headers: { "Content-Type": "application/json" },
-   body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
- });
+//   const response = await fetch('http://localhost:3000/addTask', {
+//    method: "POST",
+//    headers: { "Content-Type": "application/json" },
+//    body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+//  });
 
- return response.json();
+//  return response.json();
 
-}
-
-async function submitGoal2Backend(){ 
-  const goalName = document.getElementById("goal2input").value; 
-  const goalDueDate = document.getElementById("duedate2").value;
-  const goalTotalTime = document.getElementById("goalDueTime2").value;
-
-  const response = await fetch('http://localhost:3000/addGoal', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      name: goalName,
-      dueDate: goalDueDate,
-      totalTime: goalTotalTime,
-    }),
-  });
-
-  const result = await response.json();
-
-  console.log(result);
-
-}
-
+// }
 
 const secondGoal = document.getElementById('goal2submit');
 
@@ -544,28 +483,29 @@ addpriorityButton.addEventListener('click', () => {
   }
   })
 
+}
   //create page rendering 
 
-  export class Nav {
-    constructor(appElementId) {
-      this.app = document.getElementById(appElementId);
-      if (!this.app) {
-        throw new Error(`Element with ID "${appElementId}" not found.`); 
-      } 
+  // export class Nav {
+  //   constructor(appElementId) {
+  //     this.app = document.getElementById(appElementId);
+  //     if (!this.app) {
+  //       throw new Error(`Element with ID "${appElementId}" not found.`); 
+  //     } 
      
-    }}
+  //   }}
 
-  export async function renderCreatePage(appElementId, page) {
-    const newpage = new Nav(appElementId);
+  // export async function renderCreatePage(appElementId, page) {
+  //   const newpage = new Nav(appElementId);
   
-    if (newpage === "create") {
-      newpage.renderCreate();
-    } else {
-      throw new Error('Cannot find page');
-    }
-  }
+  //   if (newpage === "create") {
+  //     newpage.renderCreate();
+  //   } else {
+  //     throw new Error('Cannot find page');
+  //   }
+  // }
 
- 
+  
   
 
 
@@ -578,17 +518,6 @@ addpriorityButton.addEventListener('click', () => {
 
 
 
-// document.addEventListener('DOMContentLoaded', async () => {
-//   const taskComponent = new TaskComponent();
-//   const renderedComponent = await taskComponent.render();
-
-
-//   // Locate the Goals List container in the DOM
-//   const goalsListContainer = document.querySelector('.goal-item1');
-//   if (goalsListContainer) {
-//     goalsListContainer.appendChild(renderedComponent);
-//   }
-// });
 
 
 
