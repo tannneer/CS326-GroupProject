@@ -1,3 +1,5 @@
+import { renderProfile } from "/frontend/pages/profilepage/profile.js";
+
 export class Auth {
   constructor(appElementId) {
     this.app = document.getElementById(appElementId);
@@ -54,7 +56,23 @@ document.querySelector(".signup-button").addEventListener("click", () => {
   this.handleSignup();
 });
 
-  }
+ } 
+
+ async handleSignup() {
+  //const email = document.getElementById("email").value;
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const response = await fetch("/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, password }),
+  });
+  const data = await response.json();
+  console.log(JSON.stringify(data, null, 2));
+  alert(data.message);
+
+}
 
   renderLogin() {
       this.loadCSS("frontend/pages/authpage/login.css");
@@ -70,11 +88,11 @@ document.querySelector(".signup-button").addEventListener("click", () => {
               <label for="password" class="password-label">Password</label>
               <input id="password" type="password" placeholder="Enter your password">
     
-              <button type="button" class="login-button">LOG IN</button>
+              <button type="button" href="/profile" class="login-button">LOG IN</button>
             </form>
           </div>
           <p class="signup-link">
-            New to TimeBank? <span id="signup-link" href="/signup" style="color: #0BA6FF; cursor: pointer;">SIGN UP</span>
+            New to TimeBank? <span id="signup-link" href="/register" style="color: #0BA6FF; cursor: pointer;">SIGN UP</span>
           </p>
         </div>
       `;
@@ -92,24 +110,6 @@ document.querySelector(".signup-button").addEventListener("click", () => {
     
  
 
-    async handleSignup() {
-      //const email = document.getElementById("email").value;
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      const response = await fetch("/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-      const data = await response.json();
-      console.log(JSON.stringify(data, null, 2));
-      alert(data.message);
-
-    }
-    
-  
-    
     async handleLogin() {
       // const email = document.getElementById("email").value;
        const username = document.getElementById("usernameLogin").value;
@@ -119,22 +119,30 @@ document.querySelector(".signup-button").addEventListener("click", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
-      });
+      });  
       const data = await response.json();
-      console.log(JSON.stringify(data, null, 2));
-      alert(data.message);
-  
-
-     }
-  
-
+      if (response.ok) {
+        alert(data.message || "Login successful!");
+        renderProfile(); 
+      } else {
+        alert(data.error || "Login failed! Please check your credentials.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An unexpected error occurred. Please try again.");
+    
+} 
 }
   
- 
+    
+
+
+   
+
   export async function renderAuthPage(appElementId, page) {
     const auth = new Auth(appElementId);
   
-    if (page === "signup") {
+    if (page === "register") {
       auth.renderSignup();
     } else if (page === "login") {
       auth.renderLogin();
