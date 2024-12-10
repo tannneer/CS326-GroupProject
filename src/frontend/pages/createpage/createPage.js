@@ -8,6 +8,7 @@ export function renderCreateObj() {
   // Add the HTML content for the create page dynamically
   const app = document.getElementById("app");
   app.innerHTML = `
+  <div id="create-page">
     <nav class="navbar">
       <div class="navbar-left">
         <a href="/create-objectives" class="nav-link">Create Objectives</a>
@@ -74,7 +75,8 @@ export function renderCreateObj() {
       <div id="priorities-container" class="priorities"></div>
 
       <div class="calendar">Calendar</div>
-    </div>
+    </div> 
+     </div>
   `;
 
   // Attach event listeners and additional JavaScript functionality
