@@ -1,82 +1,60 @@
 export function renderAllCalendarComponents() {
-    // const calendarPageContainer = document.createElement('div');
-    // calendarPageContainer.classList.add('container');
+    const calendarPageContainer = document.createElement('div');
+    calendarPageContainer.classList.add('container');
 
-    // // Navbar
-    // const navbar = document.createElement('nav');
-    // navbar.classList.add('navbar');
-    // ['Create', 'Priorities', 'Analysis'].forEach(page => {
-    //     const navItem = document.createElement('a');
-    //     navItem.href = `#${page.toLowerCase()}`;
-    //     navItem.textContent = page;
-    //     navItem.classList.add('nav-item');
-    //     navbar.appendChild(navItem);
-    // });
-    // calendarPageContainer.appendChild(navbar);
+    // Navbar
+    const navbar = document.createElement('nav');
+    navbar.classList.add('navbar');
+    ['Create', 'Priorities', 'Analytics'].forEach(page => {
+        const navItem = document.createElement('a');
+        navItem.href = `#${page.toLowerCase()}`;
+        navItem.textContent = page;
+        navItem.classList.add('nav-item');
+        navbar.appendChild(navItem);
+    });
+    calendarPageContainer.appendChild(navbar);
 
-    // // Timer Component
-    // const timerComponent = renderTimer();
-    // calendarPageContainer.appendChild(timerComponent);
+    // Tasks Calendar Section (left side)
+    const tasksCalendar = document.createElement('div');
+    tasksCalendar.classList.add('tasks-calendar');
+    const tasksCalendarTitle = document.createElement('h3');
+    tasksCalendarTitle.textContent = 'Tasks Calendar';
+    tasksCalendar.appendChild(tasksCalendarTitle);
 
-    // // Goals Section
-    // const goalsSection = document.createElement('div');
-    // goalsSection.classList.add('goals-section');
-    // const goalsTitle = document.createElement('h3');
-    // goalsTitle.textContent = 'Your Goals';
-    // goalsSection.appendChild(goalsTitle);
+    const placeholderText = document.createElement('p');
+    placeholderText.textContent = 'Tasks organized by deadline and time will appear here.';
+    tasksCalendar.appendChild(placeholderText);
+    calendarPageContainer.appendChild(tasksCalendar);
 
-    // // Static goals
-    // const goalList = document.createElement('ul');
-    // goalList.classList.add('goal-list');
-    // ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
-    //     const listItem = document.createElement('li');
-    //     listItem.textContent = goal;
-    //     goalList.appendChild(listItem);
-    // });
-    // goalsSection.appendChild(goalList);
-    // calendarPageContainer.appendChild(goalsSection);
+    // Right column container
+    const rightColumn = document.createElement('div');
+    rightColumn.classList.add('right-column');
 
-    // return calendarPageContainer; 
+    // Timer Component
+    const timerComponent = renderTimer();
+    rightColumn.appendChild(timerComponent);
 
-        // Dynamically load the CSS for the calendar page
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "frontend/pages/calendarpage/calendarPage.css"; 
-        document.head.appendChild(link);
-    
-        // Add the HTML content dynamically for the calendar page
-        const app = document.getElementById("app");
-        app.innerHTML = `
-          <nav class="navbar">
-            <div class="navbar-left">
-            <a href="/create-objectives" class="nav-link">Create Objectives</a>
-             <a href="/calendar" class="nav-link">Calendar</a>
-             <a href="/analytics" class="nav-link">Analytics</a>
-             </div>
-            <div class="navbar-right">
-             <a href="/profile" class="profile-btn">Profile</a>
-            </div>
-             </nav>
-            <div class="container">
-                <div id="timer-container" class="timer-container">
-                    <div id="timerDisplay" class="timer-display">00:00</div>
-                    <button id="startButton" class="timer-button">Start</button>
-                    <button id="stopButton" class="timer-button">Stop</button>
-                    <button id="resetButton" class="timer-button">Reset</button>
-                </div>
-                <div class="goals-section">
-                    <h3>Your Goals</h3>
-                    <ul class="goal-list">
-                        <li>Goal 1</li>
-                        <li>Goal 2</li>
-                        <li>Goal 3</li>
-                    </ul>
-                </div>
-            </div>
-        `;
-    
-        // Attach functionality to the timer
-        renderTimer();
+    // Goals Section
+    const goalsSection = document.createElement('div');
+    goalsSection.classList.add('goals-section');
+    const goalsTitle = document.createElement('h3');
+    goalsTitle.textContent = 'Your Current Tasks';
+    goalsSection.appendChild(goalsTitle);
+
+    // Static goals
+    const goalList = document.createElement('ul');
+    goalList.classList.add('goal-list');
+    ['Task 1', 'Task 2', 'Task 3'].forEach(goal => {
+        const listItem = document.createElement('li');
+        listItem.textContent = goal;
+        goalList.appendChild(listItem);
+    });
+    goalsSection.appendChild(goalList);
+    rightColumn.appendChild(goalsSection);
+
+    calendarPageContainer.appendChild(rightColumn);
+
+    return calendarPageContainer;
 }
 
 function renderTimer() {
@@ -86,7 +64,7 @@ function renderTimer() {
     // Create and append the timer display
     const timerDisplay = document.createElement('div');
     timerDisplay.id = 'timerDisplay';
-    timerDisplay.textContent = '00:00';
+    timerDisplay.textContent = '00:00:00';
     timerContainer.appendChild(timerDisplay);
 
     // Create and append the start button
@@ -128,7 +106,7 @@ function renderTimer() {
     function resetTimer() {
         stopTimer();
         seconds = 0;
-        timerDisplay.textContent = '00:00';
+        timerDisplay.textContent = '00:00:00';
     }
 
     function padTime(time) {
