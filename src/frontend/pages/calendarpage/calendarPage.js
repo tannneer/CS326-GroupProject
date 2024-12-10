@@ -1,42 +1,82 @@
 export function renderAllCalendarComponents() {
-    const calendarPageContainer = document.createElement('div');
-    calendarPageContainer.classList.add('container');
+    // const calendarPageContainer = document.createElement('div');
+    // calendarPageContainer.classList.add('container');
 
-    // Navbar
-    const navbar = document.createElement('nav');
-    navbar.classList.add('navbar');
-    ['Create', 'Priorities', 'Analysis'].forEach(page => {
-        const navItem = document.createElement('a');
-        navItem.href = `#${page.toLowerCase()}`;
-        navItem.textContent = page;
-        navItem.classList.add('nav-item');
-        navbar.appendChild(navItem);
-    });
-    calendarPageContainer.appendChild(navbar);
+    // // Navbar
+    // const navbar = document.createElement('nav');
+    // navbar.classList.add('navbar');
+    // ['Create', 'Priorities', 'Analysis'].forEach(page => {
+    //     const navItem = document.createElement('a');
+    //     navItem.href = `#${page.toLowerCase()}`;
+    //     navItem.textContent = page;
+    //     navItem.classList.add('nav-item');
+    //     navbar.appendChild(navItem);
+    // });
+    // calendarPageContainer.appendChild(navbar);
 
-    // Timer Component
-    const timerComponent = renderTimer();
-    calendarPageContainer.appendChild(timerComponent);
+    // // Timer Component
+    // const timerComponent = renderTimer();
+    // calendarPageContainer.appendChild(timerComponent);
 
-    // Goals Section
-    const goalsSection = document.createElement('div');
-    goalsSection.classList.add('goals-section');
-    const goalsTitle = document.createElement('h3');
-    goalsTitle.textContent = 'Your Goals';
-    goalsSection.appendChild(goalsTitle);
+    // // Goals Section
+    // const goalsSection = document.createElement('div');
+    // goalsSection.classList.add('goals-section');
+    // const goalsTitle = document.createElement('h3');
+    // goalsTitle.textContent = 'Your Goals';
+    // goalsSection.appendChild(goalsTitle);
 
-    // Placeholder goals
-    const goalList = document.createElement('ul');
-    goalList.classList.add('goal-list');
-    ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
-        const listItem = document.createElement('li');
-        listItem.textContent = goal;
-        goalList.appendChild(listItem);
-    });
-    goalsSection.appendChild(goalList);
-    calendarPageContainer.appendChild(goalsSection);
+    // // Static goals
+    // const goalList = document.createElement('ul');
+    // goalList.classList.add('goal-list');
+    // ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = goal;
+    //     goalList.appendChild(listItem);
+    // });
+    // goalsSection.appendChild(goalList);
+    // calendarPageContainer.appendChild(goalsSection);
 
-    return calendarPageContainer;
+    // return calendarPageContainer; 
+
+        // Dynamically load the CSS for the calendar page
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "frontend/pages/calendarpage/calendarPage.css"; 
+        document.head.appendChild(link);
+    
+        // Add the HTML content dynamically for the calendar page
+        const app = document.getElementById("app");
+        app.innerHTML = `
+          <nav class="navbar">
+            <div class="navbar-left">
+            <a href="/create-objectives" class="nav-link">Create Objectives</a>
+             <a href="/calendar" class="nav-link">Calendar</a>
+             <a href="/analytics" class="nav-link">Analytics</a>
+             </div>
+            <div class="navbar-right">
+             <a href="/profile" class="profile-btn">Profile</a>
+            </div>
+             </nav>
+            <div class="container">
+                <div id="timer-container" class="timer-container">
+                    <div id="timerDisplay" class="timer-display">00:00</div>
+                    <button id="startButton" class="timer-button">Start</button>
+                    <button id="stopButton" class="timer-button">Stop</button>
+                    <button id="resetButton" class="timer-button">Reset</button>
+                </div>
+                <div class="goals-section">
+                    <h3>Your Goals</h3>
+                    <ul class="goal-list">
+                        <li>Goal 1</li>
+                        <li>Goal 2</li>
+                        <li>Goal 3</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+    
+        // Attach functionality to the timer
+        renderTimer();
 }
 
 function renderTimer() {
@@ -67,14 +107,11 @@ function renderTimer() {
     resetButton.addEventListener('click', resetTimer);
     timerContainer.appendChild(resetButton);
 
-    // Timer-related variables
     let seconds = 0;
     let timerInterval = null;
 
-    // Timer functions
     function startTimer() {
         if (timerInterval) return; // Prevent multiple intervals
-
         timerInterval = setInterval(() => {
             seconds++;
             const minutes = Math.floor(seconds / 60);
@@ -100,12 +137,3 @@ function renderTimer() {
 
     return timerContainer;
 }
-
-// Mount the components to the DOM
-document.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('root');
-    const calendarComponents = renderAllCalendarComponents();
-    root.appendChild(calendarComponents);
-});
-
-

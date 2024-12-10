@@ -1,7 +1,7 @@
 import passport from "passport";
 //import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 //import dotenv from "dotenv";
-import User from "./user.js";
+import User from "./models/user.js";
 
 // This function is called when a user is successfully authenticated with
 // Google. It serializes the user's ID and passes it to the done callback.

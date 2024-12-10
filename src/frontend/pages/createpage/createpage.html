@@ -6,17 +6,20 @@
     <title>Create</title>
     <link rel="stylesheet" href="createPage.css">
     <script type="module" src="createPage.js"></script>
+    <script type="module" src="../../../../backend/createpage/createControllers.js"></script>
 </head>
 
 <body> 
   <nav class="navbar">
-     <ul class="nav-list">
-     <li><button class="nav-btn" id="createPageNav">Create Objectives</button></li>
-     <li><button class="nav-btn" id="analyticsPageNav">Calendar</button></li>
-      <li><button class="nav-btn" id="calendarPageNav">Analytics</button></li>
-      <li><button class="nav-btn" id="profileNav">Profile</button></li>
-      </ul>
-      </nav>
+    <div class="navbar-left">
+      <a href="/create-objectives" class="nav-link">Create Objectives</a>
+      <a href="/calendar" class="nav-link">Calendar</a>
+      <a href="/analytics" class="nav-link">Analytics</a>
+    </div>
+    <div class="navbar-right">
+      <a href="/profile" class="profile-btn">Profile</a>
+    </div>
+  </nav>
   <div class="dash">
       <h3 class="titleText">Goals and Tasks</h3>
       <div class="goals">

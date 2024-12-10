@@ -1,3 +1,104 @@
+export function renderCreateObj() {
+  // Dynamically load the CSS for the create page
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "frontend/pages/createpage/createPage.css"; // Adjust path as needed
+  document.head.appendChild(link);
+
+  // Add the HTML content for the create page dynamically
+  const app = document.getElementById("app");
+  app.innerHTML = `
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="/create-objectives" class="nav-link">Create Objectives</a>
+        <a href="/calendar" class="nav-link">Calendar</a>
+        <a href="/analytics" class="nav-link">Analytics</a>
+      </div>
+      <div class="navbar-right">
+        <a href="/profile" class="profile-btn">Profile</a>
+      </div>
+    </nav>
+    <div class="dash">
+      <h3 class="titleText">Goals and Tasks</h3>
+      <div class="goals">
+        <div class="form-container">
+          <h2>Set Your Goals</h2>
+          <input id="goal1input" type="text" class="input" placeholder="Goal 1" />
+          <input id="duedate1" type="date" class="input" />
+          <input type="number" id="goalDueTime1" class="input" placeholder="Total hours to complete" />
+          <input id="goal1submit" type="submit" class="add" value="Add Goal" />
+
+          <input id="goal2input" type="text" class="input" placeholder="Goal 2" />
+          <input id="duedate2" type="date" class="input" />
+          <input type="number" id="goalDueTime2" class="input" placeholder="Total hours to complete" />
+          <input id="goal2submit" type="submit" class="add" value="Add Goal" />
+
+          <input id="goal3input" type="text" class="input" placeholder="Goal 3" />
+          <input id="duedate3" type="date" class="input" />
+          <input type="number" id="goalDueTime3" class="input" placeholder="Total hours to complete" />
+          <input id="goal3submit" type="submit" class="add" value="Add Goal" />
+
+          <div id="deleteAll" class="delete-all">Delete all</div>
+        </div>
+      </div>
+
+      <div class="tasks">
+        <h2>Set Your Tasks</h2>
+        <div class="form">
+          <input type="text" id="taskInput" class="input" placeholder="Enter Task name" />
+          <input type="date" id="taskDueDate" class="input" placeholder="Due date" />
+          <input type="number" id="taskDueTime" class="input" placeholder="Hours to complete" />
+
+          <div class="dropdown">
+            <button class="dropdown-btn">Select Goal</button>
+            <div class="dropdown-content">
+              <div class="goal" data-selected="false">Goal 1</div>
+              <div class="goal" data-selected="false">Goal 2</div>
+              <div class="goal" data-selected="false">Goal 3</div>
+            </div>
+          </div>
+
+          <input type="submit" id="addTaskBtn" class="add" value="Add Task" />
+        </div>
+        <div id="deleteAll" class="delete-all">Delete all</div>
+      </div>
+
+      <div class="goals-list">
+        <div class="goal-item-container">
+          <div id="goal-item1" class="goal-item"></div>
+          <div id="goal-item2" class="goal-item"></div>
+          <div id="goal-item3" class="goal-item"></div>
+        </div>
+      </div>
+
+      <div id="priorities-container" class="priorities"></div>
+
+      <div class="calendar">Calendar</div>
+    </div>
+  `;
+
+  // Attach event listeners and additional JavaScript functionality
+  initializeCreatePage();
+}
+
+export async function addTaskController(){  
+
+  const taskName = document.getElementById("taskInput").value;
+  const taskDueDate = document.getElementById("taskDueDate").value;
+  const taskTotalTime = document.getElementById("taskDueTime").value;
+
+  const response = await fetch('http://localhost:3000/addTask', {
+   method: "POST",
+   headers: { "Content-Type": "application/json" },
+   body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+ });
+
+ return response.json();
+
+}
+
+
+function initializeCreatePage() {
 const addTaskButton = document.getElementById('addTaskBtn');
 const firstGoalList = document.getElementById('goal-item1');
 const secondGoalList = document.getElementById('goal-item2');
@@ -89,6 +190,47 @@ firstGoal.addEventListener('click', () => {
   firstGoalList.appendChild(d);
 });
 
+//after hitting the submit goal button 1 - a POST with the following data is sent to the server
+async function submitGoal1Backend(){ 
+  const goalName = document.getElementById("goal1input").value; 
+  const goalDueDate = document.getElementById("duedate1").value;
+  const goalTotalTime = document.getElementById("goalDueTime1").value;
+
+  const response = await fetch('http://localhost:3000/addGoal', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: goalName,
+      dueDate: goalDueDate,
+      totalTime: goalTotalTime,
+    }),
+  });
+
+  const result = await response.json();
+
+  console.log(result);
+
+}
+
+//after hitting the submit task button 1 - a POST with the following data is sent to the server
+
+// export async function addTaskController(){  
+
+//   const taskName = document.getElementById("taskInput").value;
+//   const taskDueDate = document.getElementById("taskDueDate").value;
+//   const taskTotalTime = document.getElementById("taskDueTime").value;
+
+//   const response = await fetch('http://localhost:3000/addTask', {
+//    method: "POST",
+//    headers: { "Content-Type": "application/json" },
+//    body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+//  });
+
+//  return response.json();
+
+// }
 
 const secondGoal = document.getElementById('goal2submit');
 
@@ -289,28 +431,29 @@ addpriorityButton.addEventListener('click', () => {
   }
   })
 
+}
   //create page rendering 
 
-  export class Nav {
-    constructor(appElementId) {
-      this.app = document.getElementById(appElementId);
-      if (!this.app) {
-        throw new Error(`Element with ID "${appElementId}" not found.`); 
-      } 
+  // export class Nav {
+  //   constructor(appElementId) {
+  //     this.app = document.getElementById(appElementId);
+  //     if (!this.app) {
+  //       throw new Error(`Element with ID "${appElementId}" not found.`); 
+  //     } 
      
-    }}
+  //   }}
 
-  export async function renderCreatePage(appElementId, page) {
-    const page = new Nav(appElementId);
+  // export async function renderCreatePage(appElementId, page) {
+  //   const newpage = new Nav(appElementId);
   
-    if (page === "create") {
-      page.renderCreate();
-    } else {
-      throw new Error('Cannot find page');
-    }
-  }
+  //   if (newpage === "create") {
+  //     newpage.renderCreate();
+  //   } else {
+  //     throw new Error('Cannot find page');
+  //   }
+  // }
 
- 
+  
   
 
 
