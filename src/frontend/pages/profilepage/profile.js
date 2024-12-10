@@ -5,9 +5,28 @@ const userData = {
   password: 'securepassword',
 };
 
-// Update the DOM with user details
 const usernameElement = document.getElementById('username');
 const emailElement = document.getElementById('email');
+
+const response = await fetch(`/user:${emailElement}'`, { 
+  method: "GET",
+  headers: { "Content-Type": "application/json" },
+})
+  
+const data = await response.json(); 
+
+const { dUsername, dEmail } = data; 
+//PUT THE DATA IN THE PAGE 
+
+const greeting = document.getElementById('username');
+greeting.innerHTML = dUsername; 
+
+const mEmail = document.getElementById('email'); 
+mEmail.innerHTML = dEmail; 
+
+
+// Update the DOM with user details
+
 
 // Populate the DOM with actual user data
 const { email, username } = userData;

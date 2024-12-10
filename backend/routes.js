@@ -2,6 +2,7 @@ import express from "express";
 import {register, login, logout,} from "./controller.js";
 import { addGoalController } from "./createpage/createControllers.js";
 import { addTaskController } from "./createpage/createControllers.js";
+import { getUserController } from "./profilepage/profileControllers.js";
 
 const router = express.Router();
 
@@ -9,6 +10,7 @@ const router = express.Router();
 router.post("/register", register);
 router.post("/login", login);
 router.get("/logout", logout);
+router.get("/user:id", getUserController)
 
 //routes for create page
 router.post("/addGoal",addGoalController)
