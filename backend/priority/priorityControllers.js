@@ -29,26 +29,26 @@ export const addPriorityController = async (req, res) => {
               const { id } = req.params; // Extract the goal ID from the request parameters
            
               try {
-                const deletedGoal = await Priority.destroy({
+                const deletePriority = await Priority.destroy({
                   where: {
                     id, // Match the goal with the provided ID
                   },
                 });
            
-                if (deletedGoal) {
+                if (deletePriority) {
                   return res.status(200).json({
-                    message: "Goal deleted successfully",
-                    goalId: id,
+                    message: "Priority deleted successfully",
+                    priorityId: id,
                   });
                 } else {
                   return res.status(404).json({
-                    message: "Goal not found",
+                    message: "Priority not found",
                   });
                 }
               } catch (err) {
-                console.error("Error deleting goal", err);
+                console.error("Error deleting Priority", err);
                 return res.status(500).json({
-                  message: "Failed to delete goal",
+                  message: "Failed to delete Priority",
                 });
               }
             };
