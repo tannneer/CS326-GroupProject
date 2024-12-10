@@ -137,6 +137,9 @@ async function submitTaskBackend(){
 
 
 const addTaskButton = document.getElementById('addTaskBtn');
+const firstGoalList = document.getElementById('goal-item1');
+const secondGoalList = document.getElementById('goal-item2');
+const thirdGoalList = document.getElementById('goal-item3');
 
 
 const taskList = document.getElementById(`goal-item${selectedGoal}`)
@@ -234,6 +237,8 @@ const firstGoal = document.getElementById('goal1submit');
 
 
 firstGoal.addEventListener('click', () => {
+  firstGoalList.innerHTML ='';
+
   const firstGoalInput = document.getElementById("goal1input");
   const d = document.createElement("div");
   d.innerHTML = firstGoalInput.value;
@@ -251,7 +256,7 @@ firstGoal.addEventListener('click', () => {
   d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
   
   d.style.marginBottom = "10px";
-
+  d.classList.add("hover-effect");
 
   firstGoalList.appendChild(d);
 
@@ -306,6 +311,8 @@ const secondGoal = document.getElementById('goal2submit');
 
 
 secondGoal.addEventListener('click', () => {
+  secondGoalList.innerHTML ='';
+
   const secondGoalInput = document.getElementById("goal2input");
   const d = document.createElement("div");
   d.innerHTML = secondGoalInput.value;
@@ -321,6 +328,8 @@ secondGoal.addEventListener('click', () => {
   d.style.borderRadius = "10px";
   d.style.padding = "10px";
   d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  d.classList.add("hover-effect");
+
   
 
 
@@ -360,6 +369,8 @@ const thirdGoal = document.getElementById('goal3submit');
 
 
 thirdGoal.addEventListener('click', () => {
+  thirdGoalList.innerHTML ='';
+
   const thirdGoalInput = document.getElementById("goal3input");
   const d = document.createElement("div");
   d.innerHTML = thirdGoalInput.value;
@@ -375,6 +386,8 @@ thirdGoal.addEventListener('click', () => {
   d.style.borderRadius = "10px";
   d.style.padding = "10px";
   d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  d.classList.add("hover-effect");
+
 
 
   thirdGoalList.appendChild(d);
