@@ -121,8 +121,9 @@ document.querySelector(".signup-button").addEventListener("click", () => {
         body: JSON.stringify({ username, password }),
       });  
       const data = await response.json();
-      if (response.ok) {
-        alert(data.message || "Login successful!");
+      if (response.ok) {   
+        sessionStorage.setItem("username", username);
+        alert(data.message || "Login successful!"); 
         renderProfile(); 
       } else {
         alert(data.error || "Login failed! Please check your credentials.");

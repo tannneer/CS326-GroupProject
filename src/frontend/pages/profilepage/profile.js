@@ -1,4 +1,3 @@
-//import { renderCreateObj } from "../createpage/createPage";
 
 // Mock user data (this can be replaced with real backend data if available)
 export function renderProfile() {
@@ -7,10 +6,11 @@ export function renderProfile() {
   link.rel = "stylesheet";
   link.href = "frontend/pages/profilepage/profile.css"; 
   document.head.appendChild(link);
-
+ 
   // Add HTML content for the profile page
   const app = document.getElementById("app");
-  app.innerHTML = ` 
+  app.innerHTML = `  
+  <div id="profile-page">
    <nav class="navbar">
     <div class="navbar-left">
       <a href="/create-objectives" class="nav-link">Create Objectives</a>
@@ -39,48 +39,21 @@ export function renderProfile() {
 
       <!-- Card Section -->
       <div class="card">
-        <h1 class="greeting">Hello, <span id="username">Username</span></h1>
-        <p class="email-label">Email: <span id="email">user@example.com</span></p>
+        <h1 class="greeting">Hello, <span id="username">username</span></h1>
         <p class="instructions">Click the button to start planning</p>
         <a href="/create-objectives" id="create-btn" class="btn"> <span>Go to <br> Planning</span> </a>
       </div>
-    </div>
-  `;
+    </div> 
+     </div>
+  `; 
 
+  const username = sessionStorage.getItem("username");
+  if (username) {
+    document.getElementById("username").textContent = username;
+  } else {
+    document.getElementById("username").textContent = "User"; // Fallback if not logged in
+  }
 
-  const userData = {
-    email: 'johndoe@example.com',
-    username: 'JohnDoe',
-    password: 'securepassword',
-  };
-  
-  // Update the DOM with user details
-  const usernameElement = document.getElementById('username');
-  const emailElement = document.getElementById('email');
-  
-  // Populate the DOM with actual user data
-  const { email, username } = userData;
-  usernameElement.textContent = username;
-  emailElement.textContent = email;
-  
-  
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   // Attach click event to the CTA button
-  //   const ctaButton = document.querySelector('.cta-button');
-  //   if (ctaButton) {
-  //       ctaButton.addEventListener('click', () => {
-  //           location.href = '/create-objectives';
-  //       });
-  //   } else {
-  //       console.error('CTA button not found.');
-  //   }
-  // });
-  
-  // Redirect to create_page.html when the blue button is clicked
-  // const ctaButton = document.querySelector('.cta-button');
-  // ctaButton.addEventListener('click', () => {
-  //   location.href = '/create-objectives';
-  // }); 
 
   // Change profile picture functionality
   const profilePic = document.querySelector('.profile-pic');
@@ -98,7 +71,10 @@ export function renderProfile() {
       console.log('File selected:', file.name); // Log file name
       const reader = new FileReader();
       reader.onload = (e) => {
-        profilePic.src = e.target.result;
+        // profilePic.src = e.target.result; 
+        const imageData = e.target.result;
+        profilePic.src = imageData; 
+        localStorage.setItem("profilePic", imageData);
         console.log('Image loaded:', e.target.result); // Log image data
       };
       reader.readAsDataURL(file);

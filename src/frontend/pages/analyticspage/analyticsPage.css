@@ -170,17 +170,18 @@ h2 {
 
 
 /* General Body Styling */
-body {
+/* General container styling */
+#analytics-page body {
   font-family: Arial, sans-serif;
   background-color: #f3fbf1; /* Light background */
   color: #333;
-  margin: 0; /* Remove default browser margin */
+  margin: 0;
   padding: 0;
   height: 100%;
 }
 
 /* Navbar Styling */
-.navbar {
+#analytics-page .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -196,14 +197,14 @@ body {
   z-index: 10;
 }
 
-.navbar-left,
-.navbar-right {
+#analytics-page .navbar-left,
+#analytics-page .navbar-right {
   display: flex;
   align-items: center;
 }
 
-.navbar-left .nav-link,
-.navbar-right .profile-btn {
+#analytics-page .navbar-left .nav-link,
+#analytics-page .navbar-right .profile-btn {
   margin-right: 20px;
   text-decoration: none;
   color: white;
@@ -211,13 +212,13 @@ body {
   font-size: 14px;
 }
 
-.navbar-left .nav-link:hover,
-.navbar-right .profile-btn:hover {
+#analytics-page .navbar-left .nav-link:hover,
+#analytics-page .navbar-right .profile-btn:hover {
   text-decoration: underline;
   color: #ffdd57; /* Hover color */
 }
 
-.profile-btn {
+#analytics-page .profile-btn {
   background-color: green;
   color: white;
   border: 1px solid white;
@@ -228,45 +229,49 @@ body {
   text-decoration: none;
 }
 
-.profile-btn:hover {
+#analytics-page .profile-btn:hover {
   background-color: white;
   color: #0ba6ff;
 }
 
 /* Analytics Container */
-.container {
-  max-width: 1200px;
-  height: 100%;
-  margin: 20px auto;
-  padding: 20px;
+#analytics-page .container {
+  max-width: 800px;
+  margin: 80px auto; /* Add top margin to avoid navbar overlap */
+  padding: 40px;
   background: #64868e; /* Analytics container background */
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Headings */
-h1,
-h2 {
+#analytics-page h1,
+#analytics-page h2 {
   text-align: center;
   color: white;
+  margin-bottom: 20px;
 }
 
-h2 {
-  margin-bottom: 10px;
+#analytics-page h1 {
+  font-size: 32px;
+}
+
+#analytics-page h2 {
+  font-size: 20px;
 }
 
 /* Task Section */
-.task-section {
+#analytics-page .task-section {
   margin-top: 20px;
 }
 
-.task-section ul {
+#analytics-page .task-section ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
-.task-section li {
+#analytics-page .task-section li {
   display: flex;
   align-items: center;
   padding: 5px 0;
@@ -274,76 +279,76 @@ h2 {
   color: white;
 }
 
-input[type="checkbox"] {
-  appearance: auto;
-  width: auto;
-  height: auto;
+#analytics-page input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
   margin-right: 10px;
   cursor: pointer;
 }
 
 /* Progress Bar Styling */
-.Task1Progress,
-.Task2Progress,
-.Task3Progress,
-.Task4Progress {
-  width: 90%;
-  position: relative;
+#analytics-page .Task1Progress,
+#analytics-page .Task2Progress,
+#analytics-page .Task3Progress,
+#analytics-page .Task4Progress {
+  width: 90%; /* Adjust for better alignment */
+  margin: 10px auto; /* Center align */
+  height: 25px; /* Increase height */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: #f3fbf1;
-  height: 20px;
-  border-radius: 5px;
-  margin: 10px auto;
+  border-radius: 10px;
 }
 
-.Task1p,
-.Task2p,
-.Task3p,
-.Task4p {
-  height: 50%;
+#analytics-page .Task1p,
+#analytics-page .Task2p,
+#analytics-page .Task3p,
+#analytics-page .Task4p {
+  height: 80%;
   width: 0;
   background-color: #98B4A6;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* Pie Chart */
-.pie-chart-container {
-  position: relative;
+#analytics-page .pie-chart-container {
+  margin: 30px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
 }
 
-.donut-chart {
-  width: 300px;
-  height: 300px;
+#analytics-page .donut-chart {
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   background: conic-gradient(#A6AEBF 0% 30%, #006A67 30% 60%, #608BC1 60% 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-top: 20px;
 }
 
-.center {
-  width: 150px;
-  height: 150px;
+#analytics-page .center {
+  width: 140px;
+  height: 140px;
   background: white;
   border-radius: 50%;
   position: absolute;
 }
 
 /* Slider */
-.rating-section input[type="range"] {
+#analytics-page .rating-section input[type="range"] {
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
   display: block;
 }
 
-.rating-section p {
+#analytics-page .rating-section p {
   text-align: center;
   color: white;
+  margin-top: 10px;
+  font-size: 16px;
 }

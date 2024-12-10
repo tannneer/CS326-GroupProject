@@ -44,7 +44,9 @@ export const login = async (req, res, next) => {
   // requests using req.user.
   req.login(user, (err) =>
     err ? next(err) : res.json(factoryResponse(200, "Login successful"))
-  );
+  ); 
+
+
 };
 
 // Logout route.
