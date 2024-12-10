@@ -5,7 +5,7 @@ export function renderAllCalendarComponents() {
     // Navbar
     const navbar = document.createElement('nav');
     navbar.classList.add('navbar');
-    ['Create', 'Priorities', 'Analysis'].forEach(page => {
+    ['Create', 'Priorities', 'Analytics'].forEach(page => {
         const navItem = document.createElement('a');
         navItem.href = `#${page.toLowerCase()}`;
         navItem.textContent = page;
@@ -14,27 +14,45 @@ export function renderAllCalendarComponents() {
     });
     calendarPageContainer.appendChild(navbar);
 
+    // Tasks Calendar Section (left side)
+    const tasksCalendar = document.createElement('div');
+    tasksCalendar.classList.add('tasks-calendar');
+    const tasksCalendarTitle = document.createElement('h3');
+    tasksCalendarTitle.textContent = 'Tasks Calendar';
+    tasksCalendar.appendChild(tasksCalendarTitle);
+
+    const placeholderText = document.createElement('p');
+    placeholderText.textContent = 'Tasks organized by deadline and time will appear here.';
+    tasksCalendar.appendChild(placeholderText);
+    calendarPageContainer.appendChild(tasksCalendar);
+
+    // Right column container
+    const rightColumn = document.createElement('div');
+    rightColumn.classList.add('right-column');
+
     // Timer Component
     const timerComponent = renderTimer();
-    calendarPageContainer.appendChild(timerComponent);
+    rightColumn.appendChild(timerComponent);
 
     // Goals Section
     const goalsSection = document.createElement('div');
     goalsSection.classList.add('goals-section');
     const goalsTitle = document.createElement('h3');
-    goalsTitle.textContent = 'Your Goals';
+    goalsTitle.textContent = 'Your Current Tasks';
     goalsSection.appendChild(goalsTitle);
 
     // Static goals
     const goalList = document.createElement('ul');
     goalList.classList.add('goal-list');
-    ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
+    ['Task 1', 'Task 2', 'Task 3'].forEach(goal => {
         const listItem = document.createElement('li');
         listItem.textContent = goal;
         goalList.appendChild(listItem);
     });
     goalsSection.appendChild(goalList);
-    calendarPageContainer.appendChild(goalsSection);
+    rightColumn.appendChild(goalsSection);
+
+    calendarPageContainer.appendChild(rightColumn);
 
     return calendarPageContainer;
 }
@@ -46,7 +64,7 @@ function renderTimer() {
     // Create and append the timer display
     const timerDisplay = document.createElement('div');
     timerDisplay.id = 'timerDisplay';
-    timerDisplay.textContent = '00:00';
+    timerDisplay.textContent = '00:00:00';
     timerContainer.appendChild(timerDisplay);
 
     // Create and append the start button
@@ -88,7 +106,7 @@ function renderTimer() {
     function resetTimer() {
         stopTimer();
         seconds = 0;
-        timerDisplay.textContent = '00:00';
+        timerDisplay.textContent = '00:00:00';
     }
 
     function padTime(time) {
