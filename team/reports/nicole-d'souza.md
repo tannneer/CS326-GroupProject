@@ -18,3 +18,4 @@
 ### Dec 11, 2024
 Top 3 Commits for Milestone 4:
 1. Added the [project demo](https://github.com/tannneer/CS326-GroupProject/commit/a7e44f7dda4838b51119d00c39c9faf135c32ac3)
+2. Tested the application to ensure it runs properly, and [deleted node_modules](https://github.com/tannneer/CS326-GroupProject/commit/2d35edcc9f4c459cf7dbfc1601bd70f65fc75bbc) in the process of doing so (major hidden blocker that initially did not allow graders/others to run app, especially for Milestone 3)
