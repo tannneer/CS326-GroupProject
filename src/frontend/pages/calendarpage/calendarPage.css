@@ -2,104 +2,105 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: white; 
-    height: 100%;
+    background: #f5f5f5;
+    box-sizing: border-box;
 }
 
 .container {
-    width: 1280px;
-    height: 832px;
-    position: relative;
-    background: white;
-    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 60% 40%;
+    width: 100vw;
+    height: 100vh;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* .navbar {
-    display: flex;
-    justify-content: space-around;
-    background: #0BA6FF;
-    padding: 10px;
-    border-bottom: 2px solid #0079b3;
-}
-
-.nav-item {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav-item:hover {
-    text-decoration: underline;
-} */
-
+/* Navbar spans the full width at the top */
+/* Navigation Bar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0ba6ff; /* Blue background */
+    background-color: #0ba6ff;
     padding: 10px 20px;
     color: white;
-    font-family: 'Poppins', sans-serif;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Fix navbar to the top */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
-  }
-  
-  .navbar-left,
-  .navbar-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-left .nav-link,
-  .navbar-right .profile-btn {
-    margin-right: 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: 14px; 
-  }
-  
-  .navbar-left .nav-link:hover,
-  .navbar-right .profile-btn:hover {
-    text-decoration: underline;
-    color: #ffdd57; /* Optional: Add hover effect color */
-  }
-  
-  .profile-btn {
-    background-color: green; /* White button */
-    color: #0ba6ff;
-    border: 1px solid #0ba6ff;
-    border-radius: 5px;
-    padding: 5px 15px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .profile-btn:hover {
-    background-color: #0ba6ff;
-    color: white;
-  }
-  
+}
 
+.container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    width: 100%;
+    height: calc(100vh - 70px); /* Adjust for navbar height */
+    padding: 20px;
+    margin-top: 70px; /* Space below navbar */
+    background: white;
+}
+
+.tasks-calendar {
+    grid-column: 1;
+    grid-row: 2;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #D4D4D4;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-column {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* Tasks Calendar on the left side */
+.tasks-calendar {
+    grid-column: 1;
+    grid-row: 2;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #D4D4D4;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tasks-calendar h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Right column holds timer at top and goals below it */
+.right-column {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Timer Section */
 .timer-container {
-    width: 400px;
-    height: 200px;
-    position: absolute;
-    left: 50px;
-    top: 100px;
     background: #F4F4F4;
     border-radius: 15px;
     border: 2px solid #D4D4D4;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
 #timerDisplay {
@@ -110,8 +111,8 @@ body {
 }
 
 button {
-    width: 120px;
-    height: 40px;
+    width: 100px;
+    height: 35px;
     background: #0BA6FF;
     color: white;
     font-size: 14px;
@@ -140,19 +141,13 @@ button:disabled {
     cursor: not-allowed;
 }
 
-button:disabled:hover {
-    background: #d1d1d1;
-}
-
+/* Goals Section under timer */
 .goals-section {
-    position: absolute;
-    left: 50px;
-    top: 350px;
     background: #F9F9F9;
     padding: 15px;
     border-radius: 10px;
     border: 2px solid #D4D4D4;
-    width: 400px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .goals-section h3 {
@@ -164,6 +159,7 @@ button:disabled:hover {
 .goal-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .goal-list li {

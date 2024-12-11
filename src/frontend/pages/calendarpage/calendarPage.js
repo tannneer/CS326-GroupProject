@@ -1,116 +1,79 @@
 export function renderAllCalendarComponents() {
-    // const calendarPageContainer = document.createElement('div');
-    // calendarPageContainer.classList.add('container');
+    const app = document.getElementById("app");
+    app.innerHTML = ""; // Clear any previous content
 
-    // // Navbar
-    // const navbar = document.createElement('nav');
-    // navbar.classList.add('navbar');
-    // ['Create', 'Priorities', 'Analysis'].forEach(page => {
-    //     const navItem = document.createElement('a');
-    //     navItem.href = `#${page.toLowerCase()}`;
-    //     navItem.textContent = page;
-    //     navItem.classList.add('nav-item');
-    //     navbar.appendChild(navItem);
-    // });
-    // calendarPageContainer.appendChild(navbar);
-
-    // // Timer Component
-    // const timerComponent = renderTimer();
-    // calendarPageContainer.appendChild(timerComponent);
-
-    // // Goals Section
-    // const goalsSection = document.createElement('div');
-    // goalsSection.classList.add('goals-section');
-    // const goalsTitle = document.createElement('h3');
-    // goalsTitle.textContent = 'Your Goals';
-    // goalsSection.appendChild(goalsTitle);
-
-    // // Static goals
-    // const goalList = document.createElement('ul');
-    // goalList.classList.add('goal-list');
-    // ['Goal 1', 'Goal 2', 'Goal 3'].forEach(goal => {
-    //     const listItem = document.createElement('li');
-    //     listItem.textContent = goal;
-    //     goalList.appendChild(listItem);
-    // });
-    // goalsSection.appendChild(goalList);
-    // calendarPageContainer.appendChild(goalsSection);
-
-    // return calendarPageContainer; 
-
-        // Dynamically load the CSS for the calendar page
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "frontend/pages/calendarpage/calendarPage.css"; 
-        document.head.appendChild(link);
-    
-        // Add the HTML content dynamically for the calendar page
-        const app = document.getElementById("app");
-        app.innerHTML = `
-          <nav class="navbar">
-            <div class="navbar-left">
+    // Create Navbar
+    const navbar = document.createElement("nav");
+    navbar.classList.add("navbar");
+    navbar.innerHTML = `
+        <div class="navbar-left">
             <a href="/create-objectives" class="nav-link">Create Objectives</a>
-             <a href="/calendar" class="nav-link">Calendar</a>
-             <a href="/analytics" class="nav-link">Analytics</a>
-             </div>
-            <div class="navbar-right">
-             <a href="/profile" class="profile-btn">Profile</a>
-            </div>
-             </nav>
-            <div class="container">
-                <div id="timer-container" class="timer-container">
-                    <div id="timerDisplay" class="timer-display">00:00</div>
-                    <button id="startButton" class="timer-button">Start</button>
-                    <button id="stopButton" class="timer-button">Stop</button>
-                    <button id="resetButton" class="timer-button">Reset</button>
-                </div>
-                <div class="goals-section">
-                    <h3>Your Goals</h3>
-                    <ul class="goal-list">
-                        <li>Goal 1</li>
-                        <li>Goal 2</li>
-                        <li>Goal 3</li>
-                    </ul>
-                </div>
-            </div>
-        `;
-    
-        // Attach functionality to the timer
-        renderTimer();
-}
+            <a href="/calendar" class="nav-link">Calendar</a>
+            <a href="/analytics" class="nav-link">Analytics</a>
+        </div>
+        <div class="navbar-right">
+            <a href="/profile" class="profile-btn">Profile</a>
+        </div>
+    `;
+    document.body.prepend(navbar); // Ensure navbar is fixed at the top
 
-function renderTimer() {
-    const timerContainer = document.createElement('div');
-    timerContainer.classList.add('timer-container');
+    // Create Main Container for Grid Layout
+    const calendarPageContainer = document.createElement("div");
+    calendarPageContainer.classList.add("container");
 
-    // Create and append the timer display
-    const timerDisplay = document.createElement('div');
-    timerDisplay.id = 'timerDisplay';
-    timerDisplay.textContent = '00:00';
-    timerContainer.appendChild(timerDisplay);
+    // Tasks Calendar Section (Left Column)
+    const tasksCalendar = document.createElement("div");
+    tasksCalendar.classList.add("tasks-calendar");
+    tasksCalendar.innerHTML = `
+        <h3>Tasks Calendar</h3>
+        <p>Tasks organized by deadline and time will appear here.</p>
+    `;
+    calendarPageContainer.appendChild(tasksCalendar);
 
-    // Create and append the start button
-    const startButton = document.createElement('button');
-    startButton.textContent = 'Start';
-    startButton.addEventListener('click', startTimer);
-    timerContainer.appendChild(startButton);
+    // Right Column Container
+    const rightColumn = document.createElement("div");
+    rightColumn.classList.add("right-column");
 
-    // Create and append the stop button
-    const stopButton = document.createElement('button');
-    stopButton.textContent = 'Stop';
-    stopButton.addEventListener('click', stopTimer);
-    timerContainer.appendChild(stopButton);
+    // Timer Component
+    const timerContainer = document.createElement("div");
+    timerContainer.classList.add("timer-container");
+    timerContainer.innerHTML = `
+        <div id="timerDisplay" class="timer-display">00:00</div>
+        <button id="startButton" class="timer-button">Start</button>
+        <button id="stopButton" class="timer-button">Stop</button>
+        <button id="resetButton" class="timer-button">Reset</button>
+    `;
+    rightColumn.appendChild(timerContainer);
 
-    // Create and append the reset button
-    const resetButton = document.createElement('button');
-    resetButton.textContent = 'Reset';
-    resetButton.addEventListener('click', resetTimer);
-    timerContainer.appendChild(resetButton);
+    // Goals Section
+    const goalsSection = document.createElement("div");
+    goalsSection.classList.add("goals-section");
+    goalsSection.innerHTML = `
+        <h3>Your Goals</h3>
+        <ul class="goal-list">
+            <li>Goal 1</li>
+            <li>Goal 2</li>
+            <li>Goal 3</li>
+        </ul>
+    `;
+    rightColumn.appendChild(goalsSection);
 
-    let seconds = 0;
+    // Add Right Column to Main Grid Layout
+    calendarPageContainer.appendChild(rightColumn);
+
+    // Append the Main Grid Layout to the App
+    app.appendChild(calendarPageContainer);
+
+    // Timer functionality (unchanged)
+    const timerDisplay = timerContainer.querySelector("#timerDisplay");
+    const startButton = timerContainer.querySelector("#startButton");
+    const stopButton = timerContainer.querySelector("#stopButton");
+    const resetButton = timerContainer.querySelector("#resetButton");
+
     let timerInterval = null;
+    let seconds = 0;
 
-    function startTimer() {
+    const startTimer = () => {
         if (timerInterval) return; // Prevent multiple intervals
         timerInterval = setInterval(() => {
             seconds++;
@@ -118,22 +81,22 @@ function renderTimer() {
             const remainingSeconds = seconds % 60;
             timerDisplay.textContent = `${padTime(minutes)}:${padTime(remainingSeconds)}`;
         }, 1000);
-    }
+    };
 
-    function stopTimer() {
+    const stopTimer = () => {
         clearInterval(timerInterval);
         timerInterval = null;
-    }
+    };
 
-    function resetTimer() {
+    const resetTimer = () => {
         stopTimer();
         seconds = 0;
-        timerDisplay.textContent = '00:00';
-    }
+        timerDisplay.textContent = "00:00";
+    };
 
-    function padTime(time) {
-        return time < 10 ? `0${time}` : time;
-    }
+    const padTime = (time) => (time < 10 ? `0${time}` : time);
 
-    return timerContainer;
+    startButton.addEventListener("click", startTimer);
+    stopButton.addEventListener("click", stopTimer);
+    resetButton.addEventListener("click", resetTimer);
 }
