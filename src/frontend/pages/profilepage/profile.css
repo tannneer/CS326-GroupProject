@@ -1,11 +1,12 @@
 /* General container styling */
-body {
+#profile-page body {
   margin: 0;
   height: 100%; 
   padding: 0;
 }
+
 /* Navigation Bar */ 
-.navbar {
+#profile-page .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,14 +22,14 @@ body {
   z-index: 10;
 }
 
-.navbar-left,
-.navbar-right {
+#profile-page .navbar-left,
+#profile-page .navbar-right {
   display: flex;
   align-items: center;
 }
 
-.navbar-left .nav-link,
-.navbar-right .profile-btn {
+#profile-page .navbar-left .nav-link,
+#profile-page .navbar-right .profile-btn {
   margin-right: 20px;
   text-decoration: none;
   color: white;
@@ -36,13 +37,13 @@ body {
   font-size: 14px; 
 }
 
-.navbar-left .nav-link:hover,
-.navbar-right .profile-btn:hover {
+#profile-page .navbar-left .nav-link:hover,
+#profile-page .navbar-right .profile-btn:hover {
   text-decoration: underline;
   color: #ffdd57; /* Optional: Add hover effect color */
 }
 
-.profile-btn {
+#profile-page .profile-btn {
   background-color: green; /* White button */
   color: #0ba6ff;
   border: 1px solid #0ba6ff;
@@ -53,13 +54,13 @@ body {
   text-decoration: none;
 }
 
-.profile-btn:hover {
+#profile-page .profile-btn:hover {
   background-color: #0ba6ff;
   color: white;
 }
 
 /* Adjust container to account for the navbar height */
-.container { 
+#profile-page .container { 
   padding-top: 70px;
   width: 100%;
   height: 100%; /* Subtract navbar height */
@@ -73,7 +74,7 @@ body {
 }
 
 /* Logout Button Styling */
-.logout-button {
+#profile-page .logout-button {
   position: absolute;
   bottom: 20px; /* Move to the bottom */
   left: 50%; /* Center horizontally */
@@ -93,12 +94,12 @@ body {
   align-items: center;
 }
 
-.logout-button:hover {
+#profile-page .logout-button:hover {
   background: #e0e0e0;
 }
 
 /* Profile Picture Styling */
-.profile-pic-container {
+#profile-page .profile-pic-container {
   position: relative;
   width: 166px;
   height: 166px;
@@ -108,13 +109,13 @@ body {
   margin-bottom: 20px;
 }
 
-.profile-pic {
+#profile-page .profile-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.camera-icon {
+#profile-page .camera-icon {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -131,14 +132,14 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.camera-icon svg {
+#profile-page .camera-icon svg {
   width: 20px;
   height: 20px;
   fill: white;
 }
 
 /* Card Styling */
-.card { 
+#profile-page .card { 
   position: relative; /* Ensure proper stacking context */
   z-index: 1;
   width: 558px;
@@ -154,30 +155,22 @@ body {
   gap: 20px; 
 }
 
-.greeting {
+#profile-page .greeting {  
   font-size: 36px;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 10px; 
 }
 
-.email-label {
-  font-size: 32px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  margin-bottom: 20px;
-}
-
-.instructions {
+#profile-page .instructions {
   font-size: 20px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   margin-bottom: 20px;
 }
 
-
 /* Center Button */
-.create-button  { 
+#profile-page .create-button  { 
   position: relative;
   z-index: 1;
   pointer-events: auto;
@@ -197,21 +190,10 @@ body {
   text-align: center; /* Ensure the text inside the button is centered */
  } 
 
-/* .cta-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007BFF;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-} */
-
-.create-button:hover {
+#profile-page .create-button:hover {
   background-color: #0ba6ff; /* Bright blue for hover */
   border-color: #0056b3;
 }
-.create-button:active {
+#profile-page .create-button:active {
   transform: scale(0.95); /* Add a slight click effect */
 }
