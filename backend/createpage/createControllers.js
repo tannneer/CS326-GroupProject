@@ -3,7 +3,7 @@
       import { Task } from '../models/task.js';
       
       export const addGoalController = async (req, res) => { 
-        const { taskName, hoursToComplete, taskDueDate, isCompleted, timeSpent, goalId } = req.body;
+        const { goalName, goalDueDate, hoursToComplete } = req.body; 
 
         try {
           await Goal.create({
@@ -23,7 +23,7 @@
           return res.status(400).json((400, "Failed to add goal"));
         }
       }
-
+      
       export const addTaskController = async (req,res) => { 
         const { taskName, hoursToComplete, taskDueDate, isCompleted, timeSpent, goalId } = req.body;
 

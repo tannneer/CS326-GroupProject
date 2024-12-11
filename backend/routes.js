@@ -18,6 +18,7 @@ router.post("/addTask",addTaskController);
 
 //routes for analytics page 
 router.get("/getTasks", taskProgressController);
+router.get("/taskAnalytics", taskProgressController);
 
 // Protected routes
 //router.get("/admin", isAuthenticated, authorizeRole("admin"), getAdminArea);
