@@ -1,7 +1,7 @@
 import Task from "../models/task.js";
 
 export const taskProgressController = async (req, res) => {
-  const { taskId } = req.body;
+  const { taskId } = req.body; // Only the taskId is needed in the request
 
   try {
     const task = await Task.findByPk(taskId);
@@ -9,25 +9,26 @@ export const taskProgressController = async (req, res) => {
       return res.status(404).json({ error: "Task not found" });
     }
 
-    const hoursToComplete = parseFloat(task.hoursToComplete);
+    const { completedSteps, totalSteps } = task;
 
-    if (isNaN(hoursToComplete) || hoursToComplete === 0) {
+    if (isNaN(completedSteps) || isNaN(totalSteps) || totalSteps === 0) {
       return res
         .status(400)
-        .json({ error: "Invalid hoursElapsed or hoursToComplete" });
+        .json({ error: "Invalid data for completedSteps or totalSteps" });
     }
 
-    const progressFraction = (hoursElapsed / hoursToComplete).toFixed(2);
+    // Calculate the percentage of completion
+    const completionPercentage = ((completedSteps / totalSteps) * 100).toFixed(2);
 
     return res.status(200).json({
-      message: "Progress calculated successfully",
+      message: "Completion percentage calculated successfully",
       task: {
         taskName: task.taskName,
-        progressFraction: progressFraction,
+        completionPercentage: `${completionPercentage}%`,
       },
     });
   } catch (err) {
-    console.error("Error calculating task progress:", err);
-    return res.status(500).json({ error: "Failed to calculate progress" });
+    console.error("Error calculating task completion:", err);
+    return res.status(500).json({ error: "Failed to calculate task completion" });
   }
 };

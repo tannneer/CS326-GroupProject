@@ -16,12 +16,12 @@ const sequelize = new Sequelize({
 export const Goal = sequelize.define("Goal", {
   //goalId : {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false},
   goalName: { type: DataTypes.STRING, allowNull: true },
-  hoursToComplete: { type: DataTypes.INTEGER },
   goalDueDate: { type: DataTypes.DATE },
+  hoursToComplete: { type: DataTypes.INTEGER },
+
 });
 
 await sequelize.sync();
-
 
 // Export the User model for use in other files
 export default Goal;
