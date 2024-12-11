@@ -7,7 +7,8 @@ export function renderAnalyics() {
   
     // Add HTML content for the profile page
     const app = document.getElementById("app");
-    app.innerHTML = ` 
+    app.innerHTML = `   
+    <div id="analytics-page">
        <nav class="navbar">
     <div class="navbar-left">
       <a href="/create-objectives" class="nav-link">Create Objectives</a>
@@ -73,7 +74,8 @@ export function renderAnalyics() {
             <input type="range" id="contentmentRating" min="0" max="100" value="50">
             <p id="contentmentText">Contentment: 50%</p>
         </div>
-    </div>
+    </div> 
+     </div>
     `;
     document.addEventListener("DOMContentLoaded", () => {
         const checkboxes = document.querySelectorAll("input[type='checkbox']");
