@@ -75,43 +75,47 @@ export function renderAnalyics() {
         </div>
     </div>
     `;
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const checkboxes = document.querySelectorAll(".task-checkbox");
-    const taskProgressBars = [
-        document.querySelector(".Task1Progress .progress"),
-        document.querySelector(".Task2Progress .Task2p"),
-        document.querySelector(".Task3Progress .Task3p"),
-        document.querySelector(".Task4Progress .Task4p")
-    ];
-
-    const ratingSlider = document.getElementById("contentmentRating");
-    const contentmentText = document.getElementById("contentmentText");
-
-    function updateProgress() {
-        let completedTasks = 0;
-
-        checkboxes.forEach((checkbox, index) => {
-            const progressBar = taskProgressBars[index];
-            if (checkbox.checked) {
-                completedTasks++;
-                progressBar.style.width = "100%"; 
-            } else {
-                progressBar.style.width = "0"; 
-            }
+    document.addEventListener("DOMContentLoaded", () => {
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        const taskProgressBars = [
+            document.querySelector(".Task1Progress .Task1p"),
+            document.querySelector(".Task2Progress .Task2p"),
+            document.querySelector(".Task3Progress .Task3p"),
+            document.querySelector(".Task4Progress .Task4p")
+        ];
+    
+        const ratingSlider = document.querySelector("input[type='range']");
+        const contentmentText = document.querySelector(".rating-section p");
+    
+        function updateProgress() {
+            let completedTasks = 0;
+    
+            checkboxes.forEach((checkbox, index) => {
+                const progressBar = taskProgressBars[index];
+                if (checkbox.checked) {
+                    completedTasks++;
+                    progressBar.style.width = "100%";
+                } else {
+                    progressBar.style.width = "0";
+                }
+            });
+    
+            const totalTasks = checkboxes.length;
+            const progressPercentage = (completedTasks / totalTasks) * 100;
+    
+            // Update slider and text
+            ratingSlider.value = progressPercentage;
+            contentmentText.innerText = `Contentment: ${Math.round(progressPercentage)}%`;
+        }
+    
+        // Attach event listeners
+        checkboxes.forEach(checkbox => checkbox.addEventListener("change", updateProgress));
+        ratingSlider.addEventListener("input", () => {
+            contentmentText.innerText = `Contentment: ${ratingSlider.value}%`;
         });
-        const totalTasks = checkboxes.length;
-        const progressPercentage = (completedTasks / totalTasks) * 100;
-        ratingSlider.value = progressPercentage;
-        contentmentText.innerText = `Contentment: ${Math.round(progressPercentage)}%`;
-    }
-    checkboxes.forEach(checkbox => checkbox.addEventListener("change", updateProgress));
-    ratingSlider.addEventListener("input", () => {
-        contentmentText.innerText = `Contentment: ${ratingSlider.value}%`;
+    
+        // Initialize progress on load
+        updateProgress();
     });
-    updateProgress();
-}); 
 }
 

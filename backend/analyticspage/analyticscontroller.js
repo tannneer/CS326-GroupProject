@@ -9,10 +9,9 @@ export const taskProgressController = async (req, res) => {
       return res.status(404).json({ error: "Task not found" });
     }
 
-    const hoursElapsed = parseFloat(task.hoursElapsed);
     const hoursToComplete = parseFloat(task.hoursToComplete);
 
-    if (isNaN(hoursElapsed) || isNaN(hoursToComplete) || hoursToComplete === 0) {
+    if (isNaN(hoursToComplete) || hoursToComplete === 0) {
       return res
         .status(400)
         .json({ error: "Invalid hoursElapsed or hoursToComplete" });

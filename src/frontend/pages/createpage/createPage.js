@@ -84,13 +84,13 @@ export function renderCreateObj() {
 export async function addTaskController(){  
 
   const taskName = document.getElementById("taskInput").value;
+  const hoursToComplete = document.getElementById("taskDueTime").value;
   const taskDueDate = document.getElementById("taskDueDate").value;
-  const taskTotalTime = document.getElementById("taskDueTime").value;
 
   const response = await fetch('http://localhost:3000/addTask', {
    method: "POST",
    headers: { "Content-Type": "application/json" },
-   body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+   body: JSON.stringify({ taskName: taskName, hoursToComplete: hoursToComplete, dueDate: taskDueDate, isCompleted: false, timeSpent: 0}),
  });
 
  return response.json();
