@@ -1,12 +1,18 @@
-import express from "express";
-import session from "express-session";
-import passport from "./passport.js";
-import routes from "./routes.js";
+  import express from "express";
+  import session from "express-session";
+  import passport from "./passport.js";
+  import routes from "./routes.js";
+  import path from "path";
+  import { fileURLToPath } from "url";
+  
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
 
 const app = express(); 
 
-// Serve static files from the "src" directory
-app.use(express.static("../src"));
+  // Serve static files from the "src" directory
+  app.use(express.static("../src"));
+  app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Serve uploaded files
 
 app.use(express.json()); 
 app.use(express.urlencoded({extended: false}))
@@ -28,4 +34,5 @@ app.use("/", routes);
 // Start the Express application
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
 
-export default app;
+  export default app;    
+

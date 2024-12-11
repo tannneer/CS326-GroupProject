@@ -17,7 +17,7 @@ export const User = sequelize.define("User", {
   username: { type: DataTypes.STRING, unique: true, allowNull: false },
   password: { type: DataTypes.STRING },
   googleId: { type: DataTypes.STRING },
-  role: { type: DataTypes.STRING, defaultValue: "user" }, // Roles: 'user', 'admin'
+  role: { type: DataTypes.STRING, defaultValue: "user" },
 });
 
 await sequelize.sync();
