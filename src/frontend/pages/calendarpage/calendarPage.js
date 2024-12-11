@@ -6,7 +6,7 @@ export function renderAllCalendarComponents() {
     const navbar = document.createElement("nav");
     navbar.classList.add("navbar");
     navbar.innerHTML = `
-        <div class="navbar-left">
+        <div class="navbar-left"> 
             <a href="/create-objectives" class="nav-link">Create Objectives</a>
             <a href="/calendar" class="nav-link">Calendar</a>
             <a href="/analytics" class="nav-link">Analytics</a>
