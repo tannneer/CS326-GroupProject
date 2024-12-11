@@ -12,7 +12,7 @@ const router = express.Router();
 // Routes for registration and login
 router.post("/register", register);
 router.post("/login", login);
-router.get("/logout", logout);
+router.get("/logout", logout); 
 
 //routes for create page
 router.post("/addGoal",addGoalController)
