@@ -9,12 +9,15 @@ const sequelize = new Sequelize({
 
 // Define the User model
 export const Task = sequelize.define("Task", {
+  id : {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, allowNull: false},
   taskName: { type: DataTypes.STRING, unique: true, allowNull: false },
-  hoursToComplete: { type: DataTypes.STRING },
+  hoursToComplete: { type: DataTypes.INTEGER },
   dueDate: { type: DataTypes.STRING },
+  isCompleted: {type: DataTypes.BOOLEAN, allowNull: false},
+  timeSpent: { type: DataTypes.INTEGER, allowNull: false},
 });
 
-await sequelize.sync();
+await sequelize.sync({force:true});
 
 
 

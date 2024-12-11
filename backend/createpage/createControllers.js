@@ -25,7 +25,7 @@
       }
 
       export const addTaskController = async (req,res) => { 
-        const { taskName, taskDueDate, taskTotalTime, goalId } = req.body;
+        const { taskName, hoursToComplete, taskDueDate, isCompleted, timeSpent, goalId } = req.body;
 
         const goal = await Goal.findByPk(goalId);
         if(!goal) { 
@@ -35,16 +35,20 @@
         try {
           await Task.create({
             taskName,
+            hoursToComplete,
             taskDueDate,
-            taskTotalTime,
+            isCompleted,
+            timeSpent,
             goalId
           });
           return res.status(201).json({
             message: "Task added successfully",
             task: {
               taskName,
+              hoursToComplete,
               taskDueDate,
-              taskTotalTime,
+              isCompleted,
+              timeSpent,
               goalId
             },
           });
