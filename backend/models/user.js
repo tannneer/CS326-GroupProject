@@ -18,6 +18,8 @@ export const User = sequelize.define("User", {
   password: { type: DataTypes.STRING },
   googleId: { type: DataTypes.STRING },
   role: { type: DataTypes.STRING, defaultValue: "user" }, // Roles: 'user', 'admin'
+  goals: { type: DataTypes.JSON, defaultValue: []  // cladwyne 
+  }
 });
 
 await sequelize.sync();
