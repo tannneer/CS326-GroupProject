@@ -1,19 +1,14 @@
 import express from "express";
 import {register, login, logout,} from "./controller.js";
 import { addGoalController } from "./createpage/createControllers.js";
-<<<<<<< HEAD
-import { addTaskController } from "./createpage/createControllers.js"; 
-import { getProfile, updateProfilePicture } from "./profilePage/profileController.js";
-import multer from "multer"; 
-=======
 import { addTaskController } from "./createpage/createControllers.js";
 import { startTimer, stopTimer } from './calendarPage/timerController.js';
 import { getGoalsWithTasks, getTasksForGoal } from './calendarPage/goalsTasksController.js';
 import { generateSchedule } from './calendarPage/schedulerController.js';
+import { getProfile, updateProfilePicture } from "./profilePage/profileController.js";
+import multer from "multer"; 
 
->>>>>>> main
-
-const router = express.Router();
+const router = express.Router(); 
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -29,7 +24,7 @@ const storage = multer.diskStorage({
 // Routes for registration and login
 router.post("/register", register);
 router.post("/login", login);
-router.get("/logout", logout); 
+router.get("/logout", logout);   
 
 router.get("/profile", getProfile); // Retrieve profile data
 router.post("/profile/upload", upload.single("profilePic"), updateProfilePicture); 
@@ -52,5 +47,10 @@ router.get('/goals/:goalId/tasks', getTasksForGoal);  // Get tasks for a specifi
 
 // Schedule Route
 router.get('/schedule', generateSchedule);  // Generate schedule based on tasks
+
+
+// Protected routes
+//router.get("/admin", isAuthenticated, authorizeRole("admin"), getAdminArea);
+//router.get("/profile", isAuthenticated, getProfile);
 
 export default router;
