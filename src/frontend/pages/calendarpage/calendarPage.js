@@ -1,94 +1,79 @@
 export function renderAllCalendarComponents() {
-    const calendarPageContainer = document.createElement('div');
-    calendarPageContainer.classList.add('container');
+    const app = document.getElementById("app");
+    app.innerHTML = ""; // Clear any previous content
 
-    // Navbar
-    const navbar = document.createElement('nav');
-    navbar.classList.add('navbar');
-    ['Create', 'Priorities', 'Analytics'].forEach(page => {
-        const navItem = document.createElement('a');
-        navItem.href = `#${page.toLowerCase()}`;
-        navItem.textContent = page;
-        navItem.classList.add('nav-item');
-        navbar.appendChild(navItem);
-    });
-    calendarPageContainer.appendChild(navbar);
+    // Create Navbar
+    const navbar = document.createElement("nav");
+    navbar.classList.add("navbar");
+    navbar.innerHTML = `
+        <div class="navbar-left">
+            <a href="/create-objectives" class="nav-link">Create Objectives</a>
+            <a href="/calendar" class="nav-link">Calendar</a>
+            <a href="/analytics" class="nav-link">Analytics</a>
+        </div>
+        <div class="navbar-right">
+            <a href="/profile" class="profile-btn">Profile</a>
+        </div>
+    `;
+    document.body.prepend(navbar); // Ensure navbar is fixed at the top
 
-    // Tasks Calendar Section (left side)
-    const tasksCalendar = document.createElement('div');
-    tasksCalendar.classList.add('tasks-calendar');
-    const tasksCalendarTitle = document.createElement('h3');
-    tasksCalendarTitle.textContent = 'Tasks Calendar';
-    tasksCalendar.appendChild(tasksCalendarTitle);
+    // Create Main Container for Grid Layout
+    const calendarPageContainer = document.createElement("div");
+    calendarPageContainer.classList.add("container");
 
-    const placeholderText = document.createElement('p');
-    placeholderText.textContent = 'Tasks organized by deadline and time will appear here.';
-    tasksCalendar.appendChild(placeholderText);
+    // Tasks Calendar Section (Left Column)
+    const tasksCalendar = document.createElement("div");
+    tasksCalendar.classList.add("tasks-calendar");
+    tasksCalendar.innerHTML = `
+        <h3>Tasks Calendar</h3>
+        <p>Tasks organized by deadline and time will appear here.</p>
+    `;
     calendarPageContainer.appendChild(tasksCalendar);
 
-    // Right column container
-    const rightColumn = document.createElement('div');
-    rightColumn.classList.add('right-column');
+    // Right Column Container
+    const rightColumn = document.createElement("div");
+    rightColumn.classList.add("right-column");
 
     // Timer Component
-    const timerComponent = renderTimer();
-    rightColumn.appendChild(timerComponent);
+    const timerContainer = document.createElement("div");
+    timerContainer.classList.add("timer-container");
+    timerContainer.innerHTML = `
+        <div id="timerDisplay" class="timer-display">00:00</div>
+        <button id="startButton" class="timer-button">Start</button>
+        <button id="stopButton" class="timer-button">Stop</button>
+        <button id="resetButton" class="timer-button">Reset</button>
+    `;
+    rightColumn.appendChild(timerContainer);
 
     // Goals Section
-    const goalsSection = document.createElement('div');
-    goalsSection.classList.add('goals-section');
-    const goalsTitle = document.createElement('h3');
-    goalsTitle.textContent = 'Your Current Tasks';
-    goalsSection.appendChild(goalsTitle);
-
-    // Static goals
-    const goalList = document.createElement('ul');
-    goalList.classList.add('goal-list');
-    ['Task 1', 'Task 2', 'Task 3'].forEach(goal => {
-        const listItem = document.createElement('li');
-        listItem.textContent = goal;
-        goalList.appendChild(listItem);
-    });
-    goalsSection.appendChild(goalList);
+    const goalsSection = document.createElement("div");
+    goalsSection.classList.add("goals-section");
+    goalsSection.innerHTML = `
+        <h3>Your Goals</h3>
+        <ul class="goal-list">
+            <li>Goal 1</li>
+            <li>Goal 2</li>
+            <li>Goal 3</li>
+        </ul>
+    `;
     rightColumn.appendChild(goalsSection);
 
+    // Add Right Column to Main Grid Layout
     calendarPageContainer.appendChild(rightColumn);
 
-    return calendarPageContainer;
-}
+    // Append the Main Grid Layout to the App
+    app.appendChild(calendarPageContainer);
 
-function renderTimer() {
-    const timerContainer = document.createElement('div');
-    timerContainer.classList.add('timer-container');
+    // Timer functionality (unchanged)
+    const timerDisplay = timerContainer.querySelector("#timerDisplay");
+    const startButton = timerContainer.querySelector("#startButton");
+    const stopButton = timerContainer.querySelector("#stopButton");
+    const resetButton = timerContainer.querySelector("#resetButton");
 
-    // Create and append the timer display
-    const timerDisplay = document.createElement('div');
-    timerDisplay.id = 'timerDisplay';
-    timerDisplay.textContent = '00:00:00';
-    timerContainer.appendChild(timerDisplay);
-
-    // Create and append the start button
-    const startButton = document.createElement('button');
-    startButton.textContent = 'Start';
-    startButton.addEventListener('click', startTimer);
-    timerContainer.appendChild(startButton);
-
-    // Create and append the stop button
-    const stopButton = document.createElement('button');
-    stopButton.textContent = 'Stop';
-    stopButton.addEventListener('click', stopTimer);
-    timerContainer.appendChild(stopButton);
-
-    // Create and append the reset button
-    const resetButton = document.createElement('button');
-    resetButton.textContent = 'Reset';
-    resetButton.addEventListener('click', resetTimer);
-    timerContainer.appendChild(resetButton);
-
-    let seconds = 0;
     let timerInterval = null;
+    let seconds = 0;
 
-    function startTimer() {
+    const startTimer = () => {
         if (timerInterval) return; // Prevent multiple intervals
         timerInterval = setInterval(() => {
             seconds++;
@@ -96,22 +81,22 @@ function renderTimer() {
             const remainingSeconds = seconds % 60;
             timerDisplay.textContent = `${padTime(minutes)}:${padTime(remainingSeconds)}`;
         }, 1000);
-    }
+    };
 
-    function stopTimer() {
+    const stopTimer = () => {
         clearInterval(timerInterval);
         timerInterval = null;
-    }
+    };
 
-    function resetTimer() {
+    const resetTimer = () => {
         stopTimer();
         seconds = 0;
-        timerDisplay.textContent = '00:00:00';
-    }
+        timerDisplay.textContent = "00:00";
+    };
 
-    function padTime(time) {
-        return time < 10 ? `0${time}` : time;
-    }
+    const padTime = (time) => (time < 10 ? `0${time}` : time);
 
-    return timerContainer;
+    startButton.addEventListener("click", startTimer);
+    stopButton.addEventListener("click", stopTimer);
+    resetButton.addEventListener("click", resetTimer);
 }
