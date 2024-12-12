@@ -19,5 +19,5 @@
 Top Commits for Milestone 4:
 1. Added the [project demo](https://github.com/tannneer/CS326-GroupProject/commit/a7e44f7dda4838b51119d00c39c9faf135c32ac3)
 2. Tested the application to ensure it runs properly, and [deleted node_modules](https://github.com/tannneer/CS326-GroupProject/commit/2d35edcc9f4c459cf7dbfc1601bd70f65fc75bbc) in the process of doing so (major hidden blocker that initially did not allow graders/others to run app, especially for Milestone 3)
-3. Worked with Paola to add backend code for Analytics page, and [reviewed/merged these changes](https://github.com/tannneer/CS326-GroupProject/commit/3ddeae4965b71be13b2d9d7aae21ba48033e4253)
+3. Worked with Paola to add backend code for Analytics page, and [reviewed/merged these changes](https://github.com/tannneer/CS326-GroupProject/commit/3ddeae4965b71be13b2d9d7aae21ba48033e4253). Specifically worked on adding code pieces to allow for the page to properly render.
 4. Wrote a finalized and comprehensive version of the [project README](https://github.com/tannneer/CS326-GroupProject/commit/c4863aa8a5c5200717a62142bdf3ae2d4a2389fc), which includes instructions on how to run the app.
