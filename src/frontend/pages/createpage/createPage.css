@@ -120,37 +120,51 @@ body {
 }
 
 .add {
-  background-color: #1dd1a1; /* Green button */
+
+  background: linear-gradient(45deg, #1dd1a1, #18e4ae); /* Vibrant blue gradient */
   color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
 }
 
 .add:hover {
-  background-color: #10ac84; /* Slightly darker on hover */
+  background: linear-gradient(45deg, #1dd1a1, #16ab83); /* Darker gradient on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pop-out shadow */
 }
+
 
 .delete-all {
-  background-color: #1dd1a1;
+  background: linear-gradient(45deg, #1dd1a1, #18e4ae); /* Vibrant blue gradient */
   color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
-  width: 100%; /* Full width */
-  text-align: center; /* Center the text */
-  margin-top: 20px; /* Add spacing from other elements */
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.delete-all:hover { 
+  background: linear-gradient(45deg, #1dd1a1, #16ab83); /* Darker gradient on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pop-out shadow */
+}
+.hover-effect:hover {
+  background-color: #f0f8ff; /* Light blue background on hover */
+  color: #16a085; /* Change text color */
+  cursor: pointer; /* Change the cursor to a pointer */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow */
+  transform: scale(1.02); /* Slightly enlarge the element */
+  transition: all 0.3s ease; /* Smooth transition */
+}
 
 .goals { 
   grid-column: 1/1;
   grid-row: 2;
   background-color: rgb(187, 255, 244);;
-  height: 50vh;
+  height: 780px;
 }
 
 
@@ -158,7 +172,8 @@ body {
   grid-column: 2/3;
   grid-row: 2;
   background-color: lightblue;
-  height:50vh;
+  height:720px;
+  margin-top:-2px;
 
 }
 
@@ -166,7 +181,7 @@ body {
   grid-column: 3/6;
   grid-row: 2;
   background-color: rgb(187, 255, 244);;
-  height:50vh;
+  height:780px;
 }
 
 .goal-item-container { 
@@ -179,13 +194,14 @@ body {
 }
 .goal-item { 
   width: 300px;
-  height: 450px;
+  height: 700px;
   margin-top:20px;
   margin-left:20px;
   margin-right:20px;
   margin-bottom: 10px;
   padding: 5px;
   background-color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow for depth */
   border-radius: 10px;
   overflow: overlay;
   overflow-x: hidden;
@@ -207,7 +223,7 @@ body {
 
 
 .priorities { 
-  margin-top:120px;
+  margin-top:8px;
   grid-column: 1/3;
   grid-row: 3;
   background-color: rgb(187, 255, 244);;
@@ -312,10 +328,21 @@ body {
 /*Dropdown*/
 /* Style the dropdown container */
 .dropdown {
+  margin-top: 5px;
+  label {
+  font-size: 16px; /* Change text size */
+  color: #333; /* Text color */
+  font-weight: bold; /* Make the text bold */
+  margin-right: 10px; /* Add space to the right of the label */
+  display: inline-block; /* Keep it inline with the dropdown */
+}
+
   position: relative;
   display: inline-block;
   width: 150px;
 }
+
+
 
 /* Style the dropdown button */
 .dropdown-btn {
@@ -378,6 +405,21 @@ body {
   line-height: 1.6;
 }
 
+#deleteAllgoal { 
+  background: linear-gradient(45deg, #1dd1a1, #18e4ae); /* Vibrant blue gradient */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#deleteAllgoal:hover {
+  background: linear-gradient(45deg, #1dd1a1, #16ab83); /* Darker gradient on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pop-out shadow */
+}
+
 /* Header styles */
 h1, h2 {
   color: #1a535c; /* Dark teal for strong headers */
@@ -421,7 +463,7 @@ form input:focus, form select:focus {
 }
 
 form button {
-  background: linear-gradient(45deg, #007bff, #0056b3); /* Vibrant blue gradient */
+  background: linear-gradient(45deg, #1dd1a1, #18e4ae); /* Vibrant blue gradient */
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -430,7 +472,7 @@ form button {
 }
 
 form button:hover {
-  background: linear-gradient(45deg, #0056b3, #003c7a); /* Darker gradient on hover */
+  background: linear-gradient(45deg, #1dd1a1, #16ab83); /* Darker gradient on hover */
   transform: scale(1.1); /* Slight zoom effect */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Pop-out shadow */
 }
@@ -446,7 +488,7 @@ form button:hover {
   background: #ffffff; /* Clean white card */
   border: 1px solid #ddd;
   border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow for depth */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
 }
 
 #priority-list {

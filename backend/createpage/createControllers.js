@@ -1,6 +1,9 @@
 
       import { Goal } from '../models/goal.js';
       import { Task } from '../models/task.js';
+
+      //last commit for Pull Requsts
+      
       
       export const addGoalController = async (req, res) => { 
         const { goalName, goalDueDate, hoursToComplete } = req.body; 
@@ -25,7 +28,7 @@
       }
 
       export const addTaskController = async (req,res) => { 
-        const { taskName, taskDueDate, taskTotalTime, goalId } = req.body;
+        const { taskName, hoursToComplete, taskDueDate, isCompleted, timeSpent, goalId } = req.body;
 
         const goal = await Goal.findByPk(goalId);
         if(!goal) { 
@@ -35,16 +38,20 @@
         try {
           await Task.create({
             taskName,
+            hoursToComplete,
             taskDueDate,
-            taskTotalTime,
+            isCompleted,
+            timeSpent,
             goalId
           });
           return res.status(201).json({
             message: "Task added successfully",
             task: {
               taskName,
+              hoursToComplete,
               taskDueDate,
-              taskTotalTime,
+              isCompleted,
+              timeSpent,
               goalId
             },
           });
@@ -54,6 +61,67 @@
         }
       }
 
+            // delete goal controller
+            export const deleteGoalController = async (req, res) => {
+              const { id } = req.params; // Extract the goal ID from the request parameters
+           
+              try {
+                const deletedGoal = await Goal.destroy({
+                  where: {
+                    id, // Match the goal with the provided ID
+                  },
+                });
+           
+                if (deletedGoal) {
+                  return res.status(200).json({
+                    message: "Goal deleted successfully",
+                    goalId: id,
+                  });
+                } else {
+                  return res.status(404).json({
+                    message: "Goal not found",
+                  });
+                }
+              } catch (err) {
+                console.error("Error deleting goal", err);
+                return res.status(500).json({
+                  message: "Failed to delete goal",
+                });
+              }
+            };
+
+        //delete Task controller 
+
+        export const deleteTaskController = async (req, res) => {
+          const { id } = req.params; // Extract the task ID from the request parameters
+        
+          try {
+            const deletedTask = await Task.destroy({
+              where: {
+                id, // Match the task with the provided ID
+              },
+            });
+        
+            if (deletedTask) {
+              return res.status(200).json({
+                message: "Task deleted successfully",
+                taskId: id,
+              });
+            } else {
+              return res.status(404).json({
+                message: "Task not found",
+              });
+            }
+          } catch (err) {
+            console.error("Error deleting task", err);
+            return res.status(500).json({
+              message: "Failed to delete task",
+            });
+          }
+        };
+        
+           
+      
       //add Priority List controller (to be done by Christian)
 
 

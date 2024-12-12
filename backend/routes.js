@@ -7,6 +7,10 @@ import { getGoalsWithTasks, getTasksForGoal } from './calendarPage/goalsTasksCon
 import { generateSchedule } from './calendarPage/schedulerController.js';
 import { getProfile, updateProfilePicture } from "./profilePage/profileController.js";
 import multer from "multer"; 
+import { deleteGoalController } from "./createpage/createControllers.js";
+import { addPriorityController } from "./priority/priorityControllers.js";
+import { deletePriorityController } from "./priority/priorityControllers.js";
+
 
 const router = express.Router(); 
 
@@ -38,9 +42,13 @@ router.post("/addTask",addTaskController);
 // Timer Routes
 router.post('/timer/start', startTimer);  // Start the timer for a task
 router.post('/timer/stop', stopTimer);    // Stop the timer for a task
+router.post("/addPriority", addPriorityController);
+
 
 // Goal and Task Routes
 router.post('/addGoal', addGoalController);   // Add a new goal
+router.delete("/delete/goals/:id",deleteGoalController);
+
 router.post('/addTask', addTaskController);   // Add a new task
 router.get('/goals', getGoalsWithTasks);      // Get all goals with tasks
 router.get('/goals/:goalId/tasks', getTasksForGoal);  // Get tasks for a specific goal
@@ -48,7 +56,7 @@ router.get('/goals/:goalId/tasks', getTasksForGoal);  // Get tasks for a specifi
 // Schedule Route
 router.get('/schedule', generateSchedule);  // Generate schedule based on tasks
 
-
+router.delete("/delete/priorities/:id", deletePriorityController);
 // Protected routes
 //router.get("/admin", isAuthenticated, authorizeRole("admin"), getAdminArea);
 //router.get("/profile", isAuthenticated, getProfile);

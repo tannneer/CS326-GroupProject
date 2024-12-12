@@ -40,7 +40,7 @@
               <input type="number" id="goalDueTime3" class="input" placeholder="Total hours to complete" />
               <input id="goal3submit" type="submit" class="add" value="Add Goal" />
               
-              <div class="delete-all">Delete all</div>
+              <div id="deleteAll-goal" class="delete-all">Delete all goal</div>
       
           </div>
 
@@ -53,13 +53,22 @@
                       <input type="date" id="taskDueDate" class="input" placeholder="Due date" />
                       <input type="number" id="taskDueTime" class="input" placeholder="Hours to complete" />
 
-                      <div class="dropdown">
+                      <!--<div class="dropdown">
                         <button class="dropdown-btn">Select Goal</button>
                         <div class="dropdown-content">
                           <div class="goal" data-selected="false">Goal 1</div>
                           <div class="goal" data-selected="false">Goal 2</div>
                           <div class="goal" data-selected="false">Goal 3</div>
                         </div>
+                      </div>!-->
+
+                      <div class="dropdown">
+                        <label for="goal-dropdown">Select Goal:</label>
+                        <select id="goal-dropdown" onchange="switchGoal()">
+                          <option value="1">Goal 1</option>
+                          <option value="2">Goal 2</option>
+                          <option value="3">Goal 3</option>
+                        </select>
                       </div>
                       
 
@@ -76,12 +85,15 @@
           <div class="goal-item-container">
           
           <div id="goal-item1" class="goal-item">
+            <h2>Add first Goal</h2>
         </div>
 
           <div id="goal-item2" class="goal-item">
+            <h2>Add second Goal</h2>
           </div>
 
           <div id="goal-item3" class="goal-item">
+            <h2>Add third Goal</h2>
           </div>
 
            </div>

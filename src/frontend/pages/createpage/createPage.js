@@ -86,13 +86,13 @@ export function renderCreateObj() {
 export async function addTaskController(){  
 
   const taskName = document.getElementById("taskInput").value;
+  const hoursToComplete = document.getElementById("taskDueTime").value;
   const taskDueDate = document.getElementById("taskDueDate").value;
-  const taskTotalTime = document.getElementById("taskDueTime").value;
 
   const response = await fetch('http://localhost:3000/addTask', {
    method: "POST",
    headers: { "Content-Type": "application/json" },
-   body: JSON.stringify({ taskName, taskDueDate, taskTotalTime }),
+   body: JSON.stringify({ taskName: taskName, hoursToComplete: hoursToComplete, dueDate: taskDueDate, isCompleted: false, timeSpent: 0}),
  });
 
  return response.json();
@@ -107,7 +107,11 @@ const secondGoalList = document.getElementById('goal-item2');
 const thirdGoalList = document.getElementById('goal-item3');
 
 
+const taskList = document.getElementById(`goal-item${selectedGoal}`)
+
 addTaskButton.addEventListener('click', () => {
+
+  //put switch goal here - taskList.appendChild() at bottom
 
   const userInput = document.getElementById("taskInput");
 
@@ -154,7 +158,9 @@ addTaskButton.addEventListener('click', () => {
   taskBoxDiv.appendChild(label2);
   
   // Append the styled div to your parent container (e.g., a task list)
-  firstGoalList.appendChild(taskBoxDiv);
+  taskList.appendChild(taskBoxDiv);
+
+  submitTaskBackend();
 });
 
 
@@ -166,34 +172,10 @@ deleteAllButton.addEventListener('click', () => {
 });
 
 
-const firstGoal = document.getElementById('goal1submit');
-
-
-firstGoal.addEventListener('click', () => {
-  const firstGoalInput = document.getElementById("goal1input");
-  const d = document.createElement("div");
-  d.innerHTML = firstGoalInput.value;
-
-  d.style.fontSize = "24px"; 
-  d.style.fontWeight = "bold";
-  d.style.color = "#2c3e50"; 
-  d.style.margin = "10px 0"; 
-  d.style.textAlign = "center"; 
-  d.style.fontFamily = "Arial, sans-serif"; 
-  
-  d.style.border = "5px solid #2ec";
-  d.style.borderRadius = "10px";
-  d.style.padding = "10px";
-  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
-  
-  d.style.marginBottom = "10px";
-
-
-  firstGoalList.appendChild(d);
-});
-
 //after hitting the submit goal button 1 - a POST with the following data is sent to the server
 async function submitGoal1Backend(){ 
+  /*VERY IMPORTANT LOOK AT THE FORMAT OF THE DATE*/
+
   const goalName = document.getElementById("goal1input").value; 
   const goalDueDate = document.getElementById("duedate1").value;
   const goalTotalTime = document.getElementById("goalDueTime1").value;
@@ -215,6 +197,38 @@ async function submitGoal1Backend(){
   console.log(result);
 
 }
+
+const firstGoal = document.getElementById('goal1submit');
+
+
+firstGoal.addEventListener('click', () => {
+  firstGoalList.innerHTML ='';
+
+  const firstGoalInput = document.getElementById("goal1input");
+  const d = document.createElement("div");
+  d.innerHTML = firstGoalInput.value;
+
+  d.style.fontSize = "24px"; 
+  d.style.fontWeight = "bold";
+  d.style.color = "#2c3e50"; 
+  d.style.margin = "10px 0"; 
+  d.style.textAlign = "center"; 
+  d.style.fontFamily = "Arial, sans-serif"; 
+  
+  d.style.border = "5px solid #2ec";
+  d.style.borderRadius = "10px";
+  d.style.padding = "10px";
+  d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  
+  d.style.marginBottom = "10px";
+  d.classList.add("hover-effect");
+
+  firstGoalList.appendChild(d);
+
+  submitGoal1Backend();
+});
+
+
 
 //after hitting the submit task button 1 - a POST with the following data is sent to the server
 
@@ -238,6 +252,8 @@ const secondGoal = document.getElementById('goal2submit');
 
 
 secondGoal.addEventListener('click', () => {
+  secondGoalList.innerHTML ='';
+
   const secondGoalInput = document.getElementById("goal2input");
   const d = document.createElement("div");
   d.innerHTML = secondGoalInput.value;
@@ -253,17 +269,49 @@ secondGoal.addEventListener('click', () => {
   d.style.borderRadius = "10px";
   d.style.padding = "10px";
   d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  d.classList.add("hover-effect");
+
   
 
 
   secondGoalList.appendChild(d);
+
+  submitGoal2Backend();
+
+
 });
+
+async function submitGoal3Backend(){ 
+  const goalName = document.getElementById("goal3input").value; 
+  const goalDueDate = document.getElementById("duedate3").value;
+  const goalTotalTime = document.getElementById("goalDueTime3").value;
+
+  const response = await fetch('http://localhost:3000/addGoal', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: goalName,
+      dueDate: goalDueDate,
+      totalTime: goalTotalTime,
+    }),
+  });
+
+  const result = await response.json();
+
+  console.log(result);
+
+}
+
 
 
 const thirdGoal = document.getElementById('goal3submit');
 
 
 thirdGoal.addEventListener('click', () => {
+  thirdGoalList.innerHTML ='';
+
   const thirdGoalInput = document.getElementById("goal3input");
   const d = document.createElement("div");
   d.innerHTML = thirdGoalInput.value;
@@ -279,9 +327,13 @@ thirdGoal.addEventListener('click', () => {
   d.style.borderRadius = "10px";
   d.style.padding = "10px";
   d.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+  d.classList.add("hover-effect");
+
 
 
   thirdGoalList.appendChild(d);
+
+  submitGoal3Backend();
 });
 
 
